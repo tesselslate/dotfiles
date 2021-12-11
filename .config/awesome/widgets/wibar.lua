@@ -3,12 +3,11 @@
 
 -- awesome libraries
 local awful     = require("awful")
-local beautiful = require("beautiful")
 local gears     = require("gears")
 local wibox     = require("wibox")
 
-local hotkeys_popup = require("awful.hotkeys_popup")
-local keys          = require("keys")
+local keys      = require("keys")
+local tasklist  = require("widgets.tasklist")
 
 -- wibar setup
 local function setup(s)
@@ -19,36 +18,7 @@ local function setup(s)
         buttons = keys.taglist_buttons
     })
 
-    s.tasklist = awful.widget.tasklist({
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = keys.tasklist_buttons
-    })
-
-    -- menu
-    s.menu = awful.menu({
-        items = {
-            {
-                "hotkeys", function ()
-                    hotkeys_popup.show_help(nil, awful.screen.focused())
-                end
-            },
-            {
-                "manual", "kitty -e man awesome"
-            },
-            {
-                "config", "kitty -e nvim ~/.config/awesome/rc.lua"
-            },
-            {
-                "restart", awesome.restart
-            },
-            {
-                "quit", function ()
-                    awesome.quit()
-                end
-            }
-        }
-    })
+    tasklist(s)
 
     -- layoutbox
     s.layoutbox = awful.widget.layoutbox(s)
@@ -83,11 +53,7 @@ local function setup(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             s.textclock,
-            s.layoutbox,
-            awful.widget.launcher({
-                image = beautiful.awesome_icon,
-                menu = s.menu
-            }),
+            s.layoutbox
         }
     })
 end

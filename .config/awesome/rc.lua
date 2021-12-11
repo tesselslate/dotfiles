@@ -10,8 +10,12 @@ local naughty       = require("naughty")
 -- i don't use tmux i don't want these bindings in popup thx
 package.loaded["awful.hotkeys_popup.keys.tmux"] = {}
 
+-- misc awesome functionality
 require("awful.autofocus")
 require("awful.hotkeys_popup.keys")
+
+-- prefer bigger icons
+awesome.set_preferred_icon_size(1)
 
 -- handle runtime errors
 do
