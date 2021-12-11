@@ -1,0 +1,22 @@
+configuration {
+    /* misc config */
+    modi: "window,run,drun,filebrowser";
+    terminal: "kitty";
+
+    /* fish compat */
+    run-command: "fish -c '{cmd}'";
+    run-list-command: "fish -c functions";
+
+    display-run: " ";
+    display-drun: "  ";
+    display-window: "  ";
+    display-calc: " ";
+
+    drun-display-format: "{icon} {name}";
+    font: "JetBrainsMono Nerd Font Medium 12";
+    show-icons: true;
+}
+
+@theme "tokyonight"
+
+/* vim:ft=css

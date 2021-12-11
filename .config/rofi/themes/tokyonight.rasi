@@ -1,0 +1,70 @@
+* {
+    bg: #24283b;
+    bg-alt: #292e42;
+
+    fg: #c0caf5;
+
+    blue: #3d59a1;
+    purple: #bb9af7;
+
+    background-color: @bg;
+    text-color: @fg;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+element {
+    padding: 12;
+    text-color: @fg;
+}
+
+element selected {
+    text-color: @purple;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+entry {
+    background-color: @blue;
+    padding: 12 0 12 3;
+    text-color: @fg;
+}
+
+inputbar {
+    children: [prompt, entry];
+}
+
+message {
+    padding: 12 0 12 12;
+    border: 0 0 2px 0;
+    border-color: @blue;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+}
+
+mainbox {
+    children: [inputbar, message, listview];
+}
+
+prompt {
+    background-color: @blue;
+    enabled: true;
+    padding: 12 0 0 12;
+    text-color: @fg;
+}
+
+window {
+    transparency: "real";
+    padding: 4;
+    border: 2;
+    border-color: @purple;
+}
