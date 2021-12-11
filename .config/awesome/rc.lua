@@ -25,8 +25,8 @@ do
         in_error = true
         naughty.notify({
             preset = naughty.config.presets.critical,
-            title = "Error",
-            text = tostring(err)
+            title  = "Error",
+            text   = tostring(err)
         })
         in_error = false
     end)

@@ -12,9 +12,9 @@ local tasklist  = require("widgets.tasklist")
 -- wibar setup
 local function setup(s)
     -- lists
-    s.taglist = awful.widget.taglist({
-        screen = s,
-        filter = awful.widget.taglist.filter.all,
+    s.taglist   = awful.widget.taglist({
+        screen  = s,
+        filter  = awful.widget.taglist.filter.all,
         buttons = keys.taglist_buttons
     })
 
@@ -31,9 +31,9 @@ local function setup(s)
     s.textclock = wibox.widget.textclock()
 
     -- wibar setup
-    s.wibox = awful.wibar({
+    s.wibox      = awful.wibar({
         position = "top",
-        screen = s
+        screen   = s
     })
 
     s.wibox:setup({

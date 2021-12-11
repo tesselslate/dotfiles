@@ -42,6 +42,6 @@ theme.awesome_icon  = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus
 )
 
-theme.wallpaper = "~/.config/awesome/backgrounds/7dg.png"
+theme.wallpaper     = "~/.config/awesome/backgrounds/7dg.png"
 
 return theme
