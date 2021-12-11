@@ -12,5 +12,5 @@ xrdb -merge ~/.config/x11/xresources
 
 # start
 picom --xrender-sync-fence --experimental-backends &
-redshift-gtk &
+sct 3500 &
 exec awesome
