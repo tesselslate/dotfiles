@@ -1,0 +1,3 @@
+#!/usr/bin/fish
+set -x HOME /home/dog/.local/home-ext/
+~/.steam/steam/steamapps/common/Celeste/Celeste.bin.x86_64

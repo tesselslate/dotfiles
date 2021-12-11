@@ -107,6 +107,7 @@ end
 ########################
 function omnirun_prompt_run
     set RUN_APPS $RUN_APPS "btop/fish/kitty -e btop"
+    set RUN_APPS $RUN_APPS "celeste/steam_icon_504230/celeste"
     set RUN_APPS $RUN_APPS "discord/discord/discord"
     set RUN_APPS $RUN_APPS "firefox/firefox/firefox"
     set RUN_APPS $RUN_APPS "kitty/kitty/kitty -e fish"
