@@ -1,0 +1,3 @@
+#!/usr/bin/fish
+
+maim ~/pictures/screenshots/(date +%c).png $argv

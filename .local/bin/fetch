@@ -1,0 +1,34 @@
+#!/usr/bin/fish
+
+# calculate memory usage
+set pmem (string split ':' (cat /proc/meminfo))
+set memtotal (string sub $pmem[2] -e -2)
+set memfree (string sub $pmem[6] -e -2)
+set memtotal_mb (math round $memtotal/1000)
+set memuse_mb (math $memtotal_mb - round $memfree/1000)
+
+# calculate uptime
+set uptime_raw (string split ' ' (cat /proc/uptime))[1]
+set uptime_raw (math floor $uptime_raw)
+set uptime_hr (math floor $uptime_raw / 3600)
+set uptime_min (math floor $uptime_raw % 3600 / 60)
+set uptime_sec (math $uptime_raw % 60)
+
+set uptime_min (string pad -w 2 $uptime_min --char 0)
+set uptime_sec (string pad -w 2 $uptime_sec --char 0)
+
+set kver (uname -r)
+set memory "$memuse_mb / $memtotal_mb mb" 
+set uptime "$uptime_hr:$uptime_min:$uptime_sec"
+set pkgcount (pacman -Q | wc -l)    
+
+set l_kernel    "\e[1;32mkernel \e[1;33m$kver"
+set l_memory    "\e[1;32mmemory \e[1;33m$memory"
+set l_uptime    "\e[1;32muptime \e[1;33m$uptime"
+set l_packages  "\e[1;32mpacman \e[1;33m$pkgcount"
+
+# print
+printf "\n\e[1;36m     /\\      $l_kernel\n"
+printf "\e[1;36m    /  \\     $l_memory\n"
+printf "\e[1;36m   / /\\ \\    $l_uptime\n"
+printf "\e[1;36m  /_/  \\_\\   $l_packages\n\n"
