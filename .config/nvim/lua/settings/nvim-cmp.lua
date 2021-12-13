@@ -67,6 +67,7 @@ cmp.setup({
 
     -- completion sources
     sources = {
-        { name = "nvim_lsp" }
+        { name = "nvim_lsp" },
+        { name = "vsnip" }
     }
 })
