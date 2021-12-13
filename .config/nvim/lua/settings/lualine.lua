@@ -54,7 +54,7 @@ require("lualine").setup({
             },
             {
                 "diagnostics", sources = {
-                    "nvim_lsp"
+                    "nvim_diagnostic"
                 }
             }
         },
