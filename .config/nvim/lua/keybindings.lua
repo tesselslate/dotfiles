@@ -1,43 +1,57 @@
 -- neovim config
 -- keybindings.lua
 
+local setkey = function (mode, key, bind)
+    vim.api.nvim_set_keymap(mode, key, bind, { silent = true })
+end
+
 -- =============
 -- insert mode
 -- =============
 
--- delete previous word (ctrl+backspace)
-vim.api.nvim_set_keymap("i", "<C-H>", "<C-w>", { silent = true })
+-- delete previous word (ctrl + backspace)
+setkey("i", "<C-H>", "<C-w>")
+
+-- lsp hover (alt + h)
+setkey("i", "<M-h>", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
 -- =============
 -- normal mode
 -- =============
 
+-- lsp toggle diagnostic (ctrl + n / ctrl + p)
+setkey("n", "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
+setkey("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+
 -- leader key (space)
-vim.api.nvim_set_keymap("n", "<Space>", "<Nop>", { silent = true })
-vim.api.nvim_set_keymap("n", "<Space>", "<Leader>", { silent = true })
+setkey("n", "<Space>", "<Nop>")
+setkey("n", "<Space>", "<Leader>")
+
+-- toggle relative line numbers (leader + r)
+setkey("n", "<Leader>r", "<cmd>Rel<CR>")
 
 -- open file tree (leader + t)
-vim.api.nvim_set_keymap("n", "<Leader>t", ":NvimTreeToggle<CR>", { silent = true })
+setkey("n", "<Leader>t", ":NvimTreeToggle<CR>")
 
 -- open floating terminal (leader + enter)
-vim.api.nvim_set_keymap("n", "<Leader><CR>", ":Terminal<CR>", { silent = true })
+setkey("n", "<Leader><CR>", ":Terminal<CR>")
 
 -- open live grep (leader + f)
-vim.api.nvim_set_keymap("n", "<Leader>f", ":Telescope live_grep<CR>", { silent = true })
+setkey("n", "<Leader>f", ":Telescope live_grep<CR>")
 
 -- switch window (leader + tab)
-vim.api.nvim_set_keymap("n", "<Leader><Tab>", ":wincmd w<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<Leader><S-Tab>", ":wincmd W<CR>", { silent = true })
+setkey("n", "<Leader><Tab>", ":wincmd w<CR>")
+setkey("n", "<Leader><S-Tab>", ":wincmd W<CR>")
 
 -- close buffer (leader + w)
-vim.api.nvim_set_keymap("n", "<Leader>w", ":Bc<CR>", { silent = true })
+setkey("n", "<Leader>w", ":Bc<CR>")
 
 -- buffer switching (tab / shift+tab)
-vim.api.nvim_set_keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
+setkey("n", "<Tab>", ":BufferLineCycleNext<CR>")
+setkey("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
 
 -- disable arrow keys
-vim.api.nvim_set_keymap("n", "<Up>", "<Nop>", { silent = true })
-vim.api.nvim_set_keymap("n", "<Down>", "<Nop>", { silent = true })
-vim.api.nvim_set_keymap("n", "<Right>", "<Nop>", { silent = true })
-vim.api.nvim_set_keymap("n", "<Left>", "<Nop>", { silent = true })
+setkey("n", "<Up>", "<Nop>")
+setkey("n", "<Down>", "<Nop>")
+setkey("n", "<Right>", "<Nop>")
+setkey("n", "<Left>", "<Nop>")
