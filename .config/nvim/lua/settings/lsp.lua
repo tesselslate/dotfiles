@@ -51,14 +51,9 @@ lsp.clangd.setup({
     on_attach = attach
 })
 
--- omnisharp (C#)
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/home/dog/.config/nvim/language-servers/omnisharp/run"
-lsp.omnisharp.setup({
+-- csharp_ls (C#)
+lsp.csharp_ls.setup({
     capabilities = capabilities,
-    cmd = {
-        omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)
-    },
     on_attach = attach
 })
 
