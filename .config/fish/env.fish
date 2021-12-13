@@ -26,3 +26,4 @@ set -x _JAVA_OPTIONS        -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java
 
 # path
 fish_add_path ~/.local/bin
+fish_add_path ~/.local/share/dotnet/.dotnet/tools
