@@ -17,5 +17,11 @@ vim.opt.number      = true          -- line numbers
 vim.opt.mouse       = "a"           -- enable mouse
 vim.opt.signcolumn  = "yes"         -- always enable sign column
 
+-- completeopt
+-- menuone: popup, even if there's only one match
+-- noinsert: do not change text until confirmation
+-- noselect: do not autoselect
+vim.opt.completeopt = "menuone,noinsert,noselect"
+
 -- get rid of automatic comment expansion
 vim.cmd[[autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
