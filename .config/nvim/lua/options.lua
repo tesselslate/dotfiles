@@ -17,8 +17,5 @@ vim.opt.number      = true          -- line numbers
 vim.opt.mouse       = "a"           -- enable mouse
 vim.opt.signcolumn  = "yes"         -- always enable sign column
 
--- set diffview background character
-vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
-
 -- get rid of automatic comment expansion
 vim.cmd[[autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
