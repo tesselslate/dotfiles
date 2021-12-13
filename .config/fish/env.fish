@@ -20,6 +20,9 @@ set -x XCURSOR_THEME        ArcStarry
 set -x XCURSOR_PATH         ~/.local/share/icons
 
 # move annoying folders out of $HOME
+set -x CARGO_HOME           $XDG_DATA_HOME/cargo
+set -x RUSTUP_HOME          $XDG_DATA_HOME/rustup
+
 set -x GTK2_RC_FILES        $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x XAUTHORITY           $XDG_DATA_HOME/Xauthority
 set -x _JAVA_OPTIONS        -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java

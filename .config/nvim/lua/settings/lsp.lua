@@ -57,6 +57,12 @@ lsp.csharp_ls.setup({
     on_attach = attach
 })
 
+-- rust-analyzer (rust)
+lsp.rust_analyzer.setup({
+    capabilities = capabilities,
+    on_attach = attach
+})
+
 -- sumneko_lua (Lua)
 local sumneko_bin = "lua-language-server"
 local sumneko_root = "/usr/lib/lua-language-server"
