@@ -230,6 +230,15 @@ local clientkeys = gears.table.join(
             end
         end,
         { description = "move client to previous tag", group = "client" }
+    ),
+
+    -- move client to master
+    awful.key(
+        { modkey,           }, "m",
+        function (c)
+            c:swap(awful.client.getmaster())
+        end,
+        { description = "move client to master", group = "client" }
     )
 )
 
