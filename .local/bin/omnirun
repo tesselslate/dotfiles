@@ -79,8 +79,11 @@ function omnirun_prompt_find
     set _FEX $_FEX ".config/systemd"
     set _FEX $_FEX ".local/share"
     set _FEX $_FEX ".local/state"
+    set _FEX $_FEX ".git"
     set _FEX $_FEX ".mozilla"
     set _FEX $_FEX ".pki"
+    set _FEX $_FEX ".templateengine"
+    set _FEX $_FEX "repos/dotfiles"
 
     set TEXCLUDE "-H"
     for i in $_FEX
