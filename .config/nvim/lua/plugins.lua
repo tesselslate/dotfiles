@@ -47,6 +47,9 @@ return require("packer").startup(function(use)
     -- which-key.nvim
     use "folke/which-key.nvim"
 
+    -- nvim-colorizer
+    use "norcalli/nvim-colorizer.lua"
+
     -- ====================
     -- environment
     -- ====================

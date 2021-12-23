@@ -27,6 +27,9 @@ setkey("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
 setkey("n", "<Space>", "<Nop>")
 setkey("n", "<Space>", "<Leader>")
 
+-- toggle nvim-colorizer (leader + c)
+setkey("n", "<Leader>c", "<cmd>ColorizerToggle<CR>")
+
 -- toggle relative line numbers (leader + r)
 setkey("n", "<Leader>r", "<cmd>Rel<CR>")
 
