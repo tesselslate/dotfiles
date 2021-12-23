@@ -25,9 +25,9 @@ local colors = {
 }
 
 colors.overrides = {
-    border_normal = colors.color7,
+    border_normal      = colors.color7,
 
-    tasklist_bg_normal = colors.color8
+    tasklist_bg_normal = colors.color15
 }
 
 return colors

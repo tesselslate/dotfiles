@@ -3,6 +3,7 @@
 
 -- awesome libraries
 local awful     = require("awful")
+local beautiful = require("beautiful")
 local gears     = require("gears")
 local wibox     = require("wibox")
 
@@ -33,8 +34,13 @@ local function setup(s)
     -- wibar setup
     s.wibox      = awful.wibar({
         position = "top",
-        screen   = s
+        screen   = s,
+
+        bg       = beautiful.bg_mist
     })
+
+    s.systray    = wibox.widget.systray()
+    s.systray.opacity = 0.5
 
     s.wibox:setup({
         layout = wibox.layout.align.horizontal,
