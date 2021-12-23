@@ -24,4 +24,8 @@ local colors = {
     color15    = "#c0caf5"
 }
 
+colors.overrides = {
+    border_normal = colors.color7
+}
+
 return colors
