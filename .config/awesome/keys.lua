@@ -97,13 +97,13 @@ local globalkeys = gears.table.join(
         { description = "open rofi", group = "software" }
     ),
 
-    -- select screenshot area and save to clipboard (3s delay)
+    -- select screenshot area and save to clipboard (1s delay)
     awful.key(
         { modkey, "Control" }, "Print",
         function ()
-            awful.spawn.with_shell("sleep 3 && screenshot-clipboard -s")
+            awful.spawn.with_shell("sleep 1 && screenshot-clipboard")
         end,
-        { description = "delayed screenshot selection", group = "software" }
+        { description = "delayed screenshot", group = "software" }
     ),
 
     -- select screenshot area and save to clipboard
