@@ -19,10 +19,10 @@ local function setup(s)
         },
         widget_template = {
             {
-                    wibox.widget.base.make_widget(),
-                    id            = "background_role",
-                    forced_height = 4,
-                    widget        = wibox.container.background,
+                wibox.widget.base.make_widget(),
+                id            = "background_role",
+                forced_height = 4,
+                widget        = wibox.container.background,
             },
             {
                 {
