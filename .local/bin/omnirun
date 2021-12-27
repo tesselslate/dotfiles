@@ -114,6 +114,7 @@ function omnirun_prompt_run
     set RUN_APPS $RUN_APPS "discord/discord/discord"
     set RUN_APPS $RUN_APPS "firefox/firefox/firefox"
     set RUN_APPS $RUN_APPS "kitty/kitty/kitty -e fish"
+    set RUN_APPS $RUN_APPS "lonn/love2d/lonn"
     set RUN_APPS $RUN_APPS "neovim/nvim/kitty -e nvim"
     set RUN_APPS $RUN_APPS "obs/com.obsproject.Studio/obs"
     set RUN_APPS $RUN_APPS "ranger/folder/kitty -e ranger ~"
