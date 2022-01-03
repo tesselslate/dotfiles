@@ -27,6 +27,9 @@ set -x GTK2_RC_FILES        $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x XAUTHORITY           $XDG_DATA_HOME/Xauthority
 set -x _JAVA_OPTIONS        -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java
 
+# helpful path expansions
+set -x CELESTE              ~/.local/share/Steam/steamapps/common/Celeste
+
 # path
 fish_add_path ~/.local/bin
 fish_add_path ~/.dotnet/tools
