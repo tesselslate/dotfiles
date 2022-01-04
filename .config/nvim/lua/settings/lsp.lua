@@ -24,12 +24,11 @@ for type, icon in pairs(signs) do
     })
 end
 
--- update diagnostics in insert mode
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        update_in_insert = true,
-        virtual_text = false
-    })
+-- diagnostics config
+vim.diagnostic.config({
+    update_in_insert    = true,     -- update diagnostics during insert mode
+    virtual_text        = false,    -- no virtual text for diagnostics
+})
 
 -- ==========
 -- helpers

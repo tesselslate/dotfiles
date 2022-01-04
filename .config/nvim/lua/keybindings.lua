@@ -17,8 +17,8 @@ setkey("i", "<C-H>", "<C-w>")
 -- =============
 
 -- lsp navigate diagnostics (ctrl + n / ctrl + p)
-setkey("n", "<C-n>", ":lua vim.lsp.diagnostic.goto_next()<CR>")
-setkey("n", "<C-p>", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
+setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
+setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
 
 -- leader key (space)
 setkey("n", "<Space>", "<Nop>")
