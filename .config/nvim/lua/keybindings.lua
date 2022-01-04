@@ -12,26 +12,23 @@ end
 -- delete previous word (ctrl + backspace)
 setkey("i", "<C-H>", "<C-w>")
 
--- lsp hover (alt + h)
-setkey("i", "<M-h>", "<cmd>lua vim.lsp.buf.hover()<CR>")
-
 -- =============
 -- normal mode
 -- =============
 
--- lsp toggle diagnostic (ctrl + n / ctrl + p)
-setkey("n", "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
-setkey("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+-- lsp navigate diagnostics (ctrl + n / ctrl + p)
+setkey("n", "<C-n>", ":lua vim.lsp.diagnostic.goto_next()<CR>")
+setkey("n", "<C-p>", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
 
 -- leader key (space)
 setkey("n", "<Space>", "<Nop>")
 setkey("n", "<Space>", "<Leader>")
 
 -- toggle nvim-colorizer (leader + c)
-setkey("n", "<Leader>c", "<cmd>ColorizerToggle<CR>")
+setkey("n", "<Leader>c", ":ColorizerToggle<CR>")
 
 -- toggle relative line numbers (leader + r)
-setkey("n", "<Leader>r", "<cmd>Rel<CR>")
+setkey("n", "<Leader>r", ":Rel<CR>")
 
 -- open file tree (leader + t)
 setkey("n", "<Leader>t", ":NvimTreeToggle<CR>")
@@ -49,12 +46,24 @@ setkey("n", "<Leader><S-Tab>", ":wincmd W<CR>")
 -- close buffer (leader + w)
 setkey("n", "<Leader>w", ":Bc<CR>")
 
+-- write and close buffer (leader + shift + w)
+setkey("n", "<Leader><S-w>", ":w | Bc<CR>")
+
 -- buffer switching (tab / shift+tab)
-setkey("n", "<Tab>", ":BufferLineCycleNext<CR>")
-setkey("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
+setkey("n", "<Tab>", ":bnext<CR>")
+setkey("n", "<S-Tab>", ":bprev<CR>")
 
 -- disable arrow keys
-setkey("n", "<Up>", "<Nop>")
-setkey("n", "<Down>", "<Nop>")
-setkey("n", "<Right>", "<Nop>")
-setkey("n", "<Left>", "<Nop>")
+local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };
+for _,k in ipairs(keys) do
+    setkey("n", k, "<Nop>")
+    setkey("i", k, "<Nop>")
+end
+
+-- =============
+-- visual mode
+-- =============
+
+-- stay in visual mode while indenting
+setkey("v", "<", "<gv")
+setkey("v", ">", ">gv")
