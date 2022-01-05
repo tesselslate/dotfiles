@@ -19,6 +19,9 @@ set -x PAGER                less
 set -x XCURSOR_THEME        ArcStarry
 set -x XCURSOR_PATH         ~/.local/share/icons
 
+# qt theme
+set -x QT_STYLE_OVERRIDE    qtcurve
+
 # move annoying folders out of $HOME
 set -x CARGO_HOME           $XDG_DATA_HOME/cargo
 set -x RUSTUP_HOME          $XDG_DATA_HOME/rustup
