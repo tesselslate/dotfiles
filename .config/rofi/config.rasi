@@ -13,7 +13,7 @@ configuration {
     display-calc: " ";
 
     drun-display-format: "{icon} {name}";
-    font: "JetBrainsMono Nerd Font Medium 12";
+    font: "monospace 12";
     show-icons: true;
 }
 
