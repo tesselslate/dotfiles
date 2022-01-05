@@ -149,6 +149,15 @@ local globalkeys = gears.table.join(
             pulse.change_volume("-5%")
         end,
         { description = "volume down", group = "software" }
+    ),
+
+    -- run sct (some apps mess up gamma ramps?)
+    awful.key(
+        { modkey            }, "t",
+        function ()
+            awful.spawn.with_shell("sct 3500")
+        end,
+        { description = "rerun sct", group = "software" }
     )
 )
 

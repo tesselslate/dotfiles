@@ -38,5 +38,21 @@ awful.rules.rules = {
             placement       = awful.placement.no_overlap + awful.placement.no_offscreen,
             floating        = true
         }
+    },
+
+    -- minecraft
+    {
+        rule = {
+            class = "Minecraft 1.8.9"
+        },
+        properties = {
+            focus           = awful.client.focus.filter,
+            raise           = true,
+            keys            = keys.client_keys,
+            buttons         = keys.client_buttons,
+            screen          = awful.screen.preferred,
+            placement       = awful.placement.no_overlap + awful.placement.no_offscreen,
+            floating        = true
+        }
     }
 }
