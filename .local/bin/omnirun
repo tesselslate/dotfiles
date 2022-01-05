@@ -120,6 +120,7 @@ function omnirun_prompt_run
     set RUN_APPS $RUN_APPS "obs/com.obsproject.Studio/obs"
     set RUN_APPS $RUN_APPS "ranger/folder/kitty -e ranger ~"
     set RUN_APPS $RUN_APPS "steam/steam/run-steam"
+    set RUN_APPS $RUN_APPS "thunar/org.xfce.thunar/thunar"
 
     for app in $RUN_APPS
         set _APP (string split '/' $app)
