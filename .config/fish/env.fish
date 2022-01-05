@@ -35,4 +35,5 @@ set -x CELESTE              ~/.local/share/Steam/steamapps/common/Celeste
 
 # path
 fish_add_path ~/.local/bin
+fish_add_path ~/.local/share/cargo/bin
 fish_add_path ~/.dotnet/tools
