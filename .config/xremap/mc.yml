@@ -1,0 +1,18 @@
+modmap:
+  - name: Minecraft Shift
+    application:
+      only: Minecraft 1.8.9
+    remap:
+      # using left shift as sneak key breaks
+      # hotbar keys (2+6) because xorg is dumb
+      # and registers shift+2/6 as separate keys
+      # from normal 2/6
+      LEFTSHIFT: APOSTROPHE
+
+keymap:
+  - name: Minecraft Toggle Sprint
+    application:
+      only: Minecraft 1.8.9
+    remap:
+      SLASH:
+        launch: ["/home/dog/.local/bin/togglesprint"]

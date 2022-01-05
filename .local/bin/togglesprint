@@ -1,0 +1,9 @@
+#!/bin/fish
+
+if set -q _MC_TOGGLESPRINT
+    xdotool keyup Control_R
+    set -e _MC_TOGGLESPRINT
+else
+    xdotool keydown Control_R
+    set -U _MC_TOGGLESPRINT
+end
