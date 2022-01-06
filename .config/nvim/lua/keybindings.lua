@@ -57,7 +57,6 @@ setkey("n", "<S-Tab>", ":bprev<CR>")
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };
 for _,k in ipairs(keys) do
     setkey("n", k, "<Nop>")
-    setkey("i", k, "<Nop>")
 end
 
 -- =============
