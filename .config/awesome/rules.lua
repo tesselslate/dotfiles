@@ -43,7 +43,7 @@ awful.rules.rules = {
     -- minecraft
     {
         rule = {
-            class = "Minecraft 1.8.9"
+            class = "Minecraft* 1.16.1"
         },
         properties = {
             focus           = awful.client.focus.filter,
