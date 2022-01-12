@@ -16,10 +16,18 @@ setkey("i", "<C-H>", "<C-w>")
 -- normal mode
 -- =============
 
--- lsp navigate diagnostics (ctrl + n / ctrl + p)
+-- == lsp ==
+-- navigate diagnostics (ctrl + n / ctrl + p)
 setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
 setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
 
+-- go to definition (gd)
+setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
+
+-- go to references (gr)
+setkey("n", "gr", ":lua vim.lsp.buf.references()<CR>")
+
+-- == other binds ==
 -- leader key (space)
 setkey("n", "<Space>", "<Nop>")
 setkey("n", "<Space>", "<Leader>")
