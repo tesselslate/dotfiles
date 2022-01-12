@@ -118,6 +118,7 @@ function omnirun_prompt_run
     set RUN_APPS $RUN_APPS "multimc/multimc/multimc"
     set RUN_APPS $RUN_APPS "neovim/nvim/kitty -e nvim"
     set RUN_APPS $RUN_APPS "obs/com.obsproject.Studio/obs"
+    set RUN_APPS $RUN_APPS "pavucontrol/audio-headset/pavucontrol"
     set RUN_APPS $RUN_APPS "ranger/folder/kitty -e ranger ~"
     set RUN_APPS $RUN_APPS "steam/steam/run-steam"
     set RUN_APPS $RUN_APPS "thunar/org.xfce.thunar/thunar"
