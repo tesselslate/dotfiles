@@ -56,6 +56,21 @@ lsp.csharp_ls.setup({
     on_attach = attach
 })
 
+-- gopls (go)
+-- TODO: import ordering helper func?
+-- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports
+lsp.gopls.setup({
+    cmd = {"gopls", "serve"},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true
+            },
+            staticcheck = true
+        }
+    }
+})
+
 -- rust-analyzer (rust)
 lsp.rust_analyzer.setup({
     capabilities = capabilities,
