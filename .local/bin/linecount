@@ -1,0 +1,8 @@
+#!/bin/fish
+set __LINECOUNT 0
+
+for f in (fd $argv[1])
+    set __LINECOUNT (math $__LINECOUNT + (cat $f | wc -l))
+end
+
+echo $__LINECOUNT

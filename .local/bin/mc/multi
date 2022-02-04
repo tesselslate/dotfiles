@@ -1,0 +1,238 @@
+#!/bin/python
+# -----------------------------------------------------------------------------
+# linux multi instance
+# by dog
+#
+# dependencies:
+# - coreutils
+#   (ps, grep, free)
+# - xdotool
+# - obs
+# - obs_websocket
+#   (plugin and pip module)
+# - minecraft
+#   (fastreset + autoreset)
+# -----------------------------------------------------------------------------
+# USAGE
+#
+# install netcat (nc) and xbindkeys (or your choice of key remapping program)
+# create an action to run the following shell command:
+#
+# echo reset | nc -c localhost 5000
+#
+# where 5000 is the value you have configured in "webserver_port" below.
+# if you tab out, you can get back to the current instance with:
+#
+# echo focus | nc -c localhost 5000
+#
+# where 5000 is once again the value of "webserver_port"
+# NOTE: YOU MUST HAVE PAUSE ON LOST FOCUS (F3+P) ENABLED
+# -----------------------------------------------------------------------------
+# CONFIGURATION
+#
+# change any values here as needed
+# -----------------------------------------------------------------------------
+# minecraft version you are playing
+mc_version = "1.16.1"
+
+# obs websocket port
+obs_ws_port = 4440
+
+# port to listen for reset/focus instructions
+webserver_port = 5000
+
+# whether or not to count resets
+# and if so, path to reset counter file
+track_resets = True
+reset_count = "/mnt/hdd/mc/resetcount"
+
+# free memory threshold at which to stop resetting
+# if the amount of free memory (in MB) is less than
+# this, the script will not reset instances.
+mem_threshold = 1024
+
+# -----------------------------------------------------------------------------
+# DO NOT CHANGE ANYTHING BELOW
+# THIS POINT UNLESS NEEDED
+# -----------------------------------------------------------------------------
+
+# imports
+from obswebsocket import obsws, requests
+import os
+import socket
+import subprocess
+import sys
+import time
+
+# globals
+mc_windows = []
+mc_folders = []
+mc_active = -1
+magnifier_state = False
+
+ws = obsws("localhost", obs_ws_port, "obswebsocket")
+ws.connect()
+
+# helpers
+def shell_cmd(cmd):
+    result = subprocess.run(cmd, shell = True, capture_output = True, text = True)
+    return result.stdout
+
+def send_keys(window, keys):
+    win = mc_windows[window]
+    shell_cmd(f"xdotool windowactivate --sync {win} key {keys}")
+
+def switch_obs_scene(idx):
+    ws.call(requests.SetCurrentScene(f"Instance {str(idx + 1)}"))
+    toggle_magnifier(False)
+
+def toggle_magnifier(state):
+    global magnifier_state
+    magnifier_state = state
+
+    if state:
+        keystart = "Ctrl+Alt+"
+    else:
+        keystart = "Alt+"
+
+    instkey = "0"
+    if mc_active == 1:
+        instkey = "8"
+    elif mc_active == 2:
+        instkey = "9"
+    elif mc_active == 3:
+        instkey = "0"
+
+    shell_cmd(f"xdotool key {keystart}{instkey}")
+
+def get_mem():
+    return int(os.popen("free -t -m").readlines()[1].split()[6])
+
+# get minecraft windows/folders
+def init():
+    window_list = shell_cmd(f'xdotool search --class "Minecraft\* {mc_version}"')
+    for window in window_list.splitlines():
+        # window id
+        mc_windows.append(int(window))
+
+        # process id
+        window_pid = shell_cmd(f"xdotool getwindowpid {window}")
+
+        # folder
+        ps_out = shell_cmd(f"ps aux | grep {window_pid} -m 1")
+
+        for arg in ps_out.split():
+            if "-Djava.library.path=" in arg:
+                natives_path = arg.split("=")[1]
+                mc_path = natives_path.replace("natives", ".minecraft")
+                mc_folders.append(mc_path)
+
+# multi functions
+def increment_resets():
+    if not track_resets:
+        return
+
+    with open(reset_count, "r+") as fh:
+        count = int(fh.readline()) + 1
+        fh.seek(0)
+        fh.write(str(count))
+        fh.truncate()
+
+def reset_instance(idx):
+    # press autoreset button ingame, then leave fullscreen
+    send_keys(idx, "--delay 20 Escape Shift+Tab Enter")
+    time.sleep(0.1)
+
+def switch_instance(idx):
+    # give instance focus
+    window = mc_windows[idx]
+    shell_cmd(f"xdotool windowactivate --sync {window}")
+    print(f"start instance {idx}")
+
+def next_instance():
+    global mc_active
+
+    # increment reset counter
+    increment_resets()
+
+    # reset current instance
+    reset_instance(mc_active)
+
+    # update active instance
+    prev = mc_active
+    mc_active += 1
+    mc_active %= len(mc_windows)
+
+    # switch instance
+    switch_instance(mc_active)
+
+    # update obs scene
+    switch_obs_scene(mc_active)
+
+# -----------------------------
+# setup
+# -----------------------------
+# get instance info
+init()
+
+# sort instance info by instance number [o(n^2) sort woo]
+instance_nums = []
+for folder in mc_folders:
+    with open(f"{folder}/instance_num") as fh:
+        num = int(fh.readline()) - 1
+        instance_nums.append(num)
+
+n_win = []
+n_fol = []
+for num in range(len(instance_nums)):
+    # find corresponding instance number
+    for i, num2 in enumerate(instance_nums):
+        if num == num2:
+            n_win.append(mc_windows[i])
+            n_fol.append(mc_folders[i])
+            break
+
+mc_windows = n_win
+mc_folders = n_fol
+
+# switch obs scene and set active instance to first
+switch_obs_scene(0)
+mc_active = 0
+
+toggle_magnifier(False)
+
+# the window names will be reset when entering a world,
+# but this is for OBS setup
+#
+# x window capture doesn't go by title (window id?)
+# so title change does not affect it
+for idx, win in enumerate(mc_windows):
+    shell_cmd(f'xdotool set_window --name "Minecraft | Instance {idx + 1}" {win}')
+
+# main loop - listen for reset
+def loop():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(("localhost", webserver_port))
+    while True:
+        sock.listen(1)
+        conn, addr = sock.accept()
+
+        data = conn.recv(1024).decode()
+        if "reset" in data:
+            print("conn - reset")
+
+            if get_mem() < mem_threshold:
+                print("low on memory, not resetting")
+            else:
+                next_instance()
+        elif "focus" in data:
+            print("conn - focus")
+            shell_cmd(f"xdotool windowactivate --sync {mc_windows[mc_active]}")
+        elif "magnify" in data:
+            print("conn - magnify")
+            toggle_magnifier(not magnifier_state)
+
+print(f"ready - {len(mc_windows)} instances")
+print(str(mc_windows))
+print(str(mc_folders))
+loop()

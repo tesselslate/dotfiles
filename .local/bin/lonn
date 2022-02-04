@@ -1,0 +1,4 @@
+#!/bin/fish
+
+cd ~/documents/lonn
+love --fused Lönn.love
