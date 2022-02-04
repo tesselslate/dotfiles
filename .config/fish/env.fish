@@ -25,6 +25,7 @@ set -x QT_STYLE_OVERRIDE    qtcurve
 # move annoying folders out of $HOME
 set -x CARGO_HOME           $XDG_DATA_HOME/cargo
 set -x RUSTUP_HOME          $XDG_DATA_HOME/rustup
+set -x GOPATH               $XDG_DATA_HOME/go
 
 set -x GTK2_RC_FILES        $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x XAUTHORITY           $XDG_DATA_HOME/Xauthority
