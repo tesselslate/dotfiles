@@ -16,7 +16,7 @@ set -x EDITOR               nvim
 set -x PAGER                less
 
 # xorg theme variables
-set -x XCURSOR_THEME        ArcStarry
+set -x XCURSOR_THEME        Breeze
 set -x XCURSOR_PATH         ~/.local/share/icons
 
 # qt theme
@@ -30,6 +30,11 @@ set -x GOPATH               $XDG_DATA_HOME/go
 set -x GTK2_RC_FILES        $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x XAUTHORITY           $XDG_DATA_HOME/Xauthority
 set -x _JAVA_OPTIONS        -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java
+
+# fix java guis being garbage
+set -x AWT_TOOLKIT          MToolkit
+set -x _JAVA_OPTIONS        $_JAVA_OPTIONS "-Dswing.aatext=TRUE"
+set -x _JAVA_OPTIONS        $_JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=on"
 
 # helpful path expansions
 set -x CELESTE              ~/.local/share/Steam/steamapps/common/Celeste
