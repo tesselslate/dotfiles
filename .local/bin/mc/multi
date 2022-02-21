@@ -70,7 +70,7 @@ mc_folders = []
 mc_active = -1
 magnifier_state = False
 
-ws = obsws("localhost", obs_ws_port, "obswebsocket")
+ws = obsws("localhost", obs_ws_port, "password")
 ws.connect()
 
 # helpers
