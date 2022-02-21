@@ -60,5 +60,10 @@ awful.rules.rules = {
     -- obs projector
     floating({
         name = "Windowed Projector (Source) - Magnifier"
+    }),
+
+    -- ninjabrain bot
+    floating({
+        name = "Ninjabrain Bot"
     })
 }
