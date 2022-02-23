@@ -1,4 +1,5 @@
 Xcursor.theme: Breeze
+Xcursor.size: 32
 
 rofi.run-command: fish -c '{cmd}'
 rofi.run-list-command: 'fish -c functions'
