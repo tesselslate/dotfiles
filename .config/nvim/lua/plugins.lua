@@ -13,6 +13,12 @@ return require("packer").startup(function(use)
     -- nvim-lspconfig (LSP)
     use "neovim/nvim-lspconfig"
 
+    -- lsp-project (per-directory LSP settings)
+    use {
+        "woofdoggo/lsp-project.nvim",
+        requires = "nvim-lua/plenary.nvim"
+    }
+
     -- nvim-cmp (autocompletion)
     use "hrsh7th/nvim-cmp"
 

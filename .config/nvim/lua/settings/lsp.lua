@@ -2,6 +2,12 @@
 -- settings/lsp.lua
 
 local lsp = require("lspconfig")
+local lsp_project = require("lsp-project")
+
+lsp_project.setup({
+    cache = true,
+    depth = 10
+})
 
 -- ==========
 -- config
@@ -47,13 +53,15 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 -- clangd (C)
 lsp.clangd.setup({
     capabilities = capabilities,
-    on_attach = attach
+    on_attach = attach,
+    on_init = lsp_project.wrap()
 })
 
 -- csharp_ls (C#)
 lsp.csharp_ls.setup({
     capabilities = capabilities,
-    on_attach = attach
+    on_attach = attach,
+    on_init = lsp_project.wrap()
 })
 
 -- gopls (go)
@@ -68,13 +76,23 @@ lsp.gopls.setup({
             },
             staticcheck = true
         }
-    }
+    },
+    on_init = lsp_project.wrap()
 })
 
 -- rust-analyzer (rust)
 lsp.rust_analyzer.setup({
     capabilities = capabilities,
-    on_attach = attach
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
+
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                allTargets = false
+            }
+        }
+    }
 })
 
 -- sumneko_lua (Lua)
@@ -97,6 +115,7 @@ lsp.sumneko_lua.setup({
         sumneko_bin, "-E", sumneko_root .. "/main.lua"
     },
     on_attach = attach,
+    on_init = lsp_project.wrap(),
     settings = {
         Lua = {
             diagnostics = {
