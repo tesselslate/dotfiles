@@ -1,0 +1,9 @@
+#!/bin/fish
+# color manager script
+
+if test (count $argv) -eq 1
+    set -U COLORSCHEME $argv[1]
+    echo "set colorscheme to" $COLORSCHEME
+else
+    echo "current colorscheme:" $COLORSCHEME
+end
