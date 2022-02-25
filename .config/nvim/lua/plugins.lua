@@ -24,6 +24,12 @@ return require("packer").startup(function(use)
     -- goto-preview
     use "rmagatti/goto-preview"
 
+    -- code-action-menu
+    use "weilbith/nvim-code-action-menu"
+
+    -- lightspeed
+    use "ggandor/lightspeed.nvim"
+
     -- nvim-cmp
     use "hrsh7th/nvim-cmp"
 
@@ -74,4 +80,7 @@ return require("packer").startup(function(use)
         "lewis6991/gitsigns.nvim",
         requires = "nvim-lua/plenary.nvim"
     }
+
+    -- dressing
+    use "stevearc/dressing.nvim"
 end)
