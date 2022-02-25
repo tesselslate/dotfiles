@@ -229,19 +229,5 @@ return {
     CmpItemKindTypeParameter = { fg = c.green1, bg = c.none },
     CmpItemKindEnumMember = { fg = c.green1, bg = c.none },
     CmpItemKindOperator = { fg = c.green1, bg = c.none },
-    CmpItemKindSnippet = { fg = c.dark5, bg = c.none },
-
-    -- feline
-    feline = {
-        fg = c.fg,
-        bg = c.bg,
-
-        vi = {
-            fg = c.bg
-        },
-        file_info = {
-            bg = c.bg,
-            fg = c.fg
-        }
-    }
+    CmpItemKindSnippet = { fg = c.dark5, bg = c.none }
 }
