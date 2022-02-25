@@ -52,10 +52,7 @@ setkey("n", "<Leader><Tab>", ":wincmd w<CR>")
 setkey("n", "<Leader><S-Tab>", ":wincmd W<CR>")
 
 -- close buffer (leader + w)
-setkey("n", "<Leader>w", ":Bc<CR>")
-
--- write and close buffer (leader + shift + w)
-setkey("n", "<Leader><S-w>", ":w | Bc<CR>")
+setkey("n", "<Leader>w", ":lua require('mini.bufremove').delete()<CR>")
 
 -- buffer switching (tab / shift+tab)
 setkey("n", "<Tab>", ":bnext<CR>")

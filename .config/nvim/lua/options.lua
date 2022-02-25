@@ -28,6 +28,7 @@ vim.opt.signcolumn      = "yes"         -- always enable sign column
 vim.opt.showmode        = false         -- don't put --INSERT-- etc at bottom
 vim.opt.swapfile        = false         -- disable swapfile
 vim.opt.undofile        = true          -- undo across restarts
+vim.opt.termguicolors   = true
 
 -- completeopt
 -- menuone: popup, even if there's only one match

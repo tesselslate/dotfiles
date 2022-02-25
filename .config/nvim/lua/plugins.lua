@@ -6,31 +6,29 @@ return require("packer").startup(function(use)
     -- packer.nvim
     use "wbthomason/packer.nvim"
 
-    -- ====================
-    -- autocompletion
-    -- ====================
-
-    -- nvim-lspconfig (LSP)
+    -- nvim-lspconfig
     use "neovim/nvim-lspconfig"
 
-    -- lsp-project (per-directory LSP settings)
+    -- lsp-project
     use {
         "woofdoggo/lsp-project.nvim",
         requires = "nvim-lua/plenary.nvim"
     }
 
-    -- nvim-cmp (autocompletion)
+    -- nvim-cmp
     use "hrsh7th/nvim-cmp"
 
-    -- cmp-nvim-lsp (LSP autocompletion sources)
+    -- cmp-nvim-lsp
     use "hrsh7th/cmp-nvim-lsp"
 
-    -- vim-vsnip (snippets)
+    -- vsnip
     use "hrsh7th/vim-vsnip"
 
-    -- ====================
-    -- useful bits
-    -- ====================
+    -- mini.nvim
+    use "echasnovski/mini.nvim"
+
+    -- feline
+    use "feline-nvim/feline.nvim"
 
     -- nvim-tree
     use {
@@ -38,48 +36,25 @@ return require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons"
     }
 
-    -- nvim-treesitter
+    -- treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
 
-    -- telescope.nvim
+    -- telescope
     use {
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim"
     }
 
-    -- which-key.nvim
+    -- which-key
     use "folke/which-key.nvim"
 
-    -- nvim-colorizer
+    -- colorizer
     use "norcalli/nvim-colorizer.lua"
 
-    -- ====================
-    -- environment
-    -- ====================
-
-    -- tokyonight.nvim
-    use "folke/tokyonight.nvim"
-
-    -- bufferline.nvim
-    use {
-        "akinsho/bufferline.nvim",
-        requires = "kyazdani42/nvim-web-devicons"
-    }
-
-    -- lualine.nvim
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = "kyazdani42/nvim-web-devicons"
-    }
-
-    -- ====================
-    -- git
-    -- ====================
-
-    -- gitsigns.nvim
+    -- gitsigns
     use {
         "lewis6991/gitsigns.nvim",
         requires = "nvim-lua/plenary.nvim"
