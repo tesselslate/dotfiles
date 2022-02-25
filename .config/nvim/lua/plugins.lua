@@ -15,14 +15,26 @@ return require("packer").startup(function(use)
         requires = "nvim-lua/plenary.nvim"
     }
 
+    -- trouble
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons"
+    }
+
+    -- goto-preview
+    use "rmagatti/goto-preview"
+
     -- nvim-cmp
     use "hrsh7th/nvim-cmp"
 
     -- cmp-nvim-lsp
     use "hrsh7th/cmp-nvim-lsp"
 
-    -- vsnip
-    use "hrsh7th/vim-vsnip"
+    -- cmp_luasnip
+    use "saadparwaiz1/cmp_luasnip"
+
+    -- luasnip
+    use "L3MON4D3/LuaSnip"
 
     -- mini.nvim
     use "echasnovski/mini.nvim"
