@@ -3,7 +3,7 @@
 --
 -- based off of https://github.com/folke/tokyonight.nvim
 
-local c = require("theme.tokyonight")
+local c = require("theme.base.tokyonight")
 local config = require("theme.config")
 local util = require("theme.util")
 

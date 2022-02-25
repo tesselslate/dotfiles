@@ -11,9 +11,9 @@ require("options")
 require("theme").load("tokyonight_storm")
 
 -- plugin settings
-require("settings.feline")
 require("settings.gitsigns")
 require("settings.lsp")
+require("settings.lualine")
 require("settings.mini")
 require("settings.nvim-cmp")
 require("settings.nvim-tree")

@@ -27,8 +27,11 @@ return require("packer").startup(function(use)
     -- mini.nvim
     use "echasnovski/mini.nvim"
 
-    -- feline
-    use "feline-nvim/feline.nvim"
+    -- lualine
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = "kyazdani42/nvim-web-devicons"
+    }
 
     -- nvim-tree
     use {

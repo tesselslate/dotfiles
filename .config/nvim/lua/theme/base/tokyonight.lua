@@ -1,5 +1,5 @@
 -- neovim config
--- colors/tokyonight.lua
+-- theme/base/tokyonight.lua
 --
 -- based off of https://github.com/folke/tokyonight.nvim
 
