@@ -3,9 +3,9 @@
 --
 -- based off of https://github.com/folke/tokyonight.nvim
 
-local c = require("colors.tokyonight")
-local config = require("colors.config")
-local util = require("colors.util")
+local c = require("theme.tokyonight")
+local config = require("theme.config")
+local util = require("theme.util")
 
 return {
     -- ------------------------
@@ -230,4 +230,18 @@ return {
     CmpItemKindEnumMember = { fg = c.green1, bg = c.none },
     CmpItemKindOperator = { fg = c.green1, bg = c.none },
     CmpItemKindSnippet = { fg = c.dark5, bg = c.none },
+
+    -- feline
+    feline = {
+        fg = c.fg,
+        bg = c.bg,
+
+        vi = {
+            fg = c.bg
+        },
+        file_info = {
+            bg = c.bg,
+            fg = c.fg
+        }
+    }
 }

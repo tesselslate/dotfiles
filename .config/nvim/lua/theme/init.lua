@@ -2,6 +2,7 @@
 -- colors/init.lua
 
 local M = {}
+local loaded_scheme = {}
 
 -- recursively merge two tables
 local function merge(lhs, rhs)
@@ -39,7 +40,8 @@ function M.load(scheme_name)
     vim.g.colors_name = scheme_name
 
     -- load colorscheme
-    local colorscheme = require("colors.themes." .. scheme_name)
+    local colorscheme = require("theme.colors." .. scheme_name)
+    loaded_scheme = colorscheme
 
     -- load highlights
     -- based off of:
@@ -76,6 +78,11 @@ function M.load(scheme_name)
             vim.cmd(string.format("highlight %s %s", k, table.concat(opts, " ")))
         end
     end
+end
+
+-- returns the current colorscheme.
+function M.current()
+    return loaded_scheme
 end
 
 return M

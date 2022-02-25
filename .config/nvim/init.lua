@@ -7,6 +7,9 @@ require("keybindings")
 require("plugins")
 require("options")
 
+-- load colors
+require("theme").load("tokyonight_storm")
+
 -- plugin settings
 require("settings.feline")
 require("settings.gitsigns")
@@ -17,5 +20,3 @@ require("settings.nvim-tree")
 require("settings.nvim-treesitter")
 require("settings.telescope")
 require("settings.which-key")
-
-require("lua.colors.init").load("tokyonight_storm")

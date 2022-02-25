@@ -3,7 +3,7 @@
 --
 -- based off of https://github.com/folke/tokyonight.nvim
 
-local utils = require("colors.util")
+local utils = require("theme.util")
 
 local M = {
     none = "NONE",
