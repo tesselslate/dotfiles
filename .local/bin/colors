@@ -4,6 +4,10 @@
 if test (count $argv) -eq 1
     set -U COLORSCHEME $argv[1]
     echo "set colorscheme to" $COLORSCHEME
+
+    # apply colorscheme changes to fish and kitty
+    cp ~/.config/colors/kitty/$COLORSCHEME.conf ~/.config/kitty/colors.conf
+    cp ~/.config/colors/fish/$COLORSCHEME.fish ~/.config/fish/colors.fish
 else
     echo "current colorscheme:" $COLORSCHEME
 end

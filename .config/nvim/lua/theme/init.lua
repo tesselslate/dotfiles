@@ -31,7 +31,7 @@ function M.load(scheme_name)
 
     -- get active colorscheme
     if scheme_name == nil then
-        scheme_name = os.getenv("COLORSCHEME")
+        scheme_name = os.getenv("NVIM_COLORSCHEME")
         if scheme_name == nil or scheme_name:len() == 0 then
             scheme_name = "tokyonight_storm" -- fallback
         end

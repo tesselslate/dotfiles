@@ -8,7 +8,7 @@ require("plugins")
 require("options")
 
 -- load colors
-require("theme").load("tokyonight_storm")
+require("theme").load()
 
 -- plugin settings
 require("settings.gitsigns")

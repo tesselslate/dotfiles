@@ -1,0 +1,3 @@
+#!/bin/fish
+set -x NVIM_COLORSCHEME $COLORSCHEME
+/usr/bin/nvim $argv
