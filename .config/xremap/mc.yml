@@ -1,7 +1,0 @@
-keymap:
-  - name: fix mc hotbar
-    application:
-      only: Minecraft 1.8.9
-    remap:
-      SHIFT-2: KEY_2
-      SHIFT-6: KEY_6
