@@ -36,14 +36,17 @@ return require("packer").startup(function(use)
     -- cmp-nvim-lsp
     use "hrsh7th/cmp-nvim-lsp"
 
-    -- cmp_luasnip
-    use "saadparwaiz1/cmp_luasnip"
+    -- cmp-vsnip
+    use "hrsh7th/cmp-vsnip"
 
-    -- luasnip
-    use "L3MON4D3/LuaSnip"
+    -- vsnip
+    use "hrsh7th/vim-vsnip"
 
     -- mini.nvim
     use "echasnovski/mini.nvim"
+
+    -- filetype.nvim
+    use "nathom/filetype.nvim"
 
     -- lualine
     use {
@@ -83,4 +86,7 @@ return require("packer").startup(function(use)
 
     -- dressing
     use "stevearc/dressing.nvim"
+
+    -- startuptime
+    use "tweekmonster/startuptime.vim"
 end)

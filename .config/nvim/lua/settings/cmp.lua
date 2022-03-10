@@ -6,8 +6,6 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local luasnip = require("luasnip")
-
 -- begin setup
 local cmp = require("cmp")
 cmp.setup({
@@ -30,21 +28,19 @@ cmp.setup({
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            elseif vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
             else
                 fallback()
             end
         end, { "i", "s" }),
 
         -- <S-Tab> (select previous suggestion)
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
+        ['<S-Tab>'] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
+            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                feedkey("<Plug>(vsnip-jump-prev)", "")
             end
         end, { "i", "s" }),
 
@@ -65,12 +61,12 @@ cmp.setup({
     -- completion sources
     sources = {
         { name = "nvim_lsp" },
-        { name = "luasnip" }
+        { name = "vsnip" }
     },
 
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.fn["vsnip#anonymous"](args.body)
         end
     }
 })

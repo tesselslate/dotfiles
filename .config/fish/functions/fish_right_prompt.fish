@@ -19,7 +19,7 @@ function fish_right_prompt
     end
 
     set commit ($git_cmd rev-parse HEAD 2>/dev/null | string sub -l 7)
-    set branch ($git_cmd rev-parse --symbolic-full-name --abbrev-ref HEAD)
+    set branch ($git_cmd rev-parse --symbolic-full-name --abbrev-ref HEAD 2>/dev/null)
 
     if test $cmd_status -ne 0
         echo -n "❯ "

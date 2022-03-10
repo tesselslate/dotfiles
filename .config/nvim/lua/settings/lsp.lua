@@ -6,7 +6,7 @@ local lsp_project = require("lsp-project")
 
 lsp_project.setup({
     cache = true,
-    depth = 10
+    scan_depth = 10
 })
 
 -- ==========
@@ -120,7 +120,8 @@ lsp.sumneko_lua.setup({
         Lua = {
             diagnostics = {
                 disable = {
-                    "lowercase-global"      -- disable "lowercase global" warning
+                    "lowercase-global",     -- disable "lowercase global" warning
+                    "redefined-local"
                 },
                 globals = {
                     -- awesomewm
