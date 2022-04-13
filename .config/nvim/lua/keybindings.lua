@@ -12,6 +12,9 @@ end
 -- delete previous word (ctrl + backspace)
 setkey("i", "<C-H>", "<C-w>")
 
+-- escape
+setkey("i", "<C-j>", "<Esc>")
+
 -- =============
 -- normal mode
 -- =============
@@ -26,6 +29,16 @@ setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 
 -- go to references (gr)
 setkey("n", "gr", ":lua vim.lsp.buf.references()<CR>")
+
+-- buffer switching (tab / shift+tab)
+setkey("n", "<Tab>", ":bnext<CR>")
+setkey("n", "<S-Tab>", ":bprev<CR>")
+
+-- lightspeed omnidirectional
+setkey("n", "s", "<Nop>")
+setkey("n", "S", "<Nop>")
+setkey("n", "s", "<Plug>Lightspeed_omni_s")
+
 
 -- == other binds ==
 -- leader key (space)
@@ -53,10 +66,6 @@ setkey("n", "<Leader><S-Tab>", ":wincmd W<CR>")
 
 -- close buffer (leader + w)
 setkey("n", "<Leader>w", ":lua require('mini.bufremove').delete()<CR>")
-
--- buffer switching (tab / shift+tab)
-setkey("n", "<Tab>", ":bnext<CR>")
-setkey("n", "<S-Tab>", ":bprev<CR>")
 
 -- disable arrow keys
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };

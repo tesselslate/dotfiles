@@ -229,5 +229,13 @@ return {
     CmpItemKindTypeParameter = { fg = c.green1, bg = c.none },
     CmpItemKindEnumMember = { fg = c.green1, bg = c.none },
     CmpItemKindOperator = { fg = c.green1, bg = c.none },
-    CmpItemKindSnippet = { fg = c.dark5, bg = c.none }
+    CmpItemKindSnippet = { fg = c.dark5, bg = c.none },
+
+    -- tabline
+    MiniTablineCurrent = { fg = c.black, bg = c.blue},
+    MiniTablineVisible = { fg = c.fg_dark, bg = c.bg },
+    MiniTablineHidden = { fg = c.fg_dark, bg = c.bg },
+    MiniTablineModifiedCurrent = { fg = c.black, bg = c.blue },
+    MiniTablineModifiedVisible = { fg = c.fg, bg = c.bg },
+    MiniTablineFill = { fg = c.none, bg = c.none }
 }

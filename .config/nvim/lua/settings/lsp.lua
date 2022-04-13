@@ -57,10 +57,13 @@ lsp.clangd.setup({
     on_init = lsp_project.wrap()
 })
 
--- csharp_ls (C#)
-lsp.csharp_ls.setup({
+-- omnisharp (C#)
+local pid = vim.fn.getpid();
+local omnisharp_bin = "/home/dog/documents/pkgs/omnisharp/run";
+
+lsp.omnisharp.setup({
+    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
     capabilities = capabilities,
-    on_attach = attach,
     on_init = lsp_project.wrap()
 })
 
@@ -99,29 +102,46 @@ lsp.rust_analyzer.setup({
 local sumneko_bin = "lua-language-server"
 local sumneko_root = "/usr/lib/lua-language-server"
 
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-table.insert(runtime_path, "/usr/share/awesome/lib/?/init.lua")
-
-local library_path = vim.api.nvim_get_runtime_file("", true)
-table.insert(library_path, vim.fn.expand("$VIMRUNTIME/lua"))
-table.insert(library_path, vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"))
-table.insert(library_path, vim.fn.expand("/usr/share/awesome/lib"))
-
 lsp.sumneko_lua.setup({
     capabilities = capabilities,
     cmd = {
         sumneko_bin, "-E", sumneko_root .. "/main.lua"
     },
     on_attach = attach,
-    on_init = lsp_project.wrap(),
+    on_init = lsp_project.wrap(function(client)
+        local library_path = nil
+        local runtime_path = nil
+
+        if vim.fn.getcwd():find("nvim") then
+            library_path = vim.api.nvim_get_runtime_file("", true)
+            runtime_path = vim.split(package.path, ';')
+
+            table.insert(library_path, vim.fn.expand("$VIMRUNTIME/lua"))
+            table.insert(library_path, vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"))
+            table.insert(runtime_path, "lua/?.lua")
+            table.insert(runtime_path, "lua/?/init.lua")
+        elseif vim.fn.getcwd():find("awesome") then
+            library_path = {}
+            runtime_path = {}
+
+            table.insert(library_path, vim.fn.expand("/usr/share/awesome/lib"))
+            table.insert(runtime_path, "/usr/share/awesome/lib/?/init.lua")
+        end
+
+        client.config.settings.Lua.runtime.path = runtime_path
+        client.config.settings.Lua.workspace.path = library_path
+
+        client.notify("workspace/didChangeConfiguration", {
+            settings = client.config.settings
+        })
+    end),
     settings = {
         Lua = {
             diagnostics = {
                 disable = {
                     "lowercase-global",     -- disable "lowercase global" warning
-                    "redefined-local"
+                    "redefined-local",
+                    "undefined-field"
                 },
                 globals = {
                     -- awesomewm
@@ -136,15 +156,17 @@ lsp.sumneko_lua.setup({
                 }
             },
             runtime = {
-                version = "LuaJIT",
-                path = runtime_path
+                version = "LuaJIT"
             },
             telemetry = {
                 enable = false
             },
-            workspace = {
-                library = library_path
-            }
+            workspace = {}
         }
     },
+})
+
+-- zls (zig)
+lsp.zls.setup({
+    cmd = { "/home/dog/documents/pkgs/zls/bin/zls" }
 })

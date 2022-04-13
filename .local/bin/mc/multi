@@ -49,7 +49,7 @@ reset_count = "/mnt/hdd/mc/resetcount"
 # free memory threshold at which to stop resetting
 # if the amount of free memory (in MB) is less than
 # this, the script will not reset instances.
-mem_threshold = 1024
+mem_threshold = 768
 
 # -----------------------------------------------------------------------------
 # DO NOT CHANGE ANYTHING BELOW

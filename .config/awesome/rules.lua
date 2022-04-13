@@ -54,7 +54,7 @@ awful.rules.rules = {
 
     -- minecraft
     floating({
-        class = "Minecraft* 1.16.1"
+        class = "Minecraft"
     }),
 
     -- obs projector
