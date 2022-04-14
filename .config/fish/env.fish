@@ -19,9 +19,6 @@ set -x PAGER                less
 set -x XCURSOR_THEME        Breeze
 set -x XCURSOR_PATH         ~/.local/share/icons
 
-# qt theme
-set -x QT_STYLE_OVERRIDE    qtcurve
-
 # move annoying folders out of $HOME
 set -x CARGO_HOME           $XDG_DATA_HOME/cargo
 set -x RUSTUP_HOME          $XDG_DATA_HOME/rustup
@@ -36,10 +33,8 @@ set -x AWT_TOOLKIT          MToolkit
 set -x _JAVA_OPTIONS        $_JAVA_OPTIONS "-Dswing.aatext=TRUE"
 set -x _JAVA_OPTIONS        $_JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=on"
 
-# helpful path expansions
-set -x CELESTE              ~/.local/share/Steam/steamapps/common/Celeste
-
 # path
 fish_add_path ~/.local/bin
-fish_add_path ~/.local/bin/zig
+fish_add_path ~/.local/shbin
 fish_add_path ~/.local/share/cargo/bin
+fish_add_path ~/.local/share/go/bin

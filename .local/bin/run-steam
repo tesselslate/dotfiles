@@ -1,3 +1,0 @@
-#!/usr/bin/fish
-set -x HOME /home/dog/.local/home-ext/
-steam

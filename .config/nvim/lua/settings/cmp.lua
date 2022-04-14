@@ -10,8 +10,10 @@ end
 local cmp = require("cmp")
 cmp.setup({
     -- round documentation window border
-    documentation = {
-        border = "rounded"
+    window = {
+        documentation = {
+            border = "rounded"
+        },
     },
 
     -- enable completion kind items
