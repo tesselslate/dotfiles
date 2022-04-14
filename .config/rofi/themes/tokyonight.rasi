@@ -16,11 +16,52 @@
     spacing: 0;
 }
 
-element {
-    padding: 12;
+inputbar {
+    children: [prompt, entry];
+}
+
+message {
+    border-color: @blue;
+}
+
+prompt {
+    background-color: @blue;
+    enabled: true;
     text-color: @fg;
 }
 
+window {
+    anchor: north;
+    location: north;
+    width: 100%;
+    padding: 4 4 5 4;
+    children: [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+    padding: 0 0 0 20;
+}
+
+listview {
+    layout: horizontal;
+    spacing: 5px;
+    lines: 100;
+    padding: 0 0 0 20;
+}
+
+entry {
+    expand: false;
+    width: 10em;
+    background-color: @blue;
+    text-color: @fg;
+}
+
+element {
+    padding: 0px 2px;
+    text-color: @fg;
+}
 element selected {
     text-color: @purple;
 }
@@ -28,45 +69,6 @@ element selected {
 element-text {
     background-color: inherit;
     text-color: inherit;
-}
-
-entry {
-    background-color: @blue;
-    padding: 12 0 12 3;
-    text-color: @fg;
-}
-
-inputbar {
-    children: [prompt, entry];
-}
-
-message {
-    padding: 12 0 12 12;
-    border: 0 0 2px 0;
-    border-color: @blue;
-}
-
-listview {
-    columns: 1;
-    lines: 8;
-}
-
-mainbox {
-    children: [inputbar, message, listview];
-}
-
-prompt {
-    background-color: @blue;
-    enabled: true;
-    padding: 12 0 0 12;
-    text-color: @fg;
-}
-
-window {
-    transparency: "real";
-    padding: 4;
-    border: 2;
-    border-color: @purple;
 }
 
 /* vim:ft=css

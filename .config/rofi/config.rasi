@@ -1,6 +1,6 @@
 configuration {
     /* misc config */
-    modi: "window,run,drun,filebrowser";
+    modi: "window,run,dmenu,drun,filebrowser";
     terminal: "kitty";
 
     /* fish compat */
@@ -8,6 +8,7 @@ configuration {
     run-list-command: "fish -c functions";
 
     display-run: " ";
+    display-dmenu: " ";
     display-drun: "  ";
     display-window: "  ";
     display-calc: " ";
