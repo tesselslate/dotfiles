@@ -1,10 +1,13 @@
 #!/usr/bin/fish
 
 set __OMNIRUN_IN " firefox\0icon\x1ffirefox\n"
-set __OMNIRUN_IN $__OMNIRUN_IN "multimc\n"
+set __OMNIRUN_IN $__OMNIRUN_IN "obs\0icon\x1fcom.obsproject.Studio\n"
 
 set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
+echo $__OMNIRUN_RES > /tmp/a
 switch $__OMNIRUN_RES
     case ' firefox'
         firefox & disown
+    case ' obs'
+        obs & disown
 end
