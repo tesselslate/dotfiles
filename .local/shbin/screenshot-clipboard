@@ -1,0 +1,3 @@
+#!/usr/bin/fish
+
+maim $argv | tee ~/pictures/screenshots/(date +%m_%d_%y-%H_%M_%S).png | xclip -selection clipboard -t image/png
