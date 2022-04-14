@@ -1,0 +1,10 @@
+#!/usr/bin/fish
+
+set __OMNIRUN_IN " firefox\0icon\x1ffirefox\n"
+set __OMNIRUN_IN $__OMNIRUN_IN "multimc\n"
+
+set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
+switch $__OMNIRUN_RES
+    case ' firefox'
+        firefox & disown
+end
