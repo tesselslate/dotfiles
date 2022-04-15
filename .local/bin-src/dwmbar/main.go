@@ -137,10 +137,10 @@ func main() {
             wifi_status = "down"
         }
 
-        str_ram     := fmt.Sprintf("^B3^^C0^  ^B0^^C3^ %.2f GB ", float32(bar_ram) / 1000000)
-        str_wifi    := fmt.Sprintf("^B5^^C0^  ^B0^^C5^ %s ", wifi_status)
-        str_vol     := fmt.Sprintf("^B6^^C0^  ^B0^^C6^ %s ", bar_vol)
-        str_time    := fmt.Sprintf("^B1^^C0^  ^B0^^C1^ %s ", bar_time)
+        str_ram     := fmt.Sprintf("^B3^^C0^  ^B0^^C3^ %.2f GB ^d^ ", float32(bar_ram) / 1000000)
+        str_wifi    := fmt.Sprintf("^B5^^C0^  ^B0^^C5^ %s ^d^ ", wifi_status)
+        str_vol     := fmt.Sprintf("^B6^^C0^  ^B0^^C6^ %s ^d^ ", bar_vol)
+        str_time    := fmt.Sprintf("^B1^^C0^  ^B0^^C1^ %s ^d^ ", bar_time)
         bar_str := str_ram + str_wifi + str_vol + str_time
 
         xproto.ChangeProperty(
