@@ -13,6 +13,8 @@ xrdb -merge ~/.config/x11/xresources
 
 # start
 picom --xrender-sync-fence --experimental-backends &
+~/.local/share/go/bin/dwmbar &
+
 feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/7dg.png
 
 exec dwm
