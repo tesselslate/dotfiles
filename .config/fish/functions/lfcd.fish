@@ -8,6 +8,7 @@ function lfcd
             if test $__lfcd_dir != (pwd)
                 cd $__lfcd_dir
                 fish_vi_key_bindings
+                commandline -f repaint
             end
         end
     end
