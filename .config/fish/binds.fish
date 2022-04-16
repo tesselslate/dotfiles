@@ -1,5 +1,5 @@
 # delete word (ctrl-backspace)
-bind \cH backward-kill-word
+bind -M insert \cH backward-kill-word
 
 # lfcd (ctrl-f)
-bind \cf 'lfcd; commandline -f repaint'
+bind -M default \cf 'lfcd; commandline -f repaint'

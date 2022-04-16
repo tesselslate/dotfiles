@@ -7,6 +7,7 @@ function lfcd
         if test -d $__lfcd_dir
             if test $__lfcd_dir != (pwd)
                 cd $__lfcd_dir
+                fish_vi_key_bindings
             end
         end
     end

@@ -18,15 +18,15 @@ set scrolloff 10
 # == lf mappings
 # -----------------------------
 
-# open file
+# f => fuzzy find
+map f $fzf
+
+# enter => open file
 map <enter> &xdg-open $f
 
 # -----------------------------
 # == lf commands
 # -----------------------------
-
-# trash
-cmd trash %set -f; mv $fx ~/.local/share/trash
 
 # extract archive
 cmd extract ${{
@@ -39,10 +39,11 @@ cmd extract ${{
     esac
 }}
 
+# trash
+cmd trash %set -f; mv $fx ~/.local/share/trash
+
 # -----------------------------
 # == extras
 # -----------------------------
-
-# exit to pwd in shell
 
 # vim:ft=bash

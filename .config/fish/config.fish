@@ -1,6 +1,5 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+# enable vi mode
+fish_vi_key_bindings
 
 # source color palette
 source ~/.config/fish/colors.fish
