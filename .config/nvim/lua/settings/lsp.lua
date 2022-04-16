@@ -61,6 +61,10 @@ lsp.clangd.setup({
 -- TODO: import ordering helper func?
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports
 lsp.gopls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
+
     cmd = {"gopls", "serve"},
     settings = {
         gopls = {
@@ -69,8 +73,7 @@ lsp.gopls.setup({
             },
             staticcheck = true
         }
-    },
-    on_init = lsp_project.wrap()
+    }
 })
 
 -- rust-analyzer (rust)
