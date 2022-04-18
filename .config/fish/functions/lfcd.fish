@@ -9,6 +9,10 @@ function lfcd
                 cd $__lfcd_dir
                 fish_vi_key_bindings
                 commandline -f repaint
+
+                # running fzf within lf messes up the prompt, this is
+                # enough to get fish to redraw it properly
+                echo -n ''
             end
         end
     end

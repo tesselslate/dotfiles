@@ -13,7 +13,7 @@ end
 setkey("i", "<C-H>", "<C-w>")
 
 -- escape
-setkey("i", "<C-j>", "<Esc>")
+setkey("i", "<C-x>", "<Esc>")
 
 -- =============
 -- normal mode
@@ -24,21 +24,17 @@ setkey("i", "<C-j>", "<Esc>")
 setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
 setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
 
+-- rename (leader -> lr)
+setkey("n", "<Leader>lr", ":lua vim.lsp.buf.rename()<CR>")
+
+-- hover (leader -> lh)
+setkey("n", "<Leader>lh", ":lua vim.lsp.buf.hover()<CR>")
+
 -- go to definition (gd)
 setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 
 -- go to references (gr)
 setkey("n", "gr", ":lua vim.lsp.buf.references()<CR>")
-
--- buffer switching (tab / shift+tab)
-setkey("n", "<Tab>", ":bnext<CR>")
-setkey("n", "<S-Tab>", ":bprev<CR>")
-
--- lightspeed omnidirectional
-setkey("n", "s", "<Nop>")
-setkey("n", "S", "<Nop>")
-setkey("n", "s", "<Plug>Lightspeed_omni_s")
-
 
 -- == other binds ==
 -- leader key (space)
@@ -57,12 +53,24 @@ setkey("n", "<Leader>t", ":NvimTreeToggle<CR>")
 -- open floating terminal (leader + enter)
 setkey("n", "<Leader><CR>", ":Terminal<CR>")
 
--- open live grep (leader + f)
-setkey("n", "<Leader>f", ":Telescope live_grep<CR>")
+-- open live grep (leader + fs)
+setkey("n", "<Leader>fs", ":Telescope live_grep<CR>")
+
+-- open file (leader + ff)
+setkey("n", "<Leader>ff", ":Telescope find_files<CR>")
 
 -- switch window (leader + tab)
 setkey("n", "<Leader><Tab>", ":wincmd w<CR>")
 setkey("n", "<Leader><S-Tab>", ":wincmd W<CR>")
+
+-- buffer switching (tab / shift+tab)
+setkey("n", "<Tab>", ":bnext<CR>")
+setkey("n", "<S-Tab>", ":bprev<CR>")
+
+-- lightspeed omnidirectional
+setkey("n", "s", "<Nop>")
+setkey("n", "S", "<Nop>")
+setkey("n", "s", "<Plug>Lightspeed_omni_s")
 
 -- close buffer (leader + w)
 setkey("n", "<Leader>w", ":lua require('mini.bufremove').delete()<CR>")
