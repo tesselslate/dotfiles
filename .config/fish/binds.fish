@@ -6,7 +6,7 @@
 bind -M insert  \cH backward-kill-word
 
 # ctrl-f => insert fzf result
-bind -M insert  \cf 'commandline -i (fd -H | fzf); commandline -f repaint'
+bind -M insert \cf 'infzf'
 
 # ctrl-k => fzf and cd
 bind -M insert  \ck 'cd (fd -t d -H | fzf); commandline -f repaint; fish_vi_key_bindings'

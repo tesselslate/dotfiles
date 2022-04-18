@@ -14,12 +14,18 @@ set ifs "\n"
 # space around screen
 set scrolloff 10
 
+# show dotfiles
+set hidden
+
 # -----------------------------
 # == lf mappings
 # -----------------------------
 
-# f => fuzzy find
-map f $fzf
+# ctrl-f => fuzzy find
+map <c-f> :fzf_jump
+
+# ctrl-tilde => home
+map ` :cd ~
 
 # enter => open file
 map <enter> &xdg-open $f
@@ -37,6 +43,19 @@ cmd extract ${{
         *.tar.xz|*.txz) tar xJvf $f;;
         *.zip) unzip $f;;
     esac
+}}
+
+# fzf jump
+cmd fzf_jump ${{
+    res="$(fd | fzf | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
 }}
 
 # trash
