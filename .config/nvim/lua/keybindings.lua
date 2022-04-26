@@ -30,6 +30,9 @@ setkey("n", "<Leader>lr", ":lua vim.lsp.buf.rename()<CR>")
 -- hover (leader -> lh)
 setkey("n", "<Leader>lh", ":lua vim.lsp.buf.hover()<CR>")
 
+-- format (leader -> lf)
+setkey("n", "<Leader>lf", ":lua vim.lsp.buf.formatting()<CR>")
+
 -- go to definition (gd)
 setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 

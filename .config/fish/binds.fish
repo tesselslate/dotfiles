@@ -9,12 +9,9 @@ bind -M insert  \cH backward-kill-word
 bind -M insert  \cf 'infzf'
 
 # ctrl-p => fzf and cd
-bind -M insert  \ck 'cd (fd -t d -H | fzf); commandline -f repaint; fish_vi_key_bindings'
+bind -M insert  \cp 'cd (fd -t d -H | fzf); commandline -f repaint; fish_vi_key_bindings'
 
-# ctrl-hjkl => arrows
-bind -M insert  \b backward-char
-bind -M insert  \n down-line
-bind -M insert  \v up-line
+# ctrl-l => right arrow
 bind -M insert  \f forward-char
 
 # ctrl-o => open lf
