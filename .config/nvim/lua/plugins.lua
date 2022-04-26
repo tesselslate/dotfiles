@@ -89,7 +89,4 @@ return require("packer").startup(function(use)
 
     -- startuptime
     use "tweekmonster/startuptime.vim"
-
-    -- hare.vim
-    use "https://git.sr.ht/~sircmpwn/hare.vim"
 end)
