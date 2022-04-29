@@ -9,7 +9,7 @@ bind -M insert  \cH backward-kill-word
 bind -M insert  \cf 'infzf'
 
 # ctrl-p => fzf and cd
-bind -M insert  \cp 'cd (fd -t d -H | fzf); commandline -f repaint; fish_vi_key_bindings'
+bind -M insert  \cp 'fzfcd'
 
 # ctrl-l => right arrow
 bind -M insert  \f forward-char
@@ -30,7 +30,7 @@ bind -M default y   fish_clipboard_copy
 bind -M default p   fish_clipboard_paste
 
 # ctrl-p => fzf and cd
-bind -M default \cp 'cd (fd -t d -H | fzf); commandline -f repaint; fish_vi_key_bindings'
+bind -M default \cp 'fzfcd'
 
 # ctrl-o => open lf
 bind -M default \cf 'lfcd'
