@@ -20,6 +20,9 @@ bind -M insert  \co 'lfcd'
 # ctrl-x => normal mode
 bind -M insert  \cx 'set fish_bind_mode default; commandline -f repaint;'
 
+# unbind escape => normal mode
+bind -M insert  \e ''
+
 # -----------------------------
 # == normal mode
 # -----------------------------
