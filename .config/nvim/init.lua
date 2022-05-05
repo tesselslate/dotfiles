@@ -1,5 +1,7 @@
--- neovim config
+-- eeovim config
 -- init.lua
+
+require("impatient")
 
 -- the basics
 require("commands")
@@ -37,3 +39,6 @@ require("mini.trailspace").setup({})
 
 -- dressing
 require("dressing")
+
+-- lightspeed
+require("lightspeed").init_highlight(true)

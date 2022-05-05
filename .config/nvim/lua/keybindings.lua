@@ -1,8 +1,8 @@
 -- neovim config
 -- keybindings.lua
 
-local setkey = function (mode, key, bind)
-    vim.api.nvim_set_keymap(mode, key, bind, { silent = true })
+local setkey = function (mode, key, bind, noremap)
+    vim.api.nvim_set_keymap(mode, key, bind, { noremap = noremap, silent = true })
 end
 
 -- =============
@@ -12,8 +12,11 @@ end
 -- delete previous word (ctrl + backspace)
 setkey("i", "<C-H>", "<C-w>")
 
--- escape
-setkey("i", "<C-x>", "<Esc>")
+-- escape (ctrl + x)
+setkey("i", "<C-x>", "<Esc>", true)
+
+-- unbind escape
+setkey("i", "<Esc>", "<Nop>")
 
 -- =============
 -- normal mode
@@ -33,11 +36,17 @@ setkey("n", "<Leader>lh", ":lua vim.lsp.buf.hover()<CR>")
 -- format (leader -> lf)
 setkey("n", "<Leader>lf", ":lua vim.lsp.buf.formatting()<CR>")
 
+-- code actions (leader -> lc)
+setkey("n", "<Leader>lc", ":CodeActionMenu<CR>")
+
 -- go to definition (gd)
 setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 
 -- go to references (gr)
 setkey("n", "gr", ":lua vim.lsp.buf.references()<CR>")
+
+-- toggle trouble (leader + ft)
+setkey("n", "<Leader>ft", ":TroubleToggle<CR>")
 
 -- == other binds ==
 -- leader key (space)

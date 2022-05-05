@@ -6,15 +6,7 @@ require("lualine").setup({
     options = {
         -- enable file icons
         icons_enabled = true,
-
         theme = vim.g.colors_name,
-
-        -- don't show lualine in various windows
-        disabled_filetypes = {
-            "DiffviewFiles",
-            "FloatingTerminal",
-            "NvimTree"
-        }
     },
     sections = {
         lualine_a = {"mode"},

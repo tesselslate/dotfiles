@@ -25,6 +25,7 @@ vim.opt.smartcase       = true          -- improve ignorecase behavior
 -- miscellaneous settings
 vim.opt.mouse           = "a"           -- enable mouse
 vim.opt.signcolumn      = "yes"         -- always enable sign column
+vim.opt.laststatus      = 3             -- global status
 vim.opt.showmode        = false         -- don't put --INSERT-- etc at bottom
 vim.opt.swapfile        = false         -- disable swapfile
 vim.opt.undofile        = true          -- undo across restarts

@@ -21,9 +21,6 @@ return require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons"
     }
 
-    -- goto-preview
-    use "rmagatti/goto-preview"
-
     -- code-action-menu
     use "weilbith/nvim-code-action-menu"
 
@@ -89,4 +86,7 @@ return require("packer").startup(function(use)
 
     -- startuptime
     use "tweekmonster/startuptime.vim"
+
+    -- impatient.nvim
+    use "lewis6991/impatient.nvim"
 end)
