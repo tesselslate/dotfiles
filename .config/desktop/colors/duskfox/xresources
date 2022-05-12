@@ -19,3 +19,21 @@
 *color13: #ccb1ed
 *color14: #a6dae3
 *color15: #e2e0f7
+
+! background
+dwm.normbgcolor: #232136
+
+! foreground
+dwm.normfgcolor: #e0def4
+
+! color1
+dwm.normbordercolor: #eb6f92
+
+! background
+dwm.selbgcolor: #232136
+
+! foreground
+dwm.selfgcolor: #e0def4
+
+! color2
+dwm.selbordercolor: #a3be8c

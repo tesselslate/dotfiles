@@ -2,7 +2,6 @@
 -- colors/init.lua
 
 local M = {}
-local loaded_scheme = {}
 
 -- recursively merge two tables
 local function merge(lhs, rhs)
@@ -20,7 +19,7 @@ end
 -- loads the given colorscheme, or the default if unspecified
 function M.load(scheme_name)
     -- return if this scheme is already loaded
-    if vim.g.colors_name and vim.g.colors_name == scheme_name then
+    if type(vim.g.colors_name) == "string" and vim.g.colors_name == scheme_name then
         return
     end
 
@@ -31,7 +30,11 @@ function M.load(scheme_name)
 
     -- get active colorscheme
     if scheme_name == nil then
-        scheme_name = os.getenv("COLORSCHEME")
+        -- clear lua pkg cache
+        package.loaded["theme"]["scheme"] = nil
+
+        -- load new scheme
+        scheme_name = require("theme.scheme")
         if scheme_name == nil or scheme_name:len() == 0 then
             scheme_name = "tokyonight_storm" -- fallback
         end
@@ -41,7 +44,9 @@ function M.load(scheme_name)
 
     -- load colorscheme
     local colorscheme = require("theme.colors." .. scheme_name)
-    loaded_scheme = colorscheme
+    if type(colorscheme) ~= "table" then
+        return
+    end
 
     -- load highlights
     -- based off of:
@@ -78,11 +83,6 @@ function M.load(scheme_name)
             vim.cmd(string.format("highlight %s %s", k, table.concat(opts, " ")))
         end
     end
-end
-
--- returns the current colorscheme.
-function M.current()
-    return loaded_scheme
 end
 
 return M
