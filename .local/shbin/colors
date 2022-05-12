@@ -6,8 +6,17 @@ if test (count $argv) -eq 1
     echo "set colorscheme to" $COLORSCHEME
 
     # apply colorscheme changes to fish and kitty
-    cp ~/.config/colors/kitty/$COLORSCHEME.conf ~/.config/kitty/colors.conf
-    cp ~/.config/colors/fish/$COLORSCHEME.fish ~/.config/fish/colors.fish
+    cp ~/.config/desktop/colors/$COLORSCHEME/kitty.conf ~/.config/kitty/colors.conf
+    cp ~/.config/desktop/colors/$COLORSCHEME/fish.fish ~/.config/fish/colors.fish
+    cp ~/.config/desktop/colors/$COLORSCHEME/xresources ~/.config/x11/xrdb-colors
+    
+    xrdb -merge ~/.config/x11/xrdb-colors
 else
-    echo "current colorscheme:" $COLORSCHEME
+    echo "  colors"
+    echo "      current colorscheme:" $COLORSCHEME
+    echo \n"  available colors"
+    
+    for f in (command ls ~/.config/desktop/colors)
+        echo "      " $f
+    end
 end
