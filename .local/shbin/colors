@@ -15,11 +15,13 @@ if test (count $argv) -eq 1
     #cp ~/.config/desktop/colors/$COLORSCHEME/xresources ~/.config/x11/xrdb-colors
     #xrdb -merge ~/.config/x11/xrdb-colors
 else
-    echo "  colors"
+    echo \n"  colors"
     echo "      current colorscheme:" $COLORSCHEME
     echo \n"  available colors"
     
     for f in (command ls ~/.config/desktop/colors)
         echo "      " $f
     end
+
+    echo
 end
