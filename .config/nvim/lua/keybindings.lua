@@ -62,9 +62,6 @@ setkey("n", "<Leader>r", ":Rel<CR>")
 -- open file tree (leader + t)
 setkey("n", "<Leader>t", ":NvimTreeToggle<CR>")
 
--- open floating terminal (leader + enter)
-setkey("n", "<Leader><CR>", ":Terminal<CR>")
-
 -- open live grep (leader + fs)
 setkey("n", "<Leader>fs", ":Telescope live_grep<CR>")
 

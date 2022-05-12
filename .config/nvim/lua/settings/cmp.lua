@@ -6,22 +6,46 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+local kind_presets = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+}
+
 -- begin setup
 local cmp = require("cmp")
 cmp.setup({
-    -- round documentation window border
-    window = {
-        documentation = {
-            border = "rounded"
-        },
-    },
-
     -- enable completion kind items
     formatting = {
         fields = {
             "kind", "abbr", "menu"
         },
-        format = require("helpers/cmp_icons")
+        format = function(_, vim_item)
+            vim_item.kind = string.format("%s ", kind_presets[vim_item.kind])
+            return vim_item
+        end
     },
 
     -- key mappings
