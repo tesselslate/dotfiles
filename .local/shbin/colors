@@ -12,8 +12,9 @@ if test (count $argv) -eq 1
     # apply colorscheme changes to neovim
     echo "return \"$COLORSCHEME\"" > ~/.config/nvim/lua/theme/scheme.lua
 
-    #cp ~/.config/desktop/colors/$COLORSCHEME/xresources ~/.config/x11/xrdb-colors
-    #xrdb -merge ~/.config/x11/xrdb-colors
+    # apply to xresources
+    cp ~/.config/desktop/colors/$COLORSCHEME/xresources ~/.config/x11/xrdb-colors
+    xrdb -merge ~/.config/x11/xrdb-colors
 else
     echo \n"  colors"
     echo "      current colorscheme:" $COLORSCHEME
