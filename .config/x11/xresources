@@ -3,3 +3,31 @@ Xcursor.size: 32
 
 rofi.run-command: fish -c '{cmd}'
 rofi.run-list-command: 'fish -c functions'
+
+*background: #1a1b26
+*foreground: #c0caf5
+
+*color0: #15161E
+*color1: #f7768e
+*color2: #9ece6a
+*color3: #e0af68
+*color4: #7aa2f7
+*color5: #bb9af7
+*color6: #7dcfff
+*color7: #a9b1d6
+
+*color8: #414868
+*color9: #f7768e
+*color10: #9ece6a
+*color11: #e0af68
+*color12: #7aa2f7
+*color13: #bb9af7
+*color14: #7dcfff
+*color15: #c0caf5
+
+dwm.normbgcolor: #1a1b26
+dwm.normfgcolor: #c0caf5
+dwm.normbordercolor: #f7768e
+dwm.selbgcolor: #1a1b26
+dwm.selfgcolor: #c0caf5
+dwm.selbordercolor: #9ece6a

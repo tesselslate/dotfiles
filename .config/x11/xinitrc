@@ -10,7 +10,6 @@ fi
 
 # xresources
 xrdb -merge ~/.config/x11/xresources
-xrdb -merge ~/.config/x11/xrdb-colors
 
 # start
 picom --xrender-sync-fence --experimental-backends &
