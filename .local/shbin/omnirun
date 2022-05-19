@@ -6,7 +6,6 @@ set __OMNIRUN_IN $__OMNIRUN_IN "pavucontrol\0icon\x1faudio-volume-medium\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "polymc\0icon\x1forg.polymc.PolyMC\n"
 
 set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
-echo $__OMNIRUN_RES > /tmp/a
 switch $__OMNIRUN_RES
     case ' firefox'
         firefox & disown
