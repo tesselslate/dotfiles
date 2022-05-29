@@ -9,7 +9,11 @@ function infzf
     end
 
     # get fzf result
-    set __fzfres (fd -H . $__last_word | fzf)
+    if test -d $__last_word
+        set __fzfres (fd -H . $__last_word | sed -E 's|^\./||' | fzf)
+    else
+        set __fzfres (fd -H . | sed -E 's|^\./||' | grep "^$__last_word" | fzf)
+    end
 
     # if not successful, do nothing
     if test $status -ne 0
