@@ -1,0 +1,3 @@
+#!/usr/bin/fish
+
+unzip $argv[1] -d /mnt/ssd/osu/Songs/(basename $argv[1] .osz)

@@ -1,0 +1,3 @@
+#!/usr/bin/fish
+set -x HOME ~/.local/share/home-ext/
+/usr/bin/steam
