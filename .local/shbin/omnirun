@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 
 set __OMNIRUN_IN " firefox\0icon\x1ffirefox\n"
+set __OMNIRUN_IN $__OMNIRUN_IN "ncmpcpp\0icon\x1faudio-volume-medium\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "obs\0icon\x1fcom.obsproject.Studio\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "pavucontrol\0icon\x1faudio-volume-medium\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "polymc\0icon\x1forg.polymc.PolyMC\n"
@@ -10,6 +11,8 @@ set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
 switch $__OMNIRUN_RES
     case ' firefox'
         firefox & disown
+    case ' ncmpcpp'
+        kitty ncmpcpp
     case ' obs'
         obs & disown
     case ' pavucontrol'
