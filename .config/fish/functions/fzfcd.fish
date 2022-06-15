@@ -1,5 +1,16 @@
 function fzfcd
-    set __res (fd -t d -H | fzf)
+    # get last word of commandline
+    set __buf (commandline -b)
+    set __words (string split ' ' $__buf)
+    set __last_word $__words[-1]
+
+    if test (string length $__last_word) = 0
+        set __res (fd -t d -H | sed -E 's|^\./||' | fzf)
+    else
+        set __res (fd -t d -H | sed -E 's|^\./||' | fzf -q "$__last_word")
+        commandline -f kill-whole-line
+    end
+
     if test $status -ne 0
         commandline -f repaint
         return
