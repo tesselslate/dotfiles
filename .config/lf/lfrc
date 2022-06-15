@@ -21,10 +21,13 @@ set hidden
 # == lf mappings
 # -----------------------------
 
+# ctrl-a => select all
+map <c-a> :select_all
+
 # ctrl-f => fuzzy find
 map <c-f> :fzf_jump
 
-# ctrl-tilde => home
+# tilde => home
 map ` :cd ~
 
 # enter => open file
@@ -41,13 +44,13 @@ cmd extract ${{
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
         *.tar.gz|*.tgz) tar xzvf $f;;
         *.tar.xz|*.txz) tar xJvf $f;;
-        *.zip) unzip $f;;
+        *.zip|*.osz) unzip $f;;
     esac
 }}
 
 # fzf jump
 cmd fzf_jump ${{
-    res="$(fd | fzf | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(fd -H . "$PWD" | fzf | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
     elif [ -f "$res" ] ; then
@@ -57,6 +60,9 @@ cmd fzf_jump ${{
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
+
+# select all
+cmd select_all :unselect; invert
 
 # trash
 cmd trash %set -f; mv $fx ~/.local/share/trash
