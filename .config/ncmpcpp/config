@@ -1,6 +1,7 @@
 ##### directories ######
 ncmpcpp_directory = ~/.config/ncmpcpp
 mpd_music_dir = /mnt/ssd/mpd/music
+lyrics_directory = /tmp
 
 ##### settings #####
 mpd_host = localhost
