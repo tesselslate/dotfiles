@@ -11,6 +11,9 @@ bind -M insert  \cf 'infzf'
 # ctrl-p => fzf and cd
 bind -M insert  \cp 'fzfcd'
 
+# ctrl-l => right arrow
+bind -M insert  \f forward-char
+
 # ctrl-o => open lf
 bind -M insert  \co 'lfcd'
 
