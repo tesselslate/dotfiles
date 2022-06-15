@@ -10,9 +10,9 @@ function infzf
 
     # get fzf result
     if test -d $__last_word
-        set __fzfres (fd -H . $__last_word | sed -E 's|^\./||' | fzf)
+        set __fzfres (fd -H . "$__last_word" | sed -E 's|^\./||' | fzf)
     else
-        set __fzfres (fd -H . | sed -E 's|^\./||' | grep "^$__last_word" | fzf)
+        set __fzfres (fd -H . | sed -E 's|^\./||' | fzf -q "$__last_word")
     end
 
     # if not successful, do nothing
