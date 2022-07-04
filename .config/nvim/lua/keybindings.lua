@@ -10,7 +10,7 @@ end
 -- =============
 
 -- delete previous word (ctrl + backspace)
-setkey("i", "<C-H>", "<C-w>")
+setkey("i", "<C-BS>", "<C-w>")
 
 -- escape (ctrl + x)
 setkey("i", "<C-x>", "<Esc>", true)
