@@ -1,0 +1,41 @@
+[general]
+type = "wall"
+count_resets = true
+resets_file = "/mnt/hdd/mc/resetcount"
+affinity = "alternate"
+
+[hooks]
+wall_reset = "paplay /mnt/hdd/mc/reset.wav"
+lock = "paplay /mnt/hdd/mc/lock.wav"
+unlock = "paplay /mnt/hdd/mc/lock.wav"
+
+[obs]
+enabled = true
+port = 4440
+password = ""
+
+[reset]
+set_settings = true
+delay = 50
+unpause_on_focus = true
+
+[minecraft]
+fov = 70
+rd = 12
+sensitivity = 38
+
+[keybinds]
+focus = "Ctrl-Shift-F"
+reset = "Ctrl-Shift-D"
+wall_reset = ""
+wall_reset_others = "Ctrl-Shift"
+wall_play = "Shift"
+wall_lock = "Ctrl"
+
+[wall]
+stretch_windows = true
+stretch_width = 1920
+stretch_height = 320
+use_mouse = true
+goto_locked = true
+no_play_generating = true
