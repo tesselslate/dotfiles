@@ -5,9 +5,9 @@ resets_file = "/mnt/hdd/mc/resetcount"
 affinity = "alternate"
 
 [hooks]
-wall_reset = "paplay /mnt/hdd/mc/reset.wav"
-lock = "paplay /mnt/hdd/mc/lock.wav"
-unlock = "paplay /mnt/hdd/mc/lock.wav"
+wall_reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
+lock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
+unlock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
 
 [obs]
 enabled = true
@@ -16,12 +16,14 @@ password = ""
 
 [reset]
 set_settings = true
-delay = 50
+menu_delay = 30
+pause_delay = 0
 unpause_on_focus = true
 
 [minecraft]
 fov = 70
-rd = 12
+rd = 10
+ed = 50
 sensitivity = 38
 
 [keybinds]
