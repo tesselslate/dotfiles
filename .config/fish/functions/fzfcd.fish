@@ -6,6 +6,9 @@ function fzfcd
 
     if test (string length $__last_word) = 0
         set __res (fd -t d -H | sed -E 's|^\./||' | fzf)
+    else if test (string sub -l 1 $__last_word) = '/'
+        set __res (fd -t d -H . / | sed -E 's|^\./||' | fzf -q "$__last_word")
+        commandline -f kill-whole-line
     else
         set __res (fd -t d -H | sed -E 's|^\./||' | fzf -q "$__last_word")
         commandline -f kill-whole-line
