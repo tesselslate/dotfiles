@@ -26,12 +26,13 @@ set -x GOPATH                       $XDG_DATA_HOME/go
 
 set -x GTK2_RC_FILES                $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x XAUTHORITY                   $XDG_DATA_HOME/Xauthority
-set -x _JAVA_OPTIONS                -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java
 
 set -x __GL_SHADER_DISK_CACHE_PATH  $XDG_DATA_HOME/nv
 
-# fix java guis being garbage
+# i hate java
 set -x AWT_TOOLKIT                  MToolkit
+set -x _JAVA_OPTIONS                -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Dswing.aatext=TRUE"
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=on"
+set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Duser.home=/home/dog/.local/share/home-ext"
 set -x _JAVA_AWT_WM_NONREPARENTING 1
