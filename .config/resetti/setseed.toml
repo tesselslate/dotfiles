@@ -14,11 +14,6 @@ set_settings = true
 delay = 50
 unpause_on_focus = false
 
-[minecraft]
-fov = 70
-rd = 5
-sensitivity = 38
-
 [keybinds]
 focus = "Ctrl-Shift-F"
 reset = "Ctrl-Shift-D"

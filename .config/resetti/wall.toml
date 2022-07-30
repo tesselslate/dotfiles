@@ -16,15 +16,8 @@ password = ""
 
 [reset]
 set_settings = true
-menu_delay = 30
-pause_delay = 0
+delay = 20
 unpause_on_focus = true
-
-[minecraft]
-fov = 70
-rd = 10
-ed = 50
-sensitivity = 38
 
 [keybinds]
 focus = "Ctrl-Shift-F"
