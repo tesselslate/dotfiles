@@ -1,0 +1,13 @@
+#!/usr/bin/fish
+
+if test (count $argv) -ne 3
+    echo "mcopts [MEM_MB] [JVM] [CMD]"
+    exit
+end
+
+for f in /mnt/hdd/mc/instances/16_MULTI*
+    sed -i "/MinMemAlloc/c\MinMemAlloc=$argv[1]" $f/instance.cfg
+    sed -i "/MaxMemAlloc/c\MaxMemAlloc=$argv[1]" $f/instance.cfg
+    sed -i "/JvmArgs/c\JvmArgs=$argv[2]" $f/instance.cfg
+    sed -i "/WrapperCommand/c\WrapperCommand=$argv[3]" $f/instance.cfg
+end
