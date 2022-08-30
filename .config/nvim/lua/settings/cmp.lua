@@ -1,5 +1,5 @@
 -- neovim config
--- settings/nvim-cmp.lualine
+-- settings/nvim-cmp.lua
 
 -- helper functions
 local feedkey = function(key, mode)

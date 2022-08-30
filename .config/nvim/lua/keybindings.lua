@@ -45,8 +45,8 @@ setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 -- go to references (gr)
 setkey("n", "gr", ":lua vim.lsp.buf.references()<CR>")
 
--- toggle trouble (leader + ft)
-setkey("n", "<Leader>ft", ":TroubleToggle<CR>")
+-- toggle trouble (leader + d)
+setkey("n", "<Leader>d", ":TroubleToggle<CR>")
 
 -- == other binds ==
 -- leader key (space)
