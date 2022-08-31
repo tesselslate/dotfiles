@@ -2,7 +2,6 @@
 type = "wall"
 count_resets = true
 resets_file = "/mnt/hdd/mc/resetcount"
-affinity = "alternate"
 
 [hooks]
 wall_reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
@@ -16,8 +15,9 @@ password = ""
 
 [reset]
 set_settings = true
-delay = 20
+delay = 50
 unpause_on_focus = true
+click_on_focus = false
 
 [keybinds]
 focus = "Ctrl-Shift-F"
@@ -31,6 +31,18 @@ wall_lock = "Ctrl"
 stretch_windows = true
 stretch_width = 1920
 stretch_height = 320
+unstretch_width = 1920
+unstretch_height = 1080
 use_mouse = true
 goto_locked = true
 no_play_generating = true
+sleepbg_lock = true
+sleepbg_lock_path = "/home/dog/.local/share/home-ext"
+
+[advanced_wall]
+affinity = true
+affinity_idle = 1
+affinity_low = 4
+affinity_mid = 8
+affinity_active = 12
+low_threshold = 20
