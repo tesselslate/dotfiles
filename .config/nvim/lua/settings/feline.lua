@@ -1,31 +1,61 @@
 -- neovim config
 -- settings/feline.lua
 
-local bit = require("bit")
 local colors = require("theme-wrapper").get_colors()
 local components = {}
 local feline = require("feline")
 local vimode = require("feline.providers.vi_mode")
 
+local function dyn_hl(hl)
+    return function()
+        local ret = {}
+        for key, val in pairs(hl) do
+            if type(val) == "function" then
+                local val2 = val()
+                if colors[val2] ~= nil then
+                    ret[key] = colors[val2]
+                else
+                    ret[key] = val2
+                end
+            else
+                if colors[val] ~= nil then
+                    ret[key] = colors[val]
+                else
+                    ret[key] = val
+                end
+            end
+        end
+        return ret
+    end
+end
+
 local function get_hl(name)
-    local hl = vim.api.nvim_get_hl_by_name(name, true)
-    local r = bit.band(bit.rshift(hl.foreground, 16), 0xff)
-    local g = bit.band(bit.rshift(hl.foreground, 8), 0xff)
-    local b = bit.band(hl.foreground, 0xff)
-    return string.format("#%02X%02X%02X", r, g, b)
+    return function()
+        local hl = vim.api.nvim_get_hl_by_name(name, true)
+        return {
+            fg = string.format("#%06X", hl.foreground),
+            bg = colors["bg"]
+        }
+    end
 end
 
 local function vim_hl()
     return {
         name = vimode.get_mode_highlight_name(),
-        fg = vimode.get_mode_color()
+        fg = colors[vimode.get_mode_color()]
     }
 end
 
-local diag_err = get_hl("DiagnosticError")
-local diag_warn = get_hl("DiagnosticWarn")
-local diag_hint = get_hl("DiagnosticHint")
-local diag_info = get_hl("DiagnosticInfo")
+local default_hl = dyn_hl({
+    fg = "fg",
+    bg = "bg"
+})
+
+local default_sep = {
+    str = " ",
+    hl = default_hl
+}
+
 components.active = {
     -- left
     {
@@ -42,14 +72,12 @@ components.active = {
                 }
             },
             icon = "",
-            hl = function()
-                return {
-                    name = vimode.get_mode_highlight_name(),
-                    fg = "bg",
-                    bg = vimode.get_mode_color(),
-                    style = "bold"
-                }
-            end,
+            hl = dyn_hl({
+                name = vimode.get_mode_highlight_name,
+                fg = "bg",
+                bg = vimode.get_mode_color,
+                style = "bold"
+            })
         },
         {
             provider = "█",
@@ -58,48 +86,42 @@ components.active = {
 
         -- git branch
         {
-            left_sep = " ",
-            right_sep = " ",
-            provider = "git_branch"
+            left_sep = default_sep,
+            right_sep = default_sep,
+            provider = "git_branch",
+            hl = default_hl
         },
 
         -- lsp errors
         {
             provider = "diagnostic_errors",
-            hl = {
-                fg = diag_err,
-            }
+            hl = get_hl("DiagnosticError")
         },
 
         -- lsp warnings
         {
             provider = "diagnostic_warnings",
-            hl = {
-                fg = diag_warn,
-            }
+            hl = get_hl("DiagnosticWarn")
         },
 
         -- lsp hints
         {
             provider = "diagnostic_hints",
-            hl = {
-                fg = diag_hint,
-            }
+            hl = get_hl("DiagnosticHint")
         },
 
         -- lsp infos
         {
             provider = "diagnostic_info",
-            hl = {
-                fg = diag_info,
-            }
+            hl = get_hl("DiagnosticInfo")
         },
 
         -- filename
         {
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = default_sep,
+            right_sep = default_sep,
             provider = "file_info",
+            hl = default_hl
         },
 
         -- blank
@@ -130,16 +152,18 @@ components.active = {
                     bg = "NONE"
                 }
             },
-            hl = {
-                bg = "NONE"
-            }
+            hl = dyn_hl({
+                bg = "NONE",
+                fg = "fg"
+            })
         },
 
         -- percentage
         {
             provider = "line_percentage",
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = default_sep,
+            right_sep = default_sep,
+            hl = default_hl
         },
 
         -- location
@@ -149,13 +173,11 @@ components.active = {
         },
         {
             provider = "position",
-            hl = function()
-                return {
-                    name = vimode.get_mode_highlight_name(),
-                    fg = "bg",
-                    bg = vimode.get_mode_color(),
-                }
-            end
+            hl = dyn_hl({
+                name = vimode.get_mode_highlight_name,
+                fg = "bg",
+                bg = vimode.get_mode_color,
+            })
         },
         {
             provider = "▊█",
@@ -167,18 +189,27 @@ components.active = {
 -- there will never be an inactive statusline because it's global
 components.inactive = components.active
 
-feline.setup({
-    components = components,
-    vi_mode_colors = {
-        NORMAL = "skyblue",
-        OP = "skyblue",
-        INSERT = "green",
-        COMMAND = "orange",
-        VISUAL = "magenta",
-        LINES = "magenta",
-        BLOCK = "magenta",
-        REPLACE = "red",
-        ["V-REPLACE"] = "red",
-    }
-})
-feline.use_theme(colors)
+local M = {}
+
+M.load = function()
+    feline.setup({
+        components = components,
+        vi_mode_colors = {
+            NORMAL = "skyblue",
+            OP = "skyblue",
+            INSERT = "green",
+            COMMAND = "orange",
+            VISUAL = "magenta",
+            LINES = "magenta",
+            BLOCK = "magenta",
+            REPLACE = "red",
+            ["V-REPLACE"] = "red",
+        }
+    })
+end
+
+M.set_colors = function()
+    colors = require("theme-wrapper").get_colors()
+end
+
+return M

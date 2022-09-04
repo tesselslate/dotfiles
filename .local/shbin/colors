@@ -5,10 +5,14 @@ if test (count $argv) -eq 1
     set -U COLORSCHEME $argv[1]
     echo "set colorscheme to" $COLORSCHEME
 
-    # apply colorscheme changes to fish and kitty
+    # apply colorscheme changes
     cp ~/.config/desktop/colors/$COLORSCHEME/kitty.conf ~/.config/kitty/colors.conf
     cp ~/.config/desktop/colors/$COLORSCHEME/fish.fish ~/.config/fish/colors.fish
     cp ~/.config/desktop/colors/$COLORSCHEME/neovim.lua ~/.config/nvim/lua/theme.lua
+
+    # signal color changes
+    killall -USR1 kitty
+    echo $COLORSCHEME > ~/.config/colorscheme
 else
     echo \n"  colors"
     echo "      current colorscheme:" $COLORSCHEME

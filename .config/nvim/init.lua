@@ -9,9 +9,6 @@ require("keybindings")
 require("plugins")
 require("options")
 
--- load colors
-require("theme-wrapper").load()
-
 -- plugin settings
 require("settings.gitsigns")
 require("settings.lsp")
@@ -20,9 +17,16 @@ require("settings.nvim-tree")
 require("settings.telescope")
 require("settings.treesitter")
 require("settings.which-key")
-require("settings.feline")
 require("settings.mini")
 require("settings.etc")
+
+-- load colors
+local theme_wrapper = require("theme-wrapper")
+theme_wrapper.load()
+theme_wrapper.watch()
+
+-- load statusline
+require("settings.feline").load()
 
 -- filetype.lua
 vim.g.do_filetype_lua = 1

@@ -14,363 +14,369 @@ local colors = {
     yellow = "#ebcb8b"
 }
 
-vim.api.nvim_set_hl(0, "AerialGuide", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "AerialLine", { link = "Search" })
-vim.api.nvim_set_hl(0, "Bold", { bold = true })
-vim.api.nvim_set_hl(0, "Boolean", { link = "Number" })
-vim.api.nvim_set_hl(0, "BufferCurrent", { bg = "#7e8188", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "BufferCurrentIndex", { bg = "#7e8188", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "BufferCurrentMod", { bg = "#7e8188", fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "BufferCurrentSign", { bg = "#7e8188", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "BufferCurrentTarget", { bg = "#7e8188", fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "BufferInactive", { bg = "#232831", fg = "#60728a" })
-vim.api.nvim_set_hl(0, "BufferInactiveIndex", { bg = "#232831", fg = "#60728a" })
-vim.api.nvim_set_hl(0, "BufferInactiveMod", { bg = "#232831", fg = "#54524f" })
-vim.api.nvim_set_hl(0, "BufferInactiveSign", { bg = "#232831", fg = "#444c5e" })
-vim.api.nvim_set_hl(0, "BufferInactiveTarget", { bg = "#232831", fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "BufferTabpage", { bg = "#232831", fg = "#444c5e" })
-vim.api.nvim_set_hl(0, "BufferTabpages", { bg = "#232831" })
-vim.api.nvim_set_hl(0, "BufferVisible", { bg = "#232831", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "BufferVisibleIndex", { bg = "#232831", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "BufferVisibleMod", { bg = "#232831", fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "BufferVisibleSign", { bg = "#232831", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "BufferVisibleTarget", { bg = "#232831", fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "Character", { link = "String" })
-vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#232831", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#232831", fg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7e8188", strikethrough = true })
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "CmpItemKindClass", { link = "Type" })
-vim.api.nvim_set_hl(0, "CmpItemKindConstant", { link = "TSConstant" })
-vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { link = "Function" })
-vim.api.nvim_set_hl(0, "CmpItemKindDefault", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "CmpItemKindEnum", { link = "Constant" })
-vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { link = "TSField" })
-vim.api.nvim_set_hl(0, "CmpItemKindEvent", { link = "Constant" })
-vim.api.nvim_set_hl(0, "CmpItemKindField", { link = "TSField" })
-vim.api.nvim_set_hl(0, "CmpItemKindFunction", { link = "Function" })
-vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "Constant" })
-vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { link = "Identifier" })
-vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "Function" })
-vim.api.nvim_set_hl(0, "CmpItemKindModule", { link = "TSNamespace" })
-vim.api.nvim_set_hl(0, "CmpItemKindOperator", { link = "Operator" })
-vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "TSProperty" })
-vim.api.nvim_set_hl(0, "CmpItemKindReference", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "CmpItemKindStruct", { link = "Type" })
-vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { link = "TSField" })
-vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "Constant" })
-vim.api.nvim_set_hl(0, "CmpItemKindValue", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "CmpItemKindVariable", { link = "TSVariable" })
-vim.api.nvim_set_hl(0, "CmpItemMenu", { link = "Comment" })
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#39404f" })
-vim.api.nvim_set_hl(0, "Comment", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "Conceal", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "Conditional", { fg = "#c895bf" })
-vim.api.nvim_set_hl(0, "Constant", { fg = "#d89079" })
-vim.api.nvim_set_hl(0, "CurSearch", { link = "IncSearch" })
-vim.api.nvim_set_hl(0, "Cursor", { bg = "#cdcecf", fg = "#2e3440" })
-vim.api.nvim_set_hl(0, "CursorColumn", { link = "CursorLine" })
-vim.api.nvim_set_hl(0, "CursorIM", { link = "Cursor" })
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#444c5e" })
-vim.api.nvim_set_hl(0, "CursorLineNr", { bold = true, fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "DapUIBreakpointsCurrentLine", { bold = true, fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "DapUIBreakpointsDisabledLine", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "DapUIBreakpointsInfo", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "DapUIBreakpointsLine", { link = "DapUILineNumber" })
-vim.api.nvim_set_hl(0, "DapUIBreakpointsPath", { fg = "#93ccdc" })
-vim.api.nvim_set_hl(0, "DapUIDecoration", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "DapUIFloatBorder", { link = "FloatBorder" })
-vim.api.nvim_set_hl(0, "DapUIFrameName", { link = "Normal" })
-vim.api.nvim_set_hl(0, "DapUILineNumber", { link = "Number" })
-vim.api.nvim_set_hl(0, "DapUIModifiedValue", { bold = true, fg = "#e5e9f0" })
-vim.api.nvim_set_hl(0, "DapUIScope", { fg = "#93ccdc" })
-vim.api.nvim_set_hl(0, "DapUISource", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "DapUIStoppedThread", { fg = "#93ccdc" })
-vim.api.nvim_set_hl(0, "DapUIThread", { link = "String" })
-vim.api.nvim_set_hl(0, "DapUIType", { link = "Type" })
-vim.api.nvim_set_hl(0, "DapUIValue", { fg = "#e5e9f0" })
-vim.api.nvim_set_hl(0, "DapUIVariable", { fg = "#e5e9f0" })
-vim.api.nvim_set_hl(0, "DapUIWatchesEmpty", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "DapUIWatchesError", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "DapUIWatchesValue", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "DashboardCenter", { link = "String" })
-vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#d89079", italic = true })
-vim.api.nvim_set_hl(0, "DashboardHeader", { link = "Title" })
-vim.api.nvim_set_hl(0, "DashboardShortCut", { link = "Identifier" })
-vim.api.nvim_set_hl(0, "Debug", { link = "Special" })
-vim.api.nvim_set_hl(0, "Define", { link = "PreProc" })
-vim.api.nvim_set_hl(0, "Delimiter", { link = "Special" })
-vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "DiagnosticSignError", { link = "DiagnosticError" })
-vim.api.nvim_set_hl(0, "DiagnosticSignHint", { link = "DiagnosticHint" })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { link = "DiagnosticInfo" })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { link = "DiagnosticWarn" })
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true })
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true })
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true })
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "#4b3d48", fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "#45504f", fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "#3f4a5a", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "#54524f", fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#3c4548" })
-vim.api.nvim_set_hl(0, "DiffChange", { bg = "#364150" })
-vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#403843" })
-vim.api.nvim_set_hl(0, "DiffText", { bg = "#3d515e" })
-vim.api.nvim_set_hl(0, "Directory", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#2e3440" })
-vim.api.nvim_set_hl(0, "Error", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "Exception", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "FernBranchText", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "FidgetTask", { link = "LineNr" })
-vim.api.nvim_set_hl(0, "FidgetTitle", { link = "Title" })
-vim.api.nvim_set_hl(0, "Float", { link = "Number" })
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "FocusedSymbol", { link = "Search" })
-vim.api.nvim_set_hl(0, "FoldColumn", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "Folded", { bg = "#39404f", fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "Function", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "GitGutterAdd", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "GitGutterChange", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "GitGutterDelete", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "GlyphPalette0", { fg = "#3b4252" })
-vim.api.nvim_set_hl(0, "GlyphPalette1", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "GlyphPalette10", { fg = "#b1d196" })
-vim.api.nvim_set_hl(0, "GlyphPalette11", { fg = "#f0d399" })
-vim.api.nvim_set_hl(0, "GlyphPalette12", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "GlyphPalette13", { fg = "#c895bf" })
-vim.api.nvim_set_hl(0, "GlyphPalette14", { fg = "#93ccdc" })
-vim.api.nvim_set_hl(0, "GlyphPalette15", { fg = "#e7ecf4" })
-vim.api.nvim_set_hl(0, "GlyphPalette2", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "GlyphPalette3", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "GlyphPalette4", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "GlyphPalette5", { fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "GlyphPalette6", { fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "GlyphPalette7", { fg = "#e7ecf4" })
-vim.api.nvim_set_hl(0, "GlyphPalette8", { fg = "#465780" })
-vim.api.nvim_set_hl(0, "GlyphPalette9", { fg = "#d06f79" })
-vim.api.nvim_set_hl(0, "HopNextKey", { bold = true, fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "HopNextKey1", { bold = true, fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#668aab" })
-vim.api.nvim_set_hl(0, "HopUnmatched", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "Identifier", { fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "IncSearch", { bg = "#a3be8c", fg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "Include", { link = "PreProc" })
-vim.api.nvim_set_hl(0, "Italic", { italic = true })
-vim.api.nvim_set_hl(0, "Keyword", { fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "Label", { link = "Conditional" })
-vim.api.nvim_set_hl(0, "LightspeedGreyWash", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspCodeLens", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "LspCodeLensSeparator", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspFloatWinBorder", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#232831" })
-vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "LspReferenceText", { bg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "LspSagaBorderTitle", { link = "Title" })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionBorder", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionContent", { link = "String" })
-vim.api.nvim_set_hl(0, "LspSagaCodeActionTitle", { link = "Title" })
-vim.api.nvim_set_hl(0, "LspSagaDefPreviewBorder", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspSagaFinderSelection", { fg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "LspSagaHoverBorder", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspSagaRenameBorder", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspSagaSignatureHelpBorder", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { fg = "#4f6074" })
-vim.api.nvim_set_hl(0, "LspTroubleCount", { bg = "#7e8188", fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "LspTroubleNormal", { bg = "#232831", fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "LspTroubleText", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "Macro", { link = "PreProc" })
-vim.api.nvim_set_hl(0, "MatchParen", { bold = true, fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "ModeMsg", { bold = true, fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "ModesCopy", { bg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "ModesDelete", { bg = "#bf616a" })
-vim.api.nvim_set_hl(0, "ModesInsert", { bg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "ModesVisual", { bg = "#b48ead" })
-vim.api.nvim_set_hl(0, "MoreMsg", { bold = true, fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NeoTreeDimText", { link = "Conceal" })
-vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#668aab" })
-vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNameOpened", { fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "NeoTreeGitConflict", { fg = "#c9826b", italic = true })
-vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "NeoTreeGitIgnored", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { fg = "#9d7495" })
-vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#232831", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { link = "NeoTreeNormal" })
-vim.api.nvim_set_hl(0, "NeoTreeRootName", { bold = true, fg = "#c9826b" })
-vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { fg = "#a96ca5" })
-vim.api.nvim_set_hl(0, "NeogitBranch", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "NeogitDiffAdd", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", { bg = "#3c4548" })
-vim.api.nvim_set_hl(0, "NeogitDiffContextHighlight", { bg = "#364150" })
-vim.api.nvim_set_hl(0, "NeogitDiffDelete", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "NeogitDiffDeleteHighlight", { bg = "#403843" })
-vim.api.nvim_set_hl(0, "NeogitHunkHeader", { bg = "#444c5e", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NeogitHunkHeaderHighlight", { bg = "#3e4a5b", fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NeogitNotificationError", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "NeogitNotificationInfo", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NeogitNotificationWarning", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "NeogitRemote", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "NonText", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "Normal", { fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#232831", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "#2e3440", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { fg = "#687966" })
-vim.api.nvim_set_hl(0, "NotifyDEBUGIcon", { link = "NotifyDEBUGTitle" })
-vim.api.nvim_set_hl(0, "NotifyDEBUGTitle", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "NotifyERRORBorder", { fg = "#764a55" })
-vim.api.nvim_set_hl(0, "NotifyERRORIcon", { link = "NotifyERRORTitle" })
-vim.api.nvim_set_hl(0, "NotifyERRORTitle", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "NotifyINFOBorder", { fg = "#586a80" })
-vim.api.nvim_set_hl(0, "NotifyINFOIcon", { link = "NotifyINFOTitle" })
-vim.api.nvim_set_hl(0, "NotifyINFOTitle", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "NotifyTRACEIcon", { link = "NotifyTRACETitle" })
-vim.api.nvim_set_hl(0, "NotifyTRACETitle", { fg = "#60728a" })
-vim.api.nvim_set_hl(0, "NotifyWARNBorder", { fg = "#8c7f66" })
-vim.api.nvim_set_hl(0, "NotifyWARNIcon", { link = "NotifyWARNTitle" })
-vim.api.nvim_set_hl(0, "NotifyWARNTitle", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "Number", { fg = "#c9826b" })
-vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "NvimTreeGitMerge", { fg = "#c9826b" })
-vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { link = "NvimTreeGitDeleted" })
-vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { link = "NvimTreeGitStaged" })
-vim.api.nvim_set_hl(0, "NvimTreeImageFile", { fg = "#bbc3d4" })
-vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "#232831", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { fg = "#d092ce" })
-vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { bold = true, fg = "#c9826b" })
-vim.api.nvim_set_hl(0, "NvimTreeSpecialFile", { fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "NvimTreeSymlink", { fg = "#a96ca5" })
-vim.api.nvim_set_hl(0, "NvimTreeVertSplit", { link = "VertSplit" })
-vim.api.nvim_set_hl(0, "Operator", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#3e4a5b", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "PmenuSbar", { link = "Pmenu" })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#4f6074" })
-vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#4f6074" })
-vim.api.nvim_set_hl(0, "PounceAccept", { bg = "#d89079", fg = "#2e3440" })
-vim.api.nvim_set_hl(0, "PounceAcceptBest", { bg = "#93ccdc", fg = "#2e3440" })
-vim.api.nvim_set_hl(0, "PounceGap", { bg = "#3e4a5b", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "PounceMatch", { bg = "#4f6074", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "PreCondit", { link = "PreProc" })
-vim.api.nvim_set_hl(0, "PreProc", { fg = "#d092ce" })
-vim.api.nvim_set_hl(0, "Question", { link = "MoreMsg" })
-vim.api.nvim_set_hl(0, "QuickFixLine", { link = "CursorLine" })
-vim.api.nvim_set_hl(0, "Repeat", { link = "Conditional" })
-vim.api.nvim_set_hl(0, "Search", { bg = "#4f6074", fg = "#cdcecf" })
-vim.api.nvim_set_hl(0, "SignColumn", { fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "SignColumnSB", { link = "SignColumn" })
-vim.api.nvim_set_hl(0, "Sneak", { bg = "#b48ead", fg = "#232831" })
-vim.api.nvim_set_hl(0, "SneakScope", { bg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "Special", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "SpecialChar", { link = "Special" })
-vim.api.nvim_set_hl(0, "SpecialComment", { link = "Special" })
-vim.api.nvim_set_hl(0, "SpecialKey", { link = "NonText" })
-vim.api.nvim_set_hl(0, "SpellBad", { undercurl = true })
-vim.api.nvim_set_hl(0, "SpellCap", { undercurl = true })
-vim.api.nvim_set_hl(0, "SpellLocal", { undercurl = true })
-vim.api.nvim_set_hl(0, "SpellRare", { undercurl = true })
-vim.api.nvim_set_hl(0, "Statement", { fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "#232831", fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#232831", fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "StorageClass", { link = "Type" })
-vim.api.nvim_set_hl(0, "String", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "Structure", { link = "Type" })
-vim.api.nvim_set_hl(0, "Substitute", { bg = "#bf616a", fg = "#2e3440" })
-vim.api.nvim_set_hl(0, "SymbolOutlineConnector", { link = "Conceal" })
-vim.api.nvim_set_hl(0, "TSAttribute", { link = "Constant" })
-vim.api.nvim_set_hl(0, "TSConstBuiltin", { fg = "#d89079" })
-vim.api.nvim_set_hl(0, "TSConstructor", { fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "TSDanger", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "TSError", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "TSField", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "TSFuncBuiltin", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "TSFuncMacro", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "TSKeywordFunction", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "TSKeywordOperator", { bold = true, fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "TSNamespace", { fg = "#93ccdc" })
-vim.api.nvim_set_hl(0, "TSNote", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "TSOperator", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "TSProperty", { link = "TSField" })
-vim.api.nvim_set_hl(0, "TSPunctBracket", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "TSPunctDelimiter", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "TSPunctSpecial", { fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "TSStringEscape", { bold = true, fg = "#f0d399" })
-vim.api.nvim_set_hl(0, "TSStringRegex", { fg = "#f0d399" })
-vim.api.nvim_set_hl(0, "TSTextReference", { fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "TSTypeBuiltin", { fg = "#93ccdc" })
-vim.api.nvim_set_hl(0, "TSURI", { bold = true, fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "TSVariable", { fg = "#e5e9f0" })
-vim.api.nvim_set_hl(0, "TSVariableBuiltin", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "TSWarning", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "TabLine", { bg = "#39404f", fg = "#7e8188" })
-vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#232831" })
-vim.api.nvim_set_hl(0, "TabLineSel", { bg = "#5a657d", fg = "#abb1bb" })
-vim.api.nvim_set_hl(0, "Tag", { link = "Special" })
-vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "TelescopeMatching", { link = "Search" })
-vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "CursorLine" })
-vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "Title", { fg = "#8cafd2" })
-vim.api.nvim_set_hl(0, "Todo", { bg = "#81a1c1", fg = "#2e3440" })
-vim.api.nvim_set_hl(0, "Type", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
-vim.api.nvim_set_hl(0, "Underlined", { underline = true })
-vim.api.nvim_set_hl(0, "VertSplit", { fg = "#5a657d" })
-vim.api.nvim_set_hl(0, "Visual", { bg = "#3e4a5b" })
-vim.api.nvim_set_hl(0, "VisualNOS", { link = "visual" })
-vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "WhichKey", { link = "Identifier" })
-vim.api.nvim_set_hl(0, "WhichKeyDesc", { link = "Keyword" })
-vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "#232831" })
-vim.api.nvim_set_hl(0, "WhichKeyGroup", { link = "Function" })
-vim.api.nvim_set_hl(0, "WhichKeySeparator", { link = "Comment" })
-vim.api.nvim_set_hl(0, "WhichKeySeperator", { link = "Comment" })
-vim.api.nvim_set_hl(0, "WhichKeyValue", { link = "Comment" })
-vim.api.nvim_set_hl(0, "Whitespace", { fg = "#39404f" })
-vim.api.nvim_set_hl(0, "WildMenu", { link = "Pmenu" })
-vim.api.nvim_set_hl(0, "diffAdded", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "diffChanged", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "diffFile", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "diffIndexLine", { fg = "#d092ce" })
-vim.api.nvim_set_hl(0, "diffLine", { fg = "#d89079" })
-vim.api.nvim_set_hl(0, "diffNewFile", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "diffOldFile", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "diffRemoved", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "illuminatedCurWord", { link = "LspReferenceText" })
-vim.api.nvim_set_hl(0, "illuminatedWord", { link = "LspReferenceText" })
-vim.api.nvim_set_hl(0, "lCursor", { link = "Cursor" })
-vim.api.nvim_set_hl(0, "qfFileName", { link = "Directory" })
-vim.api.nvim_set_hl(0, "qfLineNr", { link = "lineNr" })
-vim.api.nvim_set_hl(0, "rainbowcol1", { fg = "#bf616a" })
-vim.api.nvim_set_hl(0, "rainbowcol2", { fg = "#ebcb8b" })
-vim.api.nvim_set_hl(0, "rainbowcol3", { fg = "#a3be8c" })
-vim.api.nvim_set_hl(0, "rainbowcol4", { fg = "#81a1c1" })
-vim.api.nvim_set_hl(0, "rainbowcol5", { fg = "#88c0d0" })
-vim.api.nvim_set_hl(0, "rainbowcol6", { fg = "#b48ead" })
-vim.api.nvim_set_hl(0, "rainbowcol7", { fg = "#bf88bc" })
-vim.api.nvim_set_hl(0, "rustTSField", { fg = "#abb1bb" })
-return colors
+local hls = {
+    ["AerialGuide"] = { fg = "#5a657d" },
+    ["AerialLine"] = { link = "Search" },
+    ["Bold"] = { bold = true },
+    ["Boolean"] = { link = "Number" },
+    ["BufferCurrent"] = { bg = "#7e8188", fg = "#cdcecf" },
+    ["BufferCurrentIndex"] = { bg = "#7e8188", fg = "#81a1c1" },
+    ["BufferCurrentMod"] = { bg = "#7e8188", fg = "#ebcb8b" },
+    ["BufferCurrentSign"] = { bg = "#7e8188", fg = "#81a1c1" },
+    ["BufferCurrentTarget"] = { bg = "#7e8188", fg = "#bf616a" },
+    ["BufferInactive"] = { bg = "#232831", fg = "#60728a" },
+    ["BufferInactiveIndex"] = { bg = "#232831", fg = "#60728a" },
+    ["BufferInactiveMod"] = { bg = "#232831", fg = "#54524f" },
+    ["BufferInactiveSign"] = { bg = "#232831", fg = "#444c5e" },
+    ["BufferInactiveTarget"] = { bg = "#232831", fg = "#bf616a" },
+    ["BufferTabpage"] = { bg = "#232831", fg = "#444c5e" },
+    ["BufferTabpages"] = { bg = "#232831" },
+    ["BufferVisible"] = { bg = "#232831", fg = "#cdcecf" },
+    ["BufferVisibleIndex"] = { bg = "#232831", fg = "#81a1c1" },
+    ["BufferVisibleMod"] = { bg = "#232831", fg = "#ebcb8b" },
+    ["BufferVisibleSign"] = { bg = "#232831", fg = "#81a1c1" },
+    ["BufferVisibleTarget"] = { bg = "#232831", fg = "#bf616a" },
+    ["Character"] = { link = "String" },
+    ["CmpDocumentation"] = { bg = "#232831", fg = "#cdcecf" },
+    ["CmpDocumentationBorder"] = { bg = "#232831", fg = "#3e4a5b" },
+    ["CmpItemAbbr"] = { fg = "#cdcecf" },
+    ["CmpItemAbbrDeprecated"] = { fg = "#7e8188", strikethrough = true },
+    ["CmpItemAbbrMatch"] = { fg = "#8cafd2" },
+    ["CmpItemAbbrMatchFuzzy"] = { fg = "#8cafd2" },
+    ["CmpItemKindClass"] = { link = "Type" },
+    ["CmpItemKindConstant"] = { link = "TSConstant" },
+    ["CmpItemKindConstructor"] = { link = "Function" },
+    ["CmpItemKindDefault"] = { fg = "#abb1bb" },
+    ["CmpItemKindEnum"] = { link = "Constant" },
+    ["CmpItemKindEnumMember"] = { link = "TSField" },
+    ["CmpItemKindEvent"] = { link = "Constant" },
+    ["CmpItemKindField"] = { link = "TSField" },
+    ["CmpItemKindFunction"] = { link = "Function" },
+    ["CmpItemKindInterface"] = { link = "Constant" },
+    ["CmpItemKindKeyword"] = { link = "Identifier" },
+    ["CmpItemKindMethod"] = { link = "Function" },
+    ["CmpItemKindModule"] = { link = "TSNamespace" },
+    ["CmpItemKindOperator"] = { link = "Operator" },
+    ["CmpItemKindProperty"] = { link = "TSProperty" },
+    ["CmpItemKindReference"] = { link = "Keyword" },
+    ["CmpItemKindSnippet"] = { fg = "#abb1bb" },
+    ["CmpItemKindStruct"] = { link = "Type" },
+    ["CmpItemKindTypeParameter"] = { link = "TSField" },
+    ["CmpItemKindUnit"] = { link = "Constant" },
+    ["CmpItemKindValue"] = { link = "Keyword" },
+    ["CmpItemKindVariable"] = { link = "TSVariable" },
+    ["CmpItemMenu"] = { link = "Comment" },
+    ["ColorColumn"] = { bg = "#39404f" },
+    ["Comment"] = { fg = "#60728a" },
+    ["Conceal"] = { fg = "#5a657d" },
+    ["Conditional"] = { fg = "#c895bf" },
+    ["Constant"] = { fg = "#d89079" },
+    ["CurSearch"] = { link = "IncSearch" },
+    ["Cursor"] = { bg = "#cdcecf", fg = "#2e3440" },
+    ["CursorColumn"] = { link = "CursorLine" },
+    ["CursorIM"] = { link = "Cursor" },
+    ["CursorLine"] = { bg = "#444c5e" },
+    ["CursorLineNr"] = { bold = true, fg = "#ebcb8b" },
+    ["DapUIBreakpointsCurrentLine"] = { bold = true, fg = "#a3be8c" },
+    ["DapUIBreakpointsDisabledLine"] = { fg = "#60728a" },
+    ["DapUIBreakpointsInfo"] = { fg = "#81a1c1" },
+    ["DapUIBreakpointsLine"] = { link = "DapUILineNumber" },
+    ["DapUIBreakpointsPath"] = { fg = "#93ccdc" },
+    ["DapUIDecoration"] = { fg = "#7e8188" },
+    ["DapUIFloatBorder"] = { link = "FloatBorder" },
+    ["DapUIFrameName"] = { link = "Normal" },
+    ["DapUILineNumber"] = { link = "Number" },
+    ["DapUIModifiedValue"] = { bold = true, fg = "#e5e9f0" },
+    ["DapUIScope"] = { fg = "#93ccdc" },
+    ["DapUISource"] = { link = "Keyword" },
+    ["DapUIStoppedThread"] = { fg = "#93ccdc" },
+    ["DapUIThread"] = { link = "String" },
+    ["DapUIType"] = { link = "Type" },
+    ["DapUIValue"] = { fg = "#e5e9f0" },
+    ["DapUIVariable"] = { fg = "#e5e9f0" },
+    ["DapUIWatchesEmpty"] = { fg = "#bf616a" },
+    ["DapUIWatchesError"] = { fg = "#bf616a" },
+    ["DapUIWatchesValue"] = { fg = "#ebcb8b" },
+    ["DashboardCenter"] = { link = "String" },
+    ["DashboardFooter"] = { fg = "#d89079", italic = true },
+    ["DashboardHeader"] = { link = "Title" },
+    ["DashboardShortCut"] = { link = "Identifier" },
+    ["Debug"] = { link = "Special" },
+    ["Define"] = { link = "PreProc" },
+    ["Delimiter"] = { link = "Special" },
+    ["DiagnosticError"] = { fg = "#bf616a" },
+    ["DiagnosticHint"] = { fg = "#a3be8c" },
+    ["DiagnosticInfo"] = { fg = "#81a1c1" },
+    ["DiagnosticSignError"] = { link = "DiagnosticError" },
+    ["DiagnosticSignHint"] = { link = "DiagnosticHint" },
+    ["DiagnosticSignInfo"] = { link = "DiagnosticInfo" },
+    ["DiagnosticSignWarn"] = { link = "DiagnosticWarn" },
+    ["DiagnosticUnderlineError"] = { undercurl = true },
+    ["DiagnosticUnderlineHint"] = { undercurl = true },
+    ["DiagnosticUnderlineInfo"] = { undercurl = true },
+    ["DiagnosticUnderlineWarn"] = { undercurl = true },
+    ["DiagnosticVirtualTextError"] = { bg = "#4b3d48", fg = "#bf616a" },
+    ["DiagnosticVirtualTextHint"] = { bg = "#45504f", fg = "#a3be8c" },
+    ["DiagnosticVirtualTextInfo"] = { bg = "#3f4a5a", fg = "#81a1c1" },
+    ["DiagnosticVirtualTextWarn"] = { bg = "#54524f", fg = "#ebcb8b" },
+    ["DiagnosticWarn"] = { fg = "#ebcb8b" },
+    ["DiffAdd"] = { bg = "#3c4548" },
+    ["DiffChange"] = { bg = "#364150" },
+    ["DiffDelete"] = { bg = "#403843" },
+    ["DiffText"] = { bg = "#3d515e" },
+    ["Directory"] = { fg = "#8cafd2" },
+    ["EndOfBuffer"] = { fg = "#2e3440" },
+    ["Error"] = { fg = "#bf616a" },
+    ["ErrorMsg"] = { fg = "#bf616a" },
+    ["Exception"] = { link = "Keyword" },
+    ["FernBranchText"] = { fg = "#81a1c1" },
+    ["FidgetTask"] = { link = "LineNr" },
+    ["FidgetTitle"] = { link = "Title" },
+    ["Float"] = { link = "Number" },
+    ["FloatBorder"] = { fg = "#7e8188" },
+    ["FocusedSymbol"] = { link = "Search" },
+    ["FoldColumn"] = { fg = "#7e8188" },
+    ["Folded"] = { bg = "#39404f", fg = "#7e8188" },
+    ["Function"] = { fg = "#8cafd2" },
+    ["GitGutterAdd"] = { fg = "#a3be8c" },
+    ["GitGutterChange"] = { fg = "#ebcb8b" },
+    ["GitGutterDelete"] = { fg = "#bf616a" },
+    ["GitSignsAdd"] = { fg = "#a3be8c" },
+    ["GitSignsChange"] = { fg = "#ebcb8b" },
+    ["GitSignsDelete"] = { fg = "#bf616a" },
+    ["GlyphPalette0"] = { fg = "#3b4252" },
+    ["GlyphPalette1"] = { fg = "#bf616a" },
+    ["GlyphPalette10"] = { fg = "#b1d196" },
+    ["GlyphPalette11"] = { fg = "#f0d399" },
+    ["GlyphPalette12"] = { fg = "#8cafd2" },
+    ["GlyphPalette13"] = { fg = "#c895bf" },
+    ["GlyphPalette14"] = { fg = "#93ccdc" },
+    ["GlyphPalette15"] = { fg = "#e7ecf4" },
+    ["GlyphPalette2"] = { fg = "#a3be8c" },
+    ["GlyphPalette3"] = { fg = "#ebcb8b" },
+    ["GlyphPalette4"] = { fg = "#81a1c1" },
+    ["GlyphPalette5"] = { fg = "#b48ead" },
+    ["GlyphPalette6"] = { fg = "#88c0d0" },
+    ["GlyphPalette7"] = { fg = "#e7ecf4" },
+    ["GlyphPalette8"] = { fg = "#465780" },
+    ["GlyphPalette9"] = { fg = "#d06f79" },
+    ["HopNextKey"] = { bold = true, fg = "#88c0d0" },
+    ["HopNextKey1"] = { bold = true, fg = "#81a1c1" },
+    ["HopNextKey2"] = { fg = "#668aab" },
+    ["HopUnmatched"] = { fg = "#60728a" },
+    ["Identifier"] = { fg = "#88c0d0" },
+    ["IncSearch"] = { bg = "#a3be8c", fg = "#3e4a5b" },
+    ["Include"] = { link = "PreProc" },
+    ["Italic"] = { italic = true },
+    ["Keyword"] = { fg = "#b48ead" },
+    ["Label"] = { link = "Conditional" },
+    ["LightspeedGreyWash"] = { fg = "#60728a" },
+    ["LineNr"] = { fg = "#7e8188" },
+    ["LspCodeLens"] = { fg = "#60728a" },
+    ["LspCodeLensSeparator"] = { fg = "#7e8188" },
+    ["LspFloatWinBorder"] = { fg = "#7e8188" },
+    ["LspFloatWinNormal"] = { bg = "#232831" },
+    ["LspReferenceRead"] = { bg = "#3e4a5b" },
+    ["LspReferenceText"] = { bg = "#3e4a5b" },
+    ["LspReferenceWrite"] = { bg = "#3e4a5b" },
+    ["LspSagaBorderTitle"] = { link = "Title" },
+    ["LspSagaCodeActionBorder"] = { fg = "#7e8188" },
+    ["LspSagaCodeActionContent"] = { link = "String" },
+    ["LspSagaCodeActionTitle"] = { link = "Title" },
+    ["LspSagaDefPreviewBorder"] = { fg = "#7e8188" },
+    ["LspSagaFinderSelection"] = { fg = "#3e4a5b" },
+    ["LspSagaHoverBorder"] = { fg = "#7e8188" },
+    ["LspSagaRenameBorder"] = { fg = "#7e8188" },
+    ["LspSagaSignatureHelpBorder"] = { fg = "#bf616a" },
+    ["LspSignatureActiveParameter"] = { fg = "#4f6074" },
+    ["LspTroubleCount"] = { bg = "#7e8188", fg = "#b48ead" },
+    ["LspTroubleNormal"] = { bg = "#232831", fg = "#7e8188" },
+    ["LspTroubleText"] = { fg = "#abb1bb" },
+    ["Macro"] = { link = "PreProc" },
+    ["MatchParen"] = { bold = true, fg = "#ebcb8b" },
+    ["ModeMsg"] = { bold = true, fg = "#ebcb8b" },
+    ["ModesCopy"] = { bg = "#ebcb8b" },
+    ["ModesDelete"] = { bg = "#bf616a" },
+    ["ModesInsert"] = { bg = "#88c0d0" },
+    ["ModesVisual"] = { bg = "#b48ead" },
+    ["MoreMsg"] = { bold = true, fg = "#81a1c1" },
+    ["NeoTreeDimText"] = { link = "Conceal" },
+    ["NeoTreeDirectoryIcon"] = { fg = "#81a1c1" },
+    ["NeoTreeDirectoryName"] = { fg = "#81a1c1" },
+    ["NeoTreeDotfile"] = { fg = "#668aab" },
+    ["NeoTreeFileName"] = { fg = "#abb1bb" },
+    ["NeoTreeFileNameOpened"] = { fg = "#cdcecf" },
+    ["NeoTreeGitAdded"] = { fg = "#a3be8c" },
+    ["NeoTreeGitConflict"] = { fg = "#c9826b", italic = true },
+    ["NeoTreeGitDeleted"] = { fg = "#bf616a" },
+    ["NeoTreeGitIgnored"] = { fg = "#60728a" },
+    ["NeoTreeGitModified"] = { fg = "#ebcb8b" },
+    ["NeoTreeGitUntracked"] = { fg = "#9d7495" },
+    ["NeoTreeIndentMarker"] = { fg = "#5a657d" },
+    ["NeoTreeNormal"] = { bg = "#232831", fg = "#cdcecf" },
+    ["NeoTreeNormalNC"] = { link = "NeoTreeNormal" },
+    ["NeoTreeRootName"] = { bold = true, fg = "#c9826b" },
+    ["NeoTreeSymbolicLinkTarget"] = { fg = "#a96ca5" },
+    ["NeogitBranch"] = { fg = "#ebcb8b" },
+    ["NeogitDiffAdd"] = { fg = "#a3be8c" },
+    ["NeogitDiffAddHighlight"] = { bg = "#3c4548" },
+    ["NeogitDiffContextHighlight"] = { bg = "#364150" },
+    ["NeogitDiffDelete"] = { fg = "#bf616a" },
+    ["NeogitDiffDeleteHighlight"] = { bg = "#403843" },
+    ["NeogitHunkHeader"] = { bg = "#444c5e", fg = "#81a1c1" },
+    ["NeogitHunkHeaderHighlight"] = { bg = "#3e4a5b", fg = "#81a1c1" },
+    ["NeogitNotificationError"] = { fg = "#bf616a" },
+    ["NeogitNotificationInfo"] = { fg = "#81a1c1" },
+    ["NeogitNotificationWarning"] = { fg = "#ebcb8b" },
+    ["NeogitRemote"] = { fg = "#a3be8c" },
+    ["NonText"] = { fg = "#5a657d" },
+    ["Normal"] = { fg = "#cdcecf" },
+    ["NormalFloat"] = { bg = "#232831", fg = "#cdcecf" },
+    ["NormalNC"] = { bg = "#2e3440", fg = "#cdcecf" },
+    ["NotifyDEBUGBorder"] = { fg = "#687966" },
+    ["NotifyDEBUGIcon"] = { link = "NotifyDEBUGTitle" },
+    ["NotifyDEBUGTitle"] = { fg = "#a3be8c" },
+    ["NotifyERRORBorder"] = { fg = "#764a55" },
+    ["NotifyERRORIcon"] = { link = "NotifyERRORTitle" },
+    ["NotifyERRORTitle"] = { fg = "#bf616a" },
+    ["NotifyINFOBorder"] = { fg = "#586a80" },
+    ["NotifyINFOIcon"] = { link = "NotifyINFOTitle" },
+    ["NotifyINFOTitle"] = { fg = "#81a1c1" },
+    ["NotifyTRACEBorder"] = { fg = "#5a657d" },
+    ["NotifyTRACEIcon"] = { link = "NotifyTRACETitle" },
+    ["NotifyTRACETitle"] = { fg = "#60728a" },
+    ["NotifyWARNBorder"] = { fg = "#8c7f66" },
+    ["NotifyWARNIcon"] = { link = "NotifyWARNTitle" },
+    ["NotifyWARNTitle"] = { fg = "#ebcb8b" },
+    ["Number"] = { fg = "#c9826b" },
+    ["NvimTreeEmptyFolderName"] = { fg = "#7e8188" },
+    ["NvimTreeFolderIcon"] = { fg = "#81a1c1" },
+    ["NvimTreeFolderName"] = { fg = "#81a1c1" },
+    ["NvimTreeGitDeleted"] = { fg = "#bf616a" },
+    ["NvimTreeGitDirty"] = { fg = "#ebcb8b" },
+    ["NvimTreeGitMerge"] = { fg = "#c9826b" },
+    ["NvimTreeGitNew"] = { fg = "#a3be8c" },
+    ["NvimTreeGitRenamed"] = { link = "NvimTreeGitDeleted" },
+    ["NvimTreeGitStaged"] = { link = "NvimTreeGitStaged" },
+    ["NvimTreeImageFile"] = { fg = "#bbc3d4" },
+    ["NvimTreeIndentMarker"] = { fg = "#5a657d" },
+    ["NvimTreeNormal"] = { bg = "#232831", fg = "#cdcecf" },
+    ["NvimTreeOpenedFile"] = { fg = "#d092ce" },
+    ["NvimTreeOpenedFolderName"] = { fg = "#8cafd2" },
+    ["NvimTreeRootFolder"] = { bold = true, fg = "#c9826b" },
+    ["NvimTreeSpecialFile"] = { fg = "#88c0d0" },
+    ["NvimTreeSymlink"] = { fg = "#a96ca5" },
+    ["NvimTreeVertSplit"] = { link = "VertSplit" },
+    ["Operator"] = { fg = "#abb1bb" },
+    ["Pmenu"] = { bg = "#3e4a5b", fg = "#cdcecf" },
+    ["PmenuSbar"] = { link = "Pmenu" },
+    ["PmenuSel"] = { bg = "#4f6074" },
+    ["PmenuThumb"] = { bg = "#4f6074" },
+    ["PounceAccept"] = { bg = "#d89079", fg = "#2e3440" },
+    ["PounceAcceptBest"] = { bg = "#93ccdc", fg = "#2e3440" },
+    ["PounceGap"] = { bg = "#3e4a5b", fg = "#cdcecf" },
+    ["PounceMatch"] = { bg = "#4f6074", fg = "#cdcecf" },
+    ["PreCondit"] = { link = "PreProc" },
+    ["PreProc"] = { fg = "#d092ce" },
+    ["Question"] = { link = "MoreMsg" },
+    ["QuickFixLine"] = { link = "CursorLine" },
+    ["Repeat"] = { link = "Conditional" },
+    ["Search"] = { bg = "#4f6074", fg = "#cdcecf" },
+    ["SignColumn"] = { fg = "#7e8188" },
+    ["SignColumnSB"] = { link = "SignColumn" },
+    ["Sneak"] = { bg = "#b48ead", fg = "#232831" },
+    ["SneakScope"] = { bg = "#3e4a5b" },
+    ["Special"] = { fg = "#8cafd2" },
+    ["SpecialChar"] = { link = "Special" },
+    ["SpecialComment"] = { link = "Special" },
+    ["SpecialKey"] = { link = "NonText" },
+    ["SpellBad"] = { undercurl = true },
+    ["SpellCap"] = { undercurl = true },
+    ["SpellLocal"] = { undercurl = true },
+    ["SpellRare"] = { undercurl = true },
+    ["Statement"] = { fg = "#b48ead" },
+    ["StatusLine"] = { bg = "#232831", fg = "#abb1bb" },
+    ["StatusLineNC"] = { bg = "#232831", fg = "#7e8188" },
+    ["StorageClass"] = { link = "Type" },
+    ["String"] = { fg = "#a3be8c" },
+    ["Structure"] = { link = "Type" },
+    ["Substitute"] = { bg = "#bf616a", fg = "#2e3440" },
+    ["SymbolOutlineConnector"] = { link = "Conceal" },
+    ["TSAttribute"] = { link = "Constant" },
+    ["TSConstBuiltin"] = { fg = "#d89079" },
+    ["TSConstructor"] = { fg = "#b48ead" },
+    ["TSDanger"] = { fg = "#bf616a" },
+    ["TSError"] = { fg = "#bf616a" },
+    ["TSField"] = { fg = "#81a1c1" },
+    ["TSFuncBuiltin"] = { fg = "#bf616a" },
+    ["TSFuncMacro"] = { fg = "#bf616a" },
+    ["TSKeywordFunction"] = { fg = "#bf616a" },
+    ["TSKeywordOperator"] = { bold = true, fg = "#abb1bb" },
+    ["TSNamespace"] = { fg = "#93ccdc" },
+    ["TSNote"] = { fg = "#81a1c1" },
+    ["TSOperator"] = { fg = "#abb1bb" },
+    ["TSProperty"] = { link = "TSField" },
+    ["TSPunctBracket"] = { fg = "#abb1bb" },
+    ["TSPunctDelimiter"] = { fg = "#abb1bb" },
+    ["TSPunctSpecial"] = { fg = "#abb1bb" },
+    ["TSStringEscape"] = { bold = true, fg = "#f0d399" },
+    ["TSStringRegex"] = { fg = "#f0d399" },
+    ["TSTextReference"] = { fg = "#b48ead" },
+    ["TSTypeBuiltin"] = { fg = "#93ccdc" },
+    ["TSURI"] = { bold = true, fg = "#88c0d0" },
+    ["TSVariable"] = { fg = "#e5e9f0" },
+    ["TSVariableBuiltin"] = { fg = "#bf616a" },
+    ["TSWarning"] = { fg = "#ebcb8b" },
+    ["TabLine"] = { bg = "#39404f", fg = "#7e8188" },
+    ["TabLineFill"] = { bg = "#232831" },
+    ["TabLineSel"] = { bg = "#5a657d", fg = "#abb1bb" },
+    ["Tag"] = { link = "Special" },
+    ["TelescopeBorder"] = { fg = "#5a657d" },
+    ["TelescopeMatching"] = { link = "Search" },
+    ["TelescopeSelection"] = { link = "CursorLine" },
+    ["TelescopeSelectionCaret"] = { fg = "#a3be8c" },
+    ["Title"] = { fg = "#8cafd2" },
+    ["Todo"] = { bg = "#81a1c1", fg = "#2e3440" },
+    ["Type"] = { fg = "#ebcb8b" },
+    ["Typedef"] = { link = "Type" },
+    ["Underlined"] = { underline = true },
+    ["VertSplit"] = { fg = "#5a657d" },
+    ["Visual"] = { bg = "#3e4a5b" },
+    ["VisualNOS"] = { link = "visual" },
+    ["WarningMsg"] = { fg = "#ebcb8b" },
+    ["WhichKey"] = { link = "Identifier" },
+    ["WhichKeyDesc"] = { link = "Keyword" },
+    ["WhichKeyFloat"] = { bg = "#232831" },
+    ["WhichKeyGroup"] = { link = "Function" },
+    ["WhichKeySeparator"] = { link = "Comment" },
+    ["WhichKeySeperator"] = { link = "Comment" },
+    ["WhichKeyValue"] = { link = "Comment" },
+    ["Whitespace"] = { fg = "#39404f" },
+    ["WildMenu"] = { link = "Pmenu" },
+    ["diffAdded"] = { fg = "#a3be8c" },
+    ["diffChanged"] = { fg = "#ebcb8b" },
+    ["diffFile"] = { fg = "#81a1c1" },
+    ["diffIndexLine"] = { fg = "#d092ce" },
+    ["diffLine"] = { fg = "#d89079" },
+    ["diffNewFile"] = { fg = "#a3be8c" },
+    ["diffOldFile"] = { fg = "#ebcb8b" },
+    ["diffRemoved"] = { fg = "#bf616a" },
+    ["illuminatedCurWord"] = { link = "LspReferenceText" },
+    ["illuminatedWord"] = { link = "LspReferenceText" },
+    ["lCursor"] = { link = "Cursor" },
+    ["qfFileName"] = { link = "Directory" },
+    ["qfLineNr"] = { link = "lineNr" },
+    ["rainbowcol1"] = { fg = "#bf616a" },
+    ["rainbowcol2"] = { fg = "#ebcb8b" },
+    ["rainbowcol3"] = { fg = "#a3be8c" },
+    ["rainbowcol4"] = { fg = "#81a1c1" },
+    ["rainbowcol5"] = { fg = "#88c0d0" },
+    ["rainbowcol6"] = { fg = "#b48ead" },
+    ["rainbowcol7"] = { fg = "#bf88bc" },
+    ["rustTSField"] = { fg = "#abb1bb" },
+}
+
+return {
+    colors = colors,
+    hls = hls
+}
