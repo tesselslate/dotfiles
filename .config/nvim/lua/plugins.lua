@@ -33,11 +33,11 @@ return require("packer").startup(function(use)
     -- cmp-nvim-lsp
     use "hrsh7th/cmp-nvim-lsp"
 
-    -- cmp-vsnip
-    use "hrsh7th/cmp-vsnip"
+    -- luasnip
+    use "L3MON4D3/LuaSnip"
 
-    -- vsnip
-    use "hrsh7th/vim-vsnip"
+    -- cmp-luasnip
+    use "saadparwaiz1/cmp_luasnip"
 
     -- mini.nvim
     use "echasnovski/mini.nvim"

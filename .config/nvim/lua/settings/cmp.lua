@@ -1,11 +1,6 @@
 -- neovim config
 -- settings/nvim-cmp.lua
 
--- helper functions
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 local kind_presets = {
     Text = "",
     Method = "",
@@ -36,6 +31,7 @@ local kind_presets = {
 
 -- begin setup
 local cmp = require("cmp")
+local luasnip = require("luasnip")
 cmp.setup({
     -- enable completion kind items
     formatting = {
@@ -48,14 +44,20 @@ cmp.setup({
         end
     },
 
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end
+    },
+
     -- key mappings
     mapping = {
         -- <Tab> (select next suggestion)
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             else
                 fallback()
             end
@@ -65,8 +67,8 @@ cmp.setup({
         ['<S-Tab>'] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
             end
         end, { "i", "s" }),
 
@@ -87,12 +89,6 @@ cmp.setup({
     -- completion sources
     sources = {
         { name = "nvim_lsp" },
-        { name = "vsnip" }
+        { name = "luasnip" }
     },
-
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end
-    }
 })
