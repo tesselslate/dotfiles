@@ -1,7 +1,10 @@
 -- neovim config
 -- keybindings.lua
+--
+-- all normal mode keybinds which use the leader key
+-- are available in settings/which-key.lua
 
-local setkey = function (mode, key, bind, noremap)
+local setkey = function(mode, key, bind, noremap)
     vim.api.nvim_set_keymap(mode, key, bind, { noremap = noremap, silent = true })
 end
 
@@ -22,55 +25,9 @@ setkey("i", "<Esc>", "<Nop>")
 -- normal mode
 -- =============
 
--- == lsp ==
--- navigate diagnostics (ctrl + n / ctrl + p)
-setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
-setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
-
--- rename (leader -> lr)
-setkey("n", "<Leader>lr", ":lua vim.lsp.buf.rename()<CR>")
-
--- hover (leader -> lh)
-setkey("n", "<Leader>lh", ":lua vim.lsp.buf.hover()<CR>")
-
--- format (leader -> lf)
-setkey("n", "<Leader>lf", ":lua vim.lsp.buf.formatting()<CR>")
-
--- code actions (leader -> lc)
-setkey("n", "<Leader>lc", ":CodeActionMenu<CR>")
-
--- go to definition (gd)
-setkey("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
-
--- go to references (gr)
-setkey("n", "gr", ":lua vim.lsp.buf.references()<CR>")
-
--- toggle trouble (leader + d)
-setkey("n", "<Leader>d", ":TroubleToggle<CR>")
-
--- == other binds ==
 -- leader key (space)
 setkey("n", "<Space>", "<Nop>")
 setkey("n", "<Space>", "<Leader>")
-
--- toggle nvim-colorizer (leader + c)
-setkey("n", "<Leader>c", ":ColorizerToggle<CR>")
-
--- toggle relative line numbers (leader + r)
-setkey("n", "<Leader>r", ":Rel<CR>")
-
--- open file tree (leader + t)
-setkey("n", "<Leader>t", ":NvimTreeToggle<CR>")
-
--- open live grep (leader + fs)
-setkey("n", "<Leader>fs", ":Telescope live_grep<CR>")
-
--- open file (leader + ff)
-setkey("n", "<Leader>ff", ":Telescope find_files<CR>")
-
--- switch window (leader + tab)
-setkey("n", "<Leader><Tab>", ":wincmd w<CR>")
-setkey("n", "<Leader><S-Tab>", ":wincmd W<CR>")
 
 -- buffer switching (tab / shift+tab)
 setkey("n", "<Tab>", ":bnext<CR>")
@@ -81,12 +38,9 @@ setkey("n", "s", "<Nop>")
 setkey("n", "S", "<Nop>")
 setkey("n", "s", "<Plug>Lightspeed_omni_s")
 
--- close buffer (leader + w)
-setkey("n", "<Leader>w", ":lua require('mini.bufremove').delete()<CR>")
-
 -- disable arrow keys
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };
-for _,k in ipairs(keys) do
+for _, k in ipairs(keys) do
     setkey("n", k, "<Nop>")
 end
 
