@@ -77,4 +77,7 @@ return require("packer").startup(function(use)
 
     -- impatient.nvim
     use "lewis6991/impatient.nvim"
+
+    -- feline.nvim
+    use "feline-nvim/feline.nvim"
 end)

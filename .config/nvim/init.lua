@@ -10,7 +10,7 @@ require("plugins")
 require("options")
 
 -- load colors
-require("theme")
+require("theme-wrapper").load()
 
 -- plugin settings
 require("settings.gitsigns")
@@ -20,6 +20,7 @@ require("settings.nvim-tree")
 require("settings.telescope")
 require("settings.treesitter")
 require("settings.which-key")
+require("settings.feline")
 
 -- mini
 require("mini.comment").setup({

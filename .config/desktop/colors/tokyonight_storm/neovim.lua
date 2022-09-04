@@ -1,3 +1,19 @@
+local colors = {
+    fg = "#c0caf5",
+    bg = "#24283b",
+    black = "#414868",
+    skyblue = "#7aa2f7",
+    cyan = "#0bd9d7",
+    green = "#9ece6a",
+    oceanblue = "#2ac3de",
+    magenta = "#bb9af7",
+    orange = "#ff9e64",
+    red = "#ff768e",
+    violet = "#ff007c",
+    white = "#a9b1d6",
+    yellow = "#e0af68"
+}
+
 vim.api.nvim_set_hl(0, "MiniTablineHidden", { bg = "#24283b", fg = "#a9b1d6", })
 vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { bg = "#7aa2f7", fg = "#1D202F", })
 vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { bg = "#24283b", fg = "#c0caf5", })
@@ -176,3 +192,4 @@ vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { fg = "#ff9e64", })
 vim.api.nvim_set_hl(0, "MatchParen", { fg = "#ff9e64", bold = true, })
 vim.api.nvim_set_hl(0, "MiniTablineCurrent", { bg = "#7aa2f7", fg = "#1D202F", })
 vim.api.nvim_set_hl(0, "MiniTablineFill", { })
+return colors

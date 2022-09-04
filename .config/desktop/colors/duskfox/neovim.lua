@@ -1,7 +1,18 @@
--- neovim config
--- theme/colors/duskfox.lua
---
--- from https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/precompiled/nvim/duskfox_compiled.lua
+local colors = {
+    fg = "#eae8ff",
+    bg = "#191726",
+    black = "#393552",
+    skyblue = "#65b1cd",
+    cyan = "#9ccfd8",
+    green = "#a3be8c",
+    oceanblue = "#4a869c",
+    magenta = "#c4a7e7",
+    orange = "#ea9a97",
+    red = "#eb6f92",
+    violet = "#eb98c3",
+    white = "#e0def4",
+    yellow = "#f6c177"
+}
 
 vim.api.nvim_set_hl(0, "AerialGuide", { fg = "#4b4673" })
 vim.api.nvim_set_hl(0, "AerialLine", { link = "Search" })
@@ -362,3 +373,4 @@ vim.api.nvim_set_hl(0, "rainbowcol5", { fg = "#9ccfd8" })
 vim.api.nvim_set_hl(0, "rainbowcol6", { fg = "#c4a7e7" })
 vim.api.nvim_set_hl(0, "rainbowcol7", { fg = "#eb98c3" })
 vim.api.nvim_set_hl(0, "rustTSField", { fg = "#cdcbe0" })
+return colors

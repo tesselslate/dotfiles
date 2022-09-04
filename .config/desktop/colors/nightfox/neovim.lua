@@ -1,7 +1,18 @@
--- neovim config
--- theme/colors/nightfox.lua
---
--- from https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/precompiled/nvim/nightfox_compiled.lua
+local colors = {
+    fg = "#d6d6d7",
+    bg = "#131a24",
+    black = "#393b44",
+    skyblue = "#719cd6",
+    cyan = "#63cdcf",
+    green = "#81b29a",
+    oceanblue = "#577cad",
+    magenta = "#9d79d6",
+    orange = "#f4a261",
+    red = "#c94f6d",
+    violet = "#d67ad2",
+    white = "#dfdfe0",
+    yellow = "#dbc074"
+}
 
 vim.api.nvim_set_hl(0, "AerialGuide", { fg = "#415166" })
 vim.api.nvim_set_hl(0, "AerialLine", { link = "Search" })
@@ -362,3 +373,4 @@ vim.api.nvim_set_hl(0, "rainbowcol5", { fg = "#63cdcf" })
 vim.api.nvim_set_hl(0, "rainbowcol6", { fg = "#9d79d6" })
 vim.api.nvim_set_hl(0, "rainbowcol7", { fg = "#d67ad2" })
 vim.api.nvim_set_hl(0, "rustTSField", { fg = "#aeafb0" })
+return colors
