@@ -45,12 +45,6 @@ return require("packer").startup(function(use)
     -- filetype.nvim
     use "nathom/filetype.nvim"
 
-    -- lualine
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = "kyazdani42/nvim-web-devicons"
-    }
-
     -- nvim-tree
     use {
         "kyazdani42/nvim-tree.lua",

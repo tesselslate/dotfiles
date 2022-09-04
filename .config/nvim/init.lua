@@ -15,7 +15,6 @@ require("theme")
 -- plugin settings
 require("settings.gitsigns")
 require("settings.lsp")
-require("settings.lualine")
 require("settings.cmp")
 require("settings.nvim-tree")
 require("settings.telescope")
