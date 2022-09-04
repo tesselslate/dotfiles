@@ -10,7 +10,7 @@ require("plugins")
 require("options")
 
 -- load colors
-require("theme").load()
+require("theme")
 
 -- plugin settings
 require("settings.gitsigns")

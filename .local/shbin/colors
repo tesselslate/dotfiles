@@ -8,9 +8,7 @@ if test (count $argv) -eq 1
     # apply colorscheme changes to fish and kitty
     cp ~/.config/desktop/colors/$COLORSCHEME/kitty.conf ~/.config/kitty/colors.conf
     cp ~/.config/desktop/colors/$COLORSCHEME/fish.fish ~/.config/fish/colors.fish
-
-    # apply colorscheme changes to neovim
-    echo "return \"$COLORSCHEME\"" > ~/.config/nvim/lua/theme/scheme.lua
+    cp ~/.config/desktop/colors/$COLORSCHEME/neovim.lua ~/.config/nvim/lua/theme.lua
 else
     echo \n"  colors"
     echo "      current colorscheme:" $COLORSCHEME
