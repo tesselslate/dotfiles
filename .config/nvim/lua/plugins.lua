@@ -42,9 +42,6 @@ return require("packer").startup(function(use)
     -- mini.nvim
     use "echasnovski/mini.nvim"
 
-    -- filetype.nvim
-    use "nathom/filetype.nvim"
-
     -- nvim-tree
     use {
         "kyazdani42/nvim-tree.lua",
@@ -77,9 +74,6 @@ return require("packer").startup(function(use)
 
     -- dressing
     use "stevearc/dressing.nvim"
-
-    -- startuptime
-    use "tweekmonster/startuptime.vim"
 
     -- impatient.nvim
     use "lewis6991/impatient.nvim"

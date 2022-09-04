@@ -1,4 +1,4 @@
--- eeovim config
+-- neovim config
 -- init.lua
 
 require("impatient")
@@ -41,3 +41,7 @@ require("dressing")
 
 -- lightspeed
 require("lightspeed").init_highlight(true)
+
+-- filetype.lua
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
