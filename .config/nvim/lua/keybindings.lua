@@ -37,10 +37,11 @@ setkey("n", "<Space>", "<Leader>")
 setkey("n", "<Tab>", ":bnext<CR>")
 setkey("n", "<S-Tab>", ":bprev<CR>")
 
--- lightspeed omnidirectional
-setkey("n", "s", "<Nop>")
-setkey("n", "S", "<Nop>")
-setkey("n", "s", "<Plug>Lightspeed_omni_s")
+-- rebind ctrl-x to escape
+setkey("n", "<C-x>", "<Esc>", true)
+
+-- leap
+setkey("n", "s", ":lua require('leap').leap({target_windows = {vim.fn.win_getid()}})<CR>")
 
 -- disable arrow keys
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };

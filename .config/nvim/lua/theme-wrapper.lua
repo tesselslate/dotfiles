@@ -22,6 +22,7 @@ M.load = function()
     for key, value in pairs(colors.hls) do
         vim.api.nvim_set_hl(0, key, value)
     end
+    require("leap").init_highlight(true)
 end
 
 M.watch = function()

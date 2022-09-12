@@ -24,9 +24,6 @@ return require("packer").startup(function(use)
     -- code-action-menu
     use "weilbith/nvim-code-action-menu"
 
-    -- lightspeed
-    use "ggandor/lightspeed.nvim"
-
     -- nvim-cmp
     use "hrsh7th/nvim-cmp"
 
@@ -80,4 +77,7 @@ return require("packer").startup(function(use)
 
     -- feline.nvim
     use "feline-nvim/feline.nvim"
+
+    -- leap.nvim
+    use "ggandor/leap.nvim"
 end)
