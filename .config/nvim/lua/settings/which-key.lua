@@ -33,7 +33,7 @@ which_key.register({
         name = "LSP",
         c = { ":CodeActionMenu<CR>", "Code Actions" },
         d = { ":TroubleToggle<CR>", "Diagnostics List" },
-        f = { ":lua vim.lsp.buf.formatting()<CR>", "Format File" },
+        f = { ":lua vim.lsp.buf.format()<CR>", "Format File" },
         h = { ":lua vim.lsp.buf.hover()<CR>", "Symbol Info" },
         r = { ":lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
     },
