@@ -23,11 +23,13 @@ set -x XCURSOR_PATH                 ~/.local/share/icons
 set -x CARGO_HOME                   $XDG_DATA_HOME/cargo
 set -x RUSTUP_HOME                  $XDG_DATA_HOME/rustup
 set -x GOPATH                       $XDG_DATA_HOME/go
+set -x NUGET_PACKAGES               $XDG_CACHE_HOME/nuget
+set -x DOTNET_CLI_HOME              $XDG_DATA_HOME/dotnet
 
 set -x GTK2_RC_FILES                $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x XAUTHORITY                   $XDG_DATA_HOME/Xauthority
 
-set -x __GL_SHADER_DISK_CACHE_PATH  $XDG_DATA_HOME/nv
+set -x __GL_SHADER_DISK_CACHE_PATH  $XDG_CACHE_HOME/nv
 
 # i hate java
 set -x AWT_TOOLKIT                  MToolkit
