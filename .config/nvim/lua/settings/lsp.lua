@@ -76,6 +76,13 @@ lsp.gopls.setup({
     }
 })
 
+-- haskell (hls)
+lsp.hls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
+})
+
 -- sumneko (lua)
 lsp.sumneko_lua.setup({
     capabilities = capabilities,
