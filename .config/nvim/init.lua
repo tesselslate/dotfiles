@@ -20,10 +20,6 @@ require("settings.which-key")
 require("settings.mini")
 require("settings.etc")
 
--- load colors
-local theme_wrapper = require("theme-wrapper")
-theme_wrapper.load()
-theme_wrapper.watch()
-
--- load statusline
+-- load colorscheme and statusline
+require("colors")
 require("settings.feline").load()

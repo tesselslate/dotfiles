@@ -8,7 +8,6 @@ if test (count $argv) -eq 1
     # apply colorscheme changes
     cp ~/.config/desktop/colors/$COLORSCHEME/kitty.conf ~/.config/kitty/colors.conf
     cp ~/.config/desktop/colors/$COLORSCHEME/fish.fish ~/.config/fish/colors.fish
-    cp ~/.config/desktop/colors/$COLORSCHEME/neovim.lua ~/.config/nvim/lua/theme.lua
 
     # signal color changes
     killall -USR1 kitty

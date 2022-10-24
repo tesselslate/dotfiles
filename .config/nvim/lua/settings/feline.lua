@@ -1,7 +1,7 @@
 -- neovim config
 -- settings/feline.lua
 
-local colors = require("theme-wrapper").get_colors()
+local colors = require("colors")()
 local components = {}
 local feline = require("feline")
 local vimode = require("feline.providers.vi_mode")
@@ -209,7 +209,7 @@ M.load = function()
 end
 
 M.set_colors = function()
-    colors = require("theme-wrapper").get_colors()
+    colors = require("colors")()
 end
 
 return M

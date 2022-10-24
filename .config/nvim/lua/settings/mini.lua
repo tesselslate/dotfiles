@@ -14,4 +14,3 @@ require("mini.starter").setup({
 })
 
 require("mini.tabline").setup({})
-require("mini.trailspace").setup({})

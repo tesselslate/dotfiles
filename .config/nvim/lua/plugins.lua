@@ -60,17 +60,11 @@ return require("packer").startup(function(use)
     -- which-key
     use "folke/which-key.nvim"
 
-    -- colorizer
-    use "norcalli/nvim-colorizer.lua"
-
     -- gitsigns
     use {
         "lewis6991/gitsigns.nvim",
         requires = "nvim-lua/plenary.nvim"
     }
-
-    -- dressing
-    use "stevearc/dressing.nvim"
 
     -- impatient.nvim
     use "lewis6991/impatient.nvim"
@@ -80,4 +74,7 @@ return require("packer").startup(function(use)
 
     -- leap.nvim
     use "ggandor/leap.nvim"
+
+    -- tokyonight.nvim
+    use "folke/tokyonight.nvim"
 end)
