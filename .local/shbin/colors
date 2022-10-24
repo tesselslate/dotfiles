@@ -1,7 +1,11 @@
 #!/bin/fish
-# color manager script
 
 if test (count $argv) -eq 1
+    if not test -d ~/.config/desktop/colors/$argv[1]
+        echo "invalid colorscheme"
+        return 1
+    end
+
     set -U COLORSCHEME $argv[1]
     echo "set colorscheme to" $COLORSCHEME
 
