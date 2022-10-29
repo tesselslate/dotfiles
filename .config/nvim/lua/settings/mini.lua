@@ -1,7 +1,6 @@
 -- neovim config
 -- settings/mini.lua
 
--- mini
 require("mini.comment").setup({
     mappings = {
         comment = "gC",

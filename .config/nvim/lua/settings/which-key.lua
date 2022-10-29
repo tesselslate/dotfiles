@@ -10,7 +10,6 @@ which_key.setup({
 })
 
 which_key.register({
-    c = { ":ColorizerToggle<CR>", "Colorizer" },
     q = { ":q<CR>", "Close Window" },
     r = { ":Rel<CR>", "Relative Lines" },
     t = { ":NvimTreeToggle<CR>", "File Tree" },

@@ -30,7 +30,8 @@ tsconfig.setup({
         "rust",
         "toml",
         "vim",
-        "yaml"
+        "yaml",
+        "zig",
     },
 
     highlight = {

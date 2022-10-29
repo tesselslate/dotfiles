@@ -15,10 +15,10 @@ lsp_project.setup({
 
 -- indicator characters
 local signs = {
-     Error = " ",
-     Warning = " ",
-     Hint = " ",
-     Information = " "
+    Error = " ",
+    Warning = " ",
+    Hint = " ",
+    Information = " "
 }
 
 for type, icon in pairs(signs) do
@@ -32,8 +32,8 @@ end
 
 -- diagnostics config
 vim.diagnostic.config({
-    update_in_insert    = true,     -- update diagnostics during insert mode
-    virtual_text        = false,    -- no virtual text for diagnostics
+    update_in_insert = true, -- update diagnostics during insert mode
+    virtual_text     = false, -- no virtual text for diagnostics
 })
 
 -- ==========
@@ -65,7 +65,7 @@ lsp.gopls.setup({
     on_attach = attach,
     on_init = lsp_project.wrap(),
 
-    cmd = {"gopls", "serve"},
+    cmd = { "gopls", "serve" },
     settings = {
         gopls = {
             analyses = {
@@ -83,6 +83,21 @@ lsp.hls.setup({
     on_init = lsp_project.wrap(),
 })
 
+-- jdtls (java)
+lsp.jdtls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
+
+    cmd = {
+        "jdtls",
+        "-configuration",
+        "/home/dog/.config/jdtls",
+        "-data",
+        "/home/dog/.cache/jdtls"
+    }
+})
+
 -- sumneko (lua)
 lsp.sumneko_lua.setup({
     capabilities = capabilities,
@@ -95,7 +110,7 @@ lsp.sumneko_lua.setup({
                 version = "LuaJIT"
             },
             diagnostics = {
-                globals = {"vim"}
+                globals = { "vim" }
             },
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
@@ -120,4 +135,11 @@ lsp.rust_analyzer.setup({
             }
         }
     }
+})
+
+-- zls (zig)
+lsp.zls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
 })
