@@ -10,11 +10,11 @@ function infzf
 
     # get fzf result
     if test (string sub -l 1 $__last_word) = '~'
-        set __fzfres (fd -H . $HOME | fzf)
+        set __fzfres (fd -H . $HOME | fzf --multi)
     else if test -d $__last_word
-        set __fzfres (fd -H . "$__last_word" | sed -E 's|^\./||' | fzf)
+        set __fzfres (fd -H . "$__last_word" | sed -E 's|^\./||' | fzf --multi)
     else
-        set __fzfres (fd -H . | sed -E 's|^\./||' | fzf -q "$__last_word")
+        set __fzfres (fd -H . | sed -E 's|^\./||' | fzf --multi -q "$__last_word")
     end
 
     # if not successful, do nothing
