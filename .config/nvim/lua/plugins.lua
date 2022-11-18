@@ -21,23 +21,14 @@ return require("packer").startup(function(use)
         requires = "kyazdani42/nvim-web-devicons"
     }
 
-    -- code-action-menu
-    use "weilbith/nvim-code-action-menu"
-
     -- nvim-cmp
     use "hrsh7th/nvim-cmp"
 
     -- cmp-nvim-lsp
     use "hrsh7th/cmp-nvim-lsp"
-
-    -- luasnip
-    use "L3MON4D3/LuaSnip"
-
-    -- cmp-luasnip
-    use "saadparwaiz1/cmp_luasnip"
-
-    -- mini.nvim
-    use "echasnovski/mini.nvim"
+    
+    -- vim-vsnip
+    use "hrsh7th/vim-vsnip"
 
     -- nvim-tree
     use {

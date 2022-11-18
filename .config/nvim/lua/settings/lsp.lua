@@ -4,10 +4,7 @@
 local lsp = require("lspconfig")
 local lsp_project = require("lsp-project")
 
-lsp_project.setup({
-    cache = true,
-    scan_depth = 10
-})
+lsp_project.setup({})
 
 -- ==========
 -- config
@@ -83,45 +80,6 @@ lsp.hls.setup({
     on_init = lsp_project.wrap(),
 })
 
--- jdtls (java)
-lsp.jdtls.setup({
-    capabilities = capabilities,
-    on_attach = attach,
-    on_init = lsp_project.wrap(),
-
-    cmd = {
-        "jdtls",
-        "-configuration",
-        "/home/dog/.config/jdtls",
-        "-data",
-        "/home/dog/.cache/jdtls"
-    }
-})
-
--- sumneko (lua)
-lsp.sumneko_lua.setup({
-    capabilities = capabilities,
-    on_attach = attach,
-    on_init = lsp_project.wrap(),
-
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT"
-            },
-            diagnostics = {
-                globals = { "vim" }
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-                enable = false
-            }
-        }
-    }
-})
-
 -- rust-analyzer (rust)
 lsp.rust_analyzer.setup({
     capabilities = capabilities,
@@ -135,11 +93,4 @@ lsp.rust_analyzer.setup({
             }
         }
     }
-})
-
--- zls (zig)
-lsp.zls.setup({
-    capabilities = capabilities,
-    on_attach = attach,
-    on_init = lsp_project.wrap(),
 })

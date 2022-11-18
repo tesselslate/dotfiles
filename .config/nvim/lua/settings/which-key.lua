@@ -13,12 +13,13 @@ which_key.register({
     q = { ":q<CR>", "Close Window" },
     r = { ":Rel<CR>", "Relative Lines" },
     t = { ":NvimTreeToggle<CR>", "File Tree" },
-    w = { ":lua require('mini.bufremove').delete()<CR>", "Close Buffer" },
+    w = { ":bp | sp | bn | bd<CR>", "Close Buffer" },
     ["<Tab>"] = { ":wincmd w<CR>", "Next Window" },
     ["<S-Tab>"] = { ":wincmd W<CR>", "Prev Window" },
 
     f = {
         name = "Find",
+        b = { ":Telescope buffers<CR>", "Buffers" },
         f = { ":Telescope find_files<CR>", "Files" },
         s = { ":Telescope live_grep<CR>", "Grep" },
     },

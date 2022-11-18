@@ -23,13 +23,13 @@ vim.opt.ignorecase      = true          -- ignore letter case when searching
 vim.opt.smartcase       = true          -- improve ignorecase behavior
 
 -- miscellaneous settings
-vim.opt.mouse           = "a"           -- enable mouse
 vim.opt.signcolumn      = "yes"         -- always enable sign column
 vim.opt.laststatus      = 3             -- global status
 vim.opt.showmode        = false         -- don't put --INSERT-- etc at bottom
 vim.opt.swapfile        = false         -- disable swapfile
 vim.opt.undofile        = true          -- undo across restarts
-vim.opt.termguicolors   = true
+vim.opt.termguicolors   = true          -- use more than 256 colors
+vim.opt.lazyredraw      = true          -- dont redraw when using macros
 
 -- completeopt
 -- menuone: popup, even if there's only one match

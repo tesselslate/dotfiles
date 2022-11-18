@@ -1,42 +1,31 @@
 -- neovim config
 -- settings/feline.lua
 
-local colors = require("colors")()
+local colors = {
+    fg = "#c8d3f5",
+    bg = "#222436",
+    black = "#444a73",
+    skyblue = "#7aa2f7",
+    cyan = "#86e1fc",
+    green = "#c3e88d",
+    oceanblue = "#65bcff",
+    magenta = "#c099ff",
+    orange = "#ff966c",
+    red = "#ff757f",
+    violet = "#ff007c",
+    white = "#c8d3f5",
+    yellow = "#ffc777"
+}
 local components = {}
 local feline = require("feline")
 local vimode = require("feline.providers.vi_mode")
 
-local function dyn_hl(hl)
-    return function()
-        local ret = {}
-        for key, val in pairs(hl) do
-            if type(val) == "function" then
-                local val2 = val()
-                if colors[val2] ~= nil then
-                    ret[key] = colors[val2]
-                else
-                    ret[key] = val2
-                end
-            else
-                if colors[val] ~= nil then
-                    ret[key] = colors[val]
-                else
-                    ret[key] = val
-                end
-            end
-        end
-        return ret
-    end
-end
-
 local function get_hl(name)
-    return function()
-        local hl = vim.api.nvim_get_hl_by_name(name, true)
-        return {
-            fg = string.format("#%06X", hl.foreground),
-            bg = colors["bg"]
-        }
-    end
+    local hl = vim.api.nvim_get_hl_by_name(name, true)
+    return {
+        fg = string.format("#%06X", hl.foreground),
+        bg = "bg"
+    }
 end
 
 local function vim_hl()
@@ -46,10 +35,10 @@ local function vim_hl()
     }
 end
 
-local default_hl = dyn_hl({
+local default_hl = {
     fg = "fg",
     bg = "bg"
-})
+}
 
 local default_sep = {
     str = " ",
@@ -72,12 +61,14 @@ components.active = {
                 }
             },
             icon = "",
-            hl = dyn_hl({
-                name = vimode.get_mode_highlight_name,
-                fg = "bg",
-                bg = vimode.get_mode_color,
-                style = "bold"
-            })
+            hl = function()
+                return {
+                    name = vimode.get_mode_highlight_name(),
+                    fg = "bg",
+                    bg = colors[vimode.get_mode_color()],
+                    style = "bold"
+                }
+            end
         },
         {
             provider = "█",
@@ -152,10 +143,10 @@ components.active = {
                     bg = "NONE"
                 }
             },
-            hl = dyn_hl({
+            hl = {
                 bg = "NONE",
                 fg = "fg"
-            })
+            }
         },
 
         -- percentage
@@ -173,11 +164,12 @@ components.active = {
         },
         {
             provider = "position",
-            hl = dyn_hl({
-                name = vimode.get_mode_highlight_name,
-                fg = "bg",
-                bg = vimode.get_mode_color,
-            })
+            hl = function() return {
+                    name = vimode.get_mode_highlight_name(),
+                    fg = "bg",
+                    bg = colors[vimode.get_mode_color()],
+                }
+            end
         },
         {
             provider = "▊█",
@@ -192,6 +184,7 @@ components.inactive = components.active
 local M = {}
 
 M.load = function()
+    feline.use_theme(colors)
     feline.setup({
         components = components,
         vi_mode_colors = {
@@ -206,10 +199,6 @@ M.load = function()
             ["V-REPLACE"] = "red",
         }
     })
-end
-
-M.set_colors = function()
-    colors = require("colors")()
 end
 
 return M

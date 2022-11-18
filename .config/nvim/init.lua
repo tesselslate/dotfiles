@@ -17,9 +17,25 @@ require("settings.nvim-tree")
 require("settings.telescope")
 require("settings.treesitter")
 require("settings.which-key")
-require("settings.mini")
-require("settings.etc")
+
+require("leap").setup({
+    safe_labels = {}
+})
 
 -- load colorscheme and statusline
-require("colors")
+require("tokyonight").setup({
+    transparent = true,
+    terminal_colors = true,
+    styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+    },
+    dim_inactive = true,
+    on_highlights = function(hl, c)
+        hl.LineNr = {
+            fg = c.fg_dark,
+        }
+    end
+})
+vim.cmd [[colorscheme tokyonight-moon]]
 require("settings.feline").load()
