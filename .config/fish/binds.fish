@@ -5,17 +5,20 @@
 # ctrl-backspace => delete word
 bind -M insert  \cH backward-kill-word
 
+# ctrl-e => edit command
+bind -M insert  \ce edit_command_buffer
+
 # ctrl-f => insert fzf result
-bind -M insert  \cf 'infzf'
+bind -M insert  \cf infzf
 
 # ctrl-p => fzf and cd
-bind -M insert  \cp 'fzfcd'
+bind -M insert  \cp fzfcd
 
 # ctrl-l => right arrow
 bind -M insert  \f forward-char
 
 # ctrl-o => open lf
-bind -M insert  \co 'lfcd'
+bind -M insert  \co lfcd
 
 # ctrl-x => normal mode
 bind -M insert  \cx 'set fish_bind_mode default; commandline -f repaint;'
@@ -33,7 +36,7 @@ bind -M default y   fish_clipboard_copy
 bind -M default p   fish_clipboard_paste
 
 # ctrl-p => fzf and cd
-bind -M default \cp 'fzfcd'
+bind -M default \cp fzfcd
 
 # ctrl-o => open lf
-bind -M default \cf 'lfcd'
+bind -M default \cf lfcd
