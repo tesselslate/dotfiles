@@ -30,7 +30,6 @@ require("tokyonight").setup({
         comments = { italic = false },
         keywords = { italic = false },
     },
-    dim_inactive = true,
     on_highlights = function(hl, c)
         hl.LineNr = {
             fg = c.fg_dark,
