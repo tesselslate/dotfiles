@@ -12,7 +12,7 @@ fi
 xrdb -merge ~/.config/x11/xresources
 
 # start
-picom --xrender-sync-fence &
+picom --xrender-sync-fence --unredir-if-possible &
 ~/.local/share/go/bin/dwmbar &
 
 feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/pixel-market.png
