@@ -73,8 +73,15 @@ lsp.gopls.setup({
     }
 })
 
--- haskell (hls)
+-- hls (haskell)
 lsp.hls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
+})
+
+-- pyright (python)
+lsp.pyright.setup({
     capabilities = capabilities,
     on_attach = attach,
     on_init = lsp_project.wrap(),
