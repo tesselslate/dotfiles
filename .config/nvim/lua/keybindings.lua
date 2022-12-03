@@ -25,6 +25,9 @@ setkey("i", "<Esc>", "<Nop>")
 -- normal mode
 -- =============
 
+-- run python file in repl
+setkey("n", "<CR>", ":silent w | only | belowright sp | term pypy3 -i %<CR>")
+
 -- navigate diagnostics (ctrl + n / ctrl + p)
 setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
 setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
@@ -39,6 +42,9 @@ setkey("n", "<S-Tab>", ":bprev<CR>")
 
 -- rebind ctrl-x to escape
 setkey("n", "<C-x>", "<Esc>", true)
+
+-- rebind ctrl-d to decrement
+setkey("n", "<C-d>", "<C-x>", true)
 
 -- leap
 setkey("n", "s", ":lua require('leap').leap({target_windows = {vim.fn.win_getid()}})<CR>")
