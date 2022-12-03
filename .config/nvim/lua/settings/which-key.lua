@@ -27,7 +27,7 @@ which_key.register({
         name = "Goto",
         d = { ":lua vim.lsp.buf.definition()<CR>", "Definition" },
         i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-        r = { ":lua vim.lsp.buf.references()<CR>", "References" },
+        r = { ":Telescope lsp_references<CR>", "References" },
     },
     l = {
         name = "LSP",
