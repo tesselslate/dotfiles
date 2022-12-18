@@ -1,24 +1,27 @@
 #!/usr/bin/fish
 
 set __OMNIRUN_IN " firefox\0icon\x1ffirefox\n"
+set __OMNIRUN_IN $__OMNIRUN_IN "lonn\0icon\x1flonn\n"
+set __OMNIRUN_IN $__OMNIRUN_IN "minecraft\0icon\x1forg.prismlauncher.PrismLauncher\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "ncmpcpp\0icon\x1faudio-volume-medium\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "obs\0icon\x1fcom.obsproject.Studio\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "pavucontrol\0icon\x1faudio-volume-medium\n"
-set __OMNIRUN_IN $__OMNIRUN_IN "minecraft\0icon\x1forg.prismlauncher.PrismLauncher\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "steam\0icon\x1fsteam\n"
 
 set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
 switch $__OMNIRUN_RES
     case ' firefox'
         firefox & disown
+    case ' lonn'
+        cd documents/pkg/lonn && ./Lönn.sh & disown
+    case ' minecraft'
+        prismlauncher & disown
     case ' ncmpcpp'
         kitty ncmpcpp
     case ' obs'
         obs & disown
     case ' pavucontrol'
         pavucontrol & disown
-    case ' minecraft'
-        prismlauncher & disown
     case ' steam'
         steam & disown
 end
