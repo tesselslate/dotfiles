@@ -25,9 +25,6 @@ setkey("i", "<Esc>", "<Nop>")
 -- normal mode
 -- =============
 
--- run python file in repl
-setkey("n", "<CR>", ":silent w | only | belowright sp | term pypy3 -i %<CR>")
-
 -- navigate diagnostics (ctrl + n / ctrl + p)
 setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
 setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
