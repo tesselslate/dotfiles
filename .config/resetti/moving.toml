@@ -3,6 +3,11 @@ type = "wall"
 count_resets = true
 resets_file = "/mnt/hdd/mc/resetcount"
 
+[hooks]
+wall_reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
+lock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
+unlock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
+
 [obs]
 enabled = true
 port = 4440
@@ -11,7 +16,7 @@ password = "7W7U4YZpoo9L9Ba0"
 [reset]
 set_settings = true
 delay = 20
-pause_delay = 50
+pause_delay = 25
 unpause_on_focus = true
 click_on_focus = true
 
@@ -32,7 +37,7 @@ unstretch_width = 1920
 unstretch_height = 1080
 resize_x = 0
 resize_y = 0
-use_mouse = true
+use_mouse = false
 goto_locked = false
 no_play_generating = true
 sleepbg_lock = true
@@ -40,10 +45,17 @@ sleepbg_lock_path = "/home/dog/.local/share/home-ext"
 
 [advanced_wall]
 affinity = true
-ccx_split = true
-affinity_idle = 3
+affinity_idle = 2
 affinity_low = 4
-affinity_mid = 6
-affinity_high = 12
-affinity_active = 12
+affinity_mid = 10
+affinity_high = 22
+affinity_active = 24
 low_threshold = 20
+
+[moving_wall]
+use_moving_wall = true
+reset_first_loaded = "A"
+lock_first_loaded = "S"
+play_first_locked = "D"
+play_first_loaded = "Shift-D"
+unlock_first_loaded = "Shift-S"

@@ -1,0 +1,38 @@
+[general]
+type = "standard"
+count_resets = true
+resets_file = "/mnt/hdd/mc/resetcount"
+affinity = "alternate"
+
+[hooks]
+reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
+wall_reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
+lock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
+unlock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
+
+[obs]
+enabled = false
+port = 4440
+password = ""
+
+[reset]
+delay = 20
+pause_delay = 20
+unpause_on_focus = true
+click_on_focus = true
+
+[keybinds]
+focus = "Ctrl-Shift-F"
+reset = "Ctrl-Shift-D"
+wall_reset = ""
+wall_reset_others = "Ctrl-Shift"
+wall_play = "Shift"
+wall_lock = "Ctrl"
+
+[wall]
+stretch_windows = true
+stretch_width = 1920
+stretch_height = 320
+use_mouse = true
+goto_locked = true
+no_play_generating = true
