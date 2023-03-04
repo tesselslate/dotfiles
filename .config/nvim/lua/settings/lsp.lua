@@ -54,6 +54,17 @@ lsp.clangd.setup({
     on_init = lsp_project.wrap()
 })
 
+-- csharp_ls (C#)
+lsp.csharp_ls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
+
+    handlers = {
+        ["textDocument/definition"] = require("csharpls_extended").handler
+    },
+})
+
 -- gopls (go)
 -- TODO: import ordering helper func?
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports

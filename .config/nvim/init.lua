@@ -1,6 +1,10 @@
 -- neovim config
 -- init.lua
 
+-- lazy.nvim
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
+require("lazy").setup(require("plugins"))
+
 require("impatient")
 
 -- the basics
@@ -18,10 +22,6 @@ require("settings.telescope")
 require("settings.treesitter")
 require("settings.which-key")
 
-require("leap").setup({
-    safe_labels = {}
-})
-
 -- load colorscheme and statusline
 require("tokyonight").setup({
     transparent = true,
@@ -36,5 +36,5 @@ require("tokyonight").setup({
         }
     end
 })
-vim.cmd [[colorscheme tokyonight-moon]]
+vim.cmd "colorscheme tokyonight-moon"
 require("settings.feline").load()

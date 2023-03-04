@@ -43,9 +43,6 @@ setkey("n", "<C-x>", "<Esc>", true)
 -- rebind ctrl-d to decrement
 setkey("n", "<C-d>", "<C-x>", true)
 
--- leap
-setkey("n", "s", ":lua require('leap').leap({target_windows = {vim.fn.win_getid()}})<CR>")
-
 -- disable arrow keys
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };
 for _, k in ipairs(keys) do
