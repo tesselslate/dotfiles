@@ -11,11 +11,14 @@ fi
 # xresources
 xrdb -merge ~/.config/x11/xresources
 
-# start
+# start software
 picom --xrender-sync-fence --unredir-if-possible &
 ~/.local/share/go/bin/dwmbar &
-
 feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/pixel-market.png
+
+# setup monitors with xrandr
+xrandr --output DP-0 --auto --output HDMI-0 --primary --left-of DP-0
+xrandr --output HDMI-0 --mode 1920x1080 -r 120.00
 
 exec dwm
 
