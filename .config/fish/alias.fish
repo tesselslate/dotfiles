@@ -1,5 +1,4 @@
 alias dotgit="git --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME"
-alias dotnet="env HOME=$HOME/.local/share/home-ext dotnet"
 alias lazydotgit="lazygit --git-dir=$HOME/repos/dotfiles/ --work-tree=$HOME"
 alias lock="i3lock -i ~/.config/desktop/backgrounds/pixel-market.png -t"
 alias ls="exa -l --icons --group-directories-first"
