@@ -59,6 +59,9 @@ return {
     -- which-key
     "folke/which-key.nvim",
 
+    -- pounce.nvim
+    "rlane/pounce.nvim",
+
     -- gitsigns
     {
         "lewis6991/gitsigns.nvim",

@@ -43,6 +43,9 @@ setkey("n", "<C-x>", "<Esc>", true)
 -- rebind ctrl-d to decrement
 setkey("n", "<C-d>", "<C-x>", true)
 
+-- pounce (fuzzy jump)
+setkey("n", "s", ":Pounce<CR>")
+
 -- disable arrow keys
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };
 for _, k in ipairs(keys) do
