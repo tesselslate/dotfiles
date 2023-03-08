@@ -54,15 +54,21 @@ lsp.clangd.setup({
     on_init = lsp_project.wrap()
 })
 
--- csharp_ls (C#)
-lsp.csharp_ls.setup({
+-- omnisharp (C#)
+lsp.omnisharp.setup({
     capabilities = capabilities,
     on_attach = attach,
     on_init = lsp_project.wrap(),
 
+    cmd = { "omnisharp" },
     handlers = {
-        ["textDocument/definition"] = require("csharpls_extended").handler
+        ["textDocument/definition"] = require("omnisharp_extended").handler,
     },
+    analyze_open_documents_only = false,
+    enable_editorconfig_support = true,
+    enable_roslyn_analyzers = true,
+    organize_imports_on_format = true,
+    enable_import_completion = true
 })
 
 -- gopls (go)

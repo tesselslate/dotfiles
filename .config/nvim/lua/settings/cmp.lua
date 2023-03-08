@@ -94,4 +94,9 @@ cmp.setup({
             vim.fn["vsnip#anonymous"](args.body)
         end
     },
+
+    -- timeout
+    performance = {
+        fetching_timeout = 5000
+    }
 })

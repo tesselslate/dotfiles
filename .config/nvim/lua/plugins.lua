@@ -5,16 +5,16 @@ return {
     -- nvim-lspconfig
     "neovim/nvim-lspconfig",
 
-    -- csharpls-extended-lsp.nvim
-    {
-        "Decodetalkers/csharpls-extended-lsp.nvim",
-        pin = true,
-    },
-
     -- lsp-project
     {
         "woofdoggo/lsp-project.nvim",
         dependencies = "nvim-lua/plenary.nvim"
+    },
+
+    -- omnisharp-extended-lsp.nvim
+    {
+        "Hoffs/omnisharp-extended-lsp.nvim",
+        pin = true
     },
 
     -- trouble
