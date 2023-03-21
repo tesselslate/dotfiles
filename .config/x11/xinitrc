@@ -13,12 +13,17 @@ xrdb -merge ~/.config/x11/xresources
 
 # start software
 picom --xrender-sync-fence --unredir-if-possible &
-~/.local/share/go/bin/dwmbar &
 feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/pixel-market.png
+~/.local/share/go/bin/dwmbar > /tmp/dwmbar.log &
 
 # setup monitors with xrandr
 xrandr --output DP-0 --auto --output HDMI-0 --primary --left-of DP-0
 xrandr --output HDMI-0 --mode 1920x1080 -r 120.00
+
+# keyboard and mouse settings
+xset r rate 400 40
+xinput --set-prop 8 --type=float 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 3.16666
+sh -c 'sleep 5 && xsetroot -xcf ~/.local/share/icons/crosshair/cursors/default 32' & disown
 
 exec dwm
 
