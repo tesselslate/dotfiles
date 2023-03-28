@@ -1,0 +1,8 @@
+#!/usr/bin/fish
+cd /tmp/mc
+while true
+    for i in (seq 1 15)
+        cd $i && rm -r (command ls -t1 | tail -n +20) && cd ..
+    end
+    sleep 300
+end
