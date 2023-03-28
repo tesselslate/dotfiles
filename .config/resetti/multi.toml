@@ -2,7 +2,6 @@
 type = "standard"
 count_resets = true
 resets_file = "/mnt/hdd/mc/resetcount"
-affinity = "alternate"
 
 [hooks]
 reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"

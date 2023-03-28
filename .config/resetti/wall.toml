@@ -9,11 +9,9 @@ port = 4440
 password = "7W7U4YZpoo9L9Ba0"
 
 [reset]
-set_settings = true
 delay = 20
 pause_delay = 50
 unpause_on_focus = true
-click_on_focus = true
 
 [keybinds]
 focus = "Ctrl-Shift-F"
@@ -26,24 +24,21 @@ wall_lock = "Ctrl"
 [wall]
 hide_gui = true
 stretch_windows = true
-stretch_width = 640
-stretch_height = 216
-unstretch_width = 1920
-unstretch_height = 1080
-resize_x = 0
-resize_y = 0
+stretch_res = "640x216+0,0"
+unstretch_res = "1920x1080+0,0"
 use_mouse = true
 goto_locked = false
-no_play_generating = true
 sleepbg_lock = true
 sleepbg_lock_path = "/home/dog/.local/share/home-ext"
+grace_period = 250
 
 [advanced_wall]
 affinity = true
 ccx_split = true
 affinity_idle = 3
 affinity_low = 4
-affinity_mid = 6
+affinity_mid = 8
 affinity_high = 12
 affinity_active = 12
-low_threshold = 20
+burst_length = 400
+low_threshold = 25
