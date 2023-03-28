@@ -47,8 +47,8 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- language servers
 -- ==========
 
--- clangd (C)
-lsp.clangd.setup({
+-- ccls (C)
+lsp.ccls.setup({
     capabilities = capabilities,
     on_attach = attach,
     on_init = lsp_project.wrap()
@@ -114,7 +114,10 @@ lsp.rust_analyzer.setup({
         ["rust-analyzer"] = {
             checkOnSave = {
                 allTargets = false
-            }
+            },
+            diagnostics = {
+                disabled = {"unresolved-proc-macro"}
+            },
         }
     }
 })
