@@ -4,7 +4,6 @@
 -- lazy.nvim
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 require("lazy").setup(require("plugins"))
-
 require("impatient")
 
 -- the basics
@@ -38,3 +37,7 @@ require("tokyonight").setup({
 })
 vim.cmd "colorscheme tokyonight-moon"
 require("settings.feline").load()
+
+-- misc plugins
+vim.diagnostic.config({virtual_lines = false})
+require("lsp_lines").setup()

@@ -23,6 +23,9 @@ return {
         dependencies = "kyazdani42/nvim-web-devicons"
     },
 
+    -- lsp_lines.nvim
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+
     -- nvim-cmp
     "hrsh7th/nvim-cmp",
 

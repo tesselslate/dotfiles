@@ -29,6 +29,9 @@ setkey("i", "<Esc>", "<Nop>")
 setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
 setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
 
+-- toggle lsp lines (ctrl + l)
+setkey("n", "<C-l>", ":lua require('lsp_lines').toggle()<CR>")
+
 -- leader key (space)
 setkey("n", "<Space>", "<Nop>")
 setkey("n", "<Space>", "<Leader>")
