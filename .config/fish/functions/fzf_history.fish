@@ -1,6 +1,6 @@
 function fzf_history
     set __buf (commandline -b)
-    set __fzfres (history | fzf --no-preview --query="$__buf")
+    set __fzfres (history | fzf --query="$__buf")
 
     # if not successful, do nothing
     if test $status -ne 0

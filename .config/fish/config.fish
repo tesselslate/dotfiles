@@ -22,7 +22,7 @@ source ~/.config/fish/binds.fish
 # -----------------------------
 
 # fzf options
-set -x FZF_DEFAULT_OPTS     "--height 80% --preview 'bat --theme base16-256 --style=numbers --color=always --line-range :500 {}' --border=rounded --margin=0,1 --cycle --layout=reverse --color=16,bg:-1,gutter:-1,hl:2,border:15,bg+:8"
+set -x FZF_DEFAULT_OPTS     "--height 60% --preview '' --cycle --layout=reverse --color=16,bg:-1,gutter:-1,hl:2,border:15,bg+:8 --no-scrollbar --border=none"
 set -x FZF_DEFAULT_COMMAND  "fd --type f --hidden --exclude .git"
 
 # -----------------------------
