@@ -72,8 +72,6 @@ lsp.omnisharp.setup({
 })
 
 -- gopls (go)
--- TODO: import ordering helper func?
--- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports
 lsp.gopls.setup({
     capabilities = capabilities,
     on_attach = attach,
@@ -88,6 +86,12 @@ lsp.gopls.setup({
             staticcheck = true
         }
     }
+})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function()
+        vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true})
+    end
 })
 
 -- hls (haskell)
