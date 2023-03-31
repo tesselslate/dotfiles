@@ -1,4 +1,4 @@
-function fzfcd
+function fzf_cd
     # get last word of commandline
     set __buf (commandline -b)
     set __words (string split ' ' $__buf)

@@ -1,4 +1,4 @@
-function infzf
+function fzf_paste
     # get last word of commandline
     set __buf (commandline -b)
     set __words (string split ' ' $__buf)
