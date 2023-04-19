@@ -32,6 +32,9 @@ do
     mkdir -p /tmp/mclog/$i
 done
 
+# nvidia
+nvidia-settings --config=/home/dog/.config/nv-settings --load-config-only
+
 exec dwm
 
 # vim:ft=bash
