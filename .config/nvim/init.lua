@@ -30,6 +30,9 @@ require("tokyonight").setup({
         keywords = { italic = false },
     },
     on_highlights = function(hl, c)
+        hl.EndOfBuffer = {
+            fg = nil,
+        }
         hl.LineNr = {
             fg = c.fg_dark,
         }

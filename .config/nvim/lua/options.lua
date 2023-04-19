@@ -16,7 +16,8 @@ vim.opt.wrap            = false             -- don't wrap lines
 
 -- scroll settings
 vim.opt.scrolloff       = 8                 -- vertical scroll padding
-vim.opt.sidescrolloff   = 8                 -- horizontal scroll padding
+vim.opt.sidescrolloff   = 24                -- horizontal scroll padding
+vim.opt.fillchars       = "eob: "           -- no tildes at end of buffer
 
 -- search settings
 vim.opt.ignorecase      = true              -- ignore letter case when searching
