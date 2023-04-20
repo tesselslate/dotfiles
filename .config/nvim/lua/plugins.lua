@@ -17,15 +17,6 @@ return {
         pin = true
     },
 
-    -- trouble
-    {
-        "folke/trouble.nvim",
-        dependencies = "kyazdani42/nvim-web-devicons"
-    },
-
-    -- lsp_lines.nvim
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-
     -- nvim-cmp
     "hrsh7th/nvim-cmp",
 
@@ -34,12 +25,6 @@ return {
     
     -- vim-vsnip
     "hrsh7th/vim-vsnip",
-
-    -- nvim-tree
-    {
-        "kyazdani42/nvim-tree.lua",
-        dependencies = "kyazdani42/nvim-web-devicons"
-    },
 
     -- treesitter
     {
@@ -73,9 +58,6 @@ return {
 
     -- impatient.nvim
     "lewis6991/impatient.nvim",
-
-    -- feline.nvim
-    "feline-nvim/feline.nvim",
 
     -- tokyonight.nvim
     "folke/tokyonight.nvim"

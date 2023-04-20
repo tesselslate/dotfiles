@@ -9,6 +9,13 @@ local setkey = function(mode, key, bind, noremap)
 end
 
 -- =============
+-- command mode
+-- =============
+
+-- escape (ctrl + x)
+setkey("c", "<C-x>", "<Esc>", true)
+
+-- =============
 -- insert mode
 -- =============
 
