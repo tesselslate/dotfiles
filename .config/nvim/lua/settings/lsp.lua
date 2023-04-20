@@ -10,12 +10,18 @@ lsp_project.setup({})
 -- config
 -- ==========
 
+-- diagnostics config
+vim.diagnostic.config({
+    update_in_insert = true, -- update diagnostics during insert mode
+    virtual_text     = false, -- no virtual text for diagnostics
+})
+
 -- indicator characters
 local signs = {
     Error = " ",
-    Warning = " ",
-    Hint = " ",
-    Information = " "
+    Warn  = " ",
+    Hint  = " ",
+    Info  = " "
 }
 
 for type, icon in pairs(signs) do
@@ -26,12 +32,6 @@ for type, icon in pairs(signs) do
         numhl = hl
     })
 end
-
--- diagnostics config
-vim.diagnostic.config({
-    update_in_insert = true, -- update diagnostics during insert mode
-    virtual_text     = false, -- no virtual text for diagnostics
-})
 
 -- ==========
 -- helpers
