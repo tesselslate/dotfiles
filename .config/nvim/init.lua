@@ -16,12 +16,11 @@ require("options")
 require("settings.gitsigns")
 require("settings.lsp")
 require("settings.cmp")
-require("settings.nvim-tree")
 require("settings.telescope")
 require("settings.treesitter")
 require("settings.which-key")
 
--- load colorscheme and statusline
+-- load colorscheme
 require("tokyonight").setup({
     transparent = true,
     terminal_colors = true,
@@ -29,6 +28,15 @@ require("tokyonight").setup({
         comments = { italic = false },
         keywords = { italic = false },
     },
+    on_colors = function(c)
+        c.git = {
+            add    = "#c3e88d",
+            change = "#6fbcff",
+            delete = "#ff757f",
+        }
+        c.gitSigns = c.git
+
+    end,
     on_highlights = function(hl, c)
         hl.EndOfBuffer = {
             fg = nil,
@@ -38,9 +46,4 @@ require("tokyonight").setup({
         }
     end
 })
-vim.cmd "colorscheme tokyonight-moon"
-require("settings.feline").load()
-
--- misc plugins
-vim.diagnostic.config({virtual_lines = false})
-require("lsp_lines").setup()
+vim.cmd("colorscheme tokyonight-moon")

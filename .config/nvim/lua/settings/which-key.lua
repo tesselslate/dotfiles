@@ -19,7 +19,11 @@ which_key.register({
     f = {
         name = "Find",
         b = { ":Telescope buffers<CR>", "Buffers" },
+        c = { ":Telescope git_commits<CR>", "Commits" },
+        d = { ":Telescope diagnostics<CR>", "Diagnostics" },
         f = { ":Telescope find_files<CR>", "Files" },
+        j = { ":Telescope jumplist<CR>", "Jumps" },
+        q = { ":Telescope quickfix<CR>", "Quickfix" },
         s = { ":Telescope live_grep<CR>", "Grep" },
     },
     g = {
@@ -37,11 +41,11 @@ which_key.register({
     },
     v = {
         name = "Git",
-        b = { ":Gitsigns blame_line", "Blame" },
+        b = { ":Gitsigns blame_line<CR>", "Blame" },
         n = { ":Gitsigns next_hunk<CR>", "Next Hunk" },
         N = { ":Gitsigns prev_hunk<CR>", "Prev Hunk" },
         p = { ":Gitsigns preview_hunk_inline<CR>", "Preview Hunk" },
-        q = { ":Gitsigns setqflist", "Quickfix List" },
+        q = { ":Gitsigns setqflist<CR>", "Quickfix List" },
         r = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" },
         s = { ":Gitsigns stage_hunk<CR>", "Stage Hunk" },
     },
