@@ -10,9 +10,10 @@ which_key.setup({
 })
 
 which_key.register({
+    D = { ":lua require('mini.bufremove').delete(0, true)<CR>", "Delete Buffer" },
     q = { ":q<CR>", "Close Window" },
     r = { ":Rel<CR>", "Relative Lines" },
-    w = { ":bp | sp | bn | bd<CR>", "Close Buffer" },
+    w = { ":lua require('mini.bufremove').delete()<CR>", "Close Buffer" },
     ["<Tab>"] = { ":wincmd w<CR>", "Next Window" },
     ["<S-Tab>"] = { ":wincmd W<CR>", "Prev Window" },
 
