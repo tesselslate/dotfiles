@@ -9,11 +9,15 @@ which_key.setup({
     }
 })
 
+local function force_del()
+    require("mini.bufremove").delete(0, true)
+end
+
 which_key.register({
-    D = { ":lua require('mini.bufremove').delete(0, true)<CR>", "Delete Buffer" },
+    D = { force_del, "Delete Buffer" },
     q = { ":q<CR>", "Close Window" },
     r = { ":Rel<CR>", "Relative Lines" },
-    w = { ":lua require('mini.bufremove').delete()<CR>", "Close Buffer" },
+    w = { require('mini.bufremove').delete, "Close Buffer" },
     ["<Tab>"] = { ":wincmd w<CR>", "Next Window" },
     ["<S-Tab>"] = { ":wincmd W<CR>", "Prev Window" },
 
@@ -29,16 +33,16 @@ which_key.register({
     },
     g = {
         name = "Goto",
-        d = { ":lua vim.lsp.buf.definition()<CR>", "Definition" },
-        i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
+        d = { vim.lsp.buf.definition, "Definition" },
+        i = { vim.lsp.buf.implementation, "Implementation" },
         r = { ":Telescope lsp_references<CR>", "References" },
     },
     l = {
         name = "LSP",
-        c = { ":lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
-        f = { ":lua vim.lsp.buf.format()<CR>", "Format File" },
-        h = { ":lua vim.lsp.buf.hover()<CR>", "Symbol Info" },
-        r = { ":lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
+        c = { vim.lsp.buf.code_action, "Code Actions" },
+        f = { vim.lsp.buf.format, "Format File" },
+        h = { vim.lsp.buf.hover, "Symbol Info" },
+        r = { vim.lsp.buf.rename, "Rename Symbol" },
     },
     v = {
         name = "Git",

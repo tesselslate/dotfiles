@@ -5,7 +5,7 @@
 -- are available in settings/which-key.lua
 
 local setkey = function(mode, key, bind, noremap)
-    vim.api.nvim_set_keymap(mode, key, bind, { noremap = noremap, silent = true })
+    vim.keymap.set(mode, key, bind, { remap = not noremap, silent = true })
 end
 
 -- =============
@@ -22,6 +22,9 @@ setkey("c", "<C-x>", "<Esc>", true)
 -- delete previous word (ctrl + backspace)
 setkey("i", "<C-BS>", "<C-w>")
 
+-- pounce (ctrl + s)
+setkey("i", "<C-s>", require("pounce").pounce)
+
 -- escape (ctrl + x)
 setkey("i", "<C-x>", "<Esc>", true)
 
@@ -33,11 +36,8 @@ setkey("i", "<Esc>", "<Nop>")
 -- =============
 
 -- navigate diagnostics (ctrl + n / ctrl + p)
-setkey("n", "<C-n>", ":lua vim.diagnostic.goto_next()<CR>")
-setkey("n", "<C-p>", ":lua vim.diagnostic.goto_prev()<CR>")
-
--- toggle lsp lines (ctrl + l)
-setkey("n", "<C-l>", ":lua require('lsp_lines').toggle()<CR>")
+setkey("n", "<C-n>", vim.diagnostic.goto_next)
+setkey("n", "<C-p>", vim.diagnostic.goto_prev)
 
 -- leader key (space)
 setkey("n", "<Space>", "<Nop>")
@@ -54,7 +54,7 @@ setkey("n", "<C-x>", "<Esc>", true)
 setkey("n", "<C-d>", "<C-x>", true)
 
 -- pounce (fuzzy jump)
-setkey("n", "s", ":Pounce<CR>")
+setkey("n", "s", require("pounce").pounce)
 
 -- disable arrow keys
 local keys = { "<Up>", "<Down>", "<Right>", "<Left>" };

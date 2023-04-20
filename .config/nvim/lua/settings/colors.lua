@@ -8,6 +8,7 @@ require("tokyonight").setup({
         comments = { italic = false },
         keywords = { italic = false },
     },
+
     on_colors = function(c)
         c.git = {
             add    = "#c3e88d",
