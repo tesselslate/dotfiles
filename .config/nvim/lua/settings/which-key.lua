@@ -49,7 +49,7 @@ which_key.register({
         b = { ":Gitsigns blame_line<CR>", "Blame" },
         n = { ":Gitsigns next_hunk<CR>", "Next Hunk" },
         N = { ":Gitsigns prev_hunk<CR>", "Prev Hunk" },
-        p = { ":Gitsigns preview_hunk_inline<CR>", "Preview Hunk" },
+        p = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" },
         q = { ":Gitsigns setqflist<CR>", "Quickfix List" },
         r = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" },
         s = { ":Gitsigns stage_hunk<CR>", "Stage Hunk" },
