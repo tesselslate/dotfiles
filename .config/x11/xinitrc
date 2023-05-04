@@ -17,8 +17,8 @@ feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/pixel-market.png
 ~/.local/share/go/bin/dwmbar > /tmp/dwmbar-$(date +%N).log &
 
 # setup monitors with xrandr
-xrandr --output DP-0 --auto --output HDMI-0 --primary --left-of DP-0
-xrandr --output HDMI-0 --mode 1920x1080 -r 120.00
+xrandr --output DP-2 --primary --left-of DP-3
+xrandr --output DP-2 --mode 1920x1080 -r 165.00
 
 # keyboard and mouse settings
 xset r rate 400 40
@@ -31,9 +31,6 @@ do
     mkdir -p /tmp/mc/$i
     mkdir -p /tmp/mclog/$i
 done
-
-# nvidia
-nvidia-settings --config=/home/dog/.config/nv-settings --load-config-only
 
 exec dwm
 
