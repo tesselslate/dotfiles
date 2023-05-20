@@ -6,11 +6,17 @@ set __OMNIRUN_IN $__OMNIRUN_IN "intellij\0icon\x1fidea\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "lonn\0icon\x1flonn\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "minecraft\0icon\x1f/opt/multimc/icon.svg\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "ncmpcpp\0icon\x1faudio-volume-medium\n"
+set __OMNIRUN_IN $__OMNIRUN_IN "ninb\0icon\x1fninb\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "obs\0icon\x1fcom.obsproject.Studio\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "pavucontrol\0icon\x1faudio-volume-medium\n"
 set __OMNIRUN_IN $__OMNIRUN_IN "steam\0icon\x1fsteam\n"
 
-set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
+if test "$XDG_SESSION_TYPE" = wayland
+    set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | bemenu -p '' -m 1)
+else
+    set __OMNIRUN_RES (echo -e "$__OMNIRUN_IN" | rofi -dmenu -p '')
+end
+
 switch $__OMNIRUN_RES
     case ' anki'
         anki & disown
@@ -24,6 +30,8 @@ switch $__OMNIRUN_RES
         multimc & disown
     case ' ncmpcpp'
         kitty ncmpcpp
+    case ' ninb'
+        cd documents/pkg & java -jar NinjabrainBot.jar & disown
     case ' obs'
         obs & disown
     case ' pavucontrol'

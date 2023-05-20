@@ -2,7 +2,6 @@
 cd /tmp/mc
 
 while true
-    pwd
     for i in (seq 1 15)
         cd $i
         rm -r (command ls -t1 | tail -n +20)
