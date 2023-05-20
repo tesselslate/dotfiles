@@ -11,6 +11,9 @@ set -x XDG_MUSIC_DIR                $HOME/music
 set -x XDG_PICTURES_DIR             $HOME/pictures
 set -x XDG_VIDEOS_DIR               $HOME/videos
 
+# fish cursor
+set fish_cursor_insert line
+
 # default programs
 set -x EDITOR                       nvim
 set -x PAGER                        less
