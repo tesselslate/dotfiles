@@ -1,0 +1,155 @@
+### Applications
+set $term foot
+set $menu echo "firefox\nobs\npavucontrol" | tofi | xargs swaymsg exec --
+
+### Outputs
+output * bg ~/.config/desktop/backgrounds/pixel-interior.png fill
+output DP-2 {
+    mode 1920x1080@165.003Hz
+    pos 0 0
+    adaptive_sync on
+}
+
+output DP-3 {
+    mode 1920x1080@60Hz
+    pos 1920 0
+}
+
+### Inputs
+input "12136:130:Hoksi_Technology_DURGOD_Taurus_K320" {
+    repeat_delay 300
+    repeat_rate 40
+}
+
+input "1133:16500:Logitech_G305" {
+    accel_profile flat
+    pointer_accel 0
+}
+
+### Miscellaneous
+focus_follows_mouse no
+default_border pixel 2
+default_floating_border normal
+gaps inner 8
+xwayland disable
+
+bar {
+    font "JetBrainsMono NFM"
+    height 30
+    position top
+    status_command bar
+
+    colors {
+        statusline #ffffff
+        background #222436
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+### Keybinds
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Start a terminal
+bindsym $mod+Shift+Return exec $term
+
+# Start your launcher
+bindsym $mod+Return exec $menu
+
+# Kill focused window
+bindsym $mod+c kill
+
+# Reload
+bindsym $mod+Shift+r reload
+
+# Exit
+bindsym $mod+Shift+q exec swaynag -t warning -m 'Exit?' -B 'Yes' 'swaymsg exit'
+
+# Floating drag
+floating_modifier $mod normal
+
+# Switch focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle floating
+bindsym $mod+Shift+space floating toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+# Move to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Pull from scratchpad
+bindsym $mod+minus scratchpad show
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Audio
+exec "pipewire &"
+exec "pipewire-pulse &"
+exec "wireplumber &"
