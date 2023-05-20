@@ -16,7 +16,6 @@ tsconfig.setup({
         "go",
         "gomod",
         "graphql",
-        "haskell",
         "html",
         "java",
         "javascript",
