@@ -1,0 +1,7 @@
+.cache
+.dbus
+.git
+.local/share
+.local/state
+.mozilla
+src/dotfiles
