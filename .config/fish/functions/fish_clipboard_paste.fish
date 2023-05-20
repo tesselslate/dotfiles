@@ -1,6 +1,10 @@
 function fish_clipboard_paste
     set -l data
-    set data (xclip -selection clipboard -o 2>/dev/null)
+    if test $XDG_SESSION_TYPE = "wayland"
+        set data (wl-paste)
+    else
+        set data (xclip -selection clipboard -o 2>/dev/null)
+    end
 
     # Issue 6254: Handle zero-length clipboard content
     if not string match -qr . -- "$data"
