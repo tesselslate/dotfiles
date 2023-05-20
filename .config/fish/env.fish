@@ -39,7 +39,7 @@ set -x _JAVA_OPTIONS                -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Dswing.aatext=TRUE"
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=on"
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Duser.home=/home/dog/.local/share/home-ext"
-set -x _JAVA_AWT_WM_NONREPARENTING 1
+set -x _JAVA_AWT_WM_NONREPARENTING  1
 
 # i hate dotnet
-set -x DOTNET_CLI_TELEMETRY_OPTOUT 1
+set -x DOTNET_CLI_TELEMETRY_OPTOUT  1
