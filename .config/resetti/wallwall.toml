@@ -1,8 +1,6 @@
 reset_count = "/mnt/hdd/mc/resetcount"
 unpause_focus = true
 poll_rate = 50
-play_res = "1920x1080+0,0"
-alt_res = "1920x16384+0,0"
 
 [delay]
 wp_pause = 0
@@ -12,8 +10,13 @@ stretch = 0
 ghost_pie_fix = 10
 
 [hooks]
+# reset = ""
 normal_res = "xinput --set-prop 8 --type=float 155 1 0 0 0 1 0 0 0 3.16666"
 alt_res = "xinput --set-prop 8 --type=float 155 1 0 0 0 1 0 0 0 6"
+# wall_lock = ""
+# wall_unlock = ""
+# wall_play = ""
+# wall_reset = ""
 
 [keybinds]
 "Ctrl-Shift-F"  = ["wall_focus", "ingame_focus"]
@@ -34,9 +37,11 @@ confine_pointer = true
 goto_locked = false
 reset_unlock = true
 grace_period = 100
-stretch_res = "640x400+0,0"
+stretch_res = "960x400+0,0"
+play_res = "1920x1080+0,0"
+alt_res = "1920x16384+0,0"
 use_f1 = true
-freeze_at = 80
+freeze_at = 70
 show_at = -1
 
 [wall.moving]
@@ -45,8 +50,14 @@ use_gaps = true
 
 [[wall.moving.groups]]
 position = "1920x800+0,140"
-width = 3
+width = 2
 height = 2
+
+[[wall.moving.groups]]
+position = "640x360+640,360"
+width = 2
+height = 2
+cosmetic = true
 
 [[wall.moving.groups]]
 position = "1920x140+0,0"

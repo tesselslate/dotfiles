@@ -26,7 +26,7 @@ alt_res = "xinput --set-prop 8 --type=float 155 1 0 0 0 1 0 0 0 6"
 [obs]
 enabled = true
 port = 4440
-password = "7W7U4YZpoo9L9Ba0"
+password = "password123"
 
 [wall]
 enabled = true
@@ -34,7 +34,7 @@ confine_pointer = true
 goto_locked = false
 reset_unlock = true
 grace_period = 100
-stretch_res = "640x400+0,0"
+stretch_res = "640x216+0,0"
 use_f1 = true
 freeze_at = 80
 show_at = -1
@@ -44,19 +44,9 @@ enabled = true
 use_gaps = true
 
 [[wall.moving.groups]]
-position = "1920x800+0,140"
+position = "1920x1080+0,0"
 width = 3
-height = 2
-
-[[wall.moving.groups]]
-position = "1920x140+0,0"
-width = 8
-height = 1
-
-[wall.moving.locks]
-position = "1920x140+0,940"
-width = 8
-height = 1
+height = 5
 
 [wall.performance]
 sleepbg_path = "/home/dog/.local/share/home-ext"

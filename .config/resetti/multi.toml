@@ -1,37 +1,11 @@
-[general]
-type = "standard"
-count_resets = true
-resets_file = "/mnt/hdd/mc/resetcount"
+unpause_focus = true
+poll_rate = 50
+alt_res = "1920x16384+0,0"
+play_res = "1920x1080+0,0"
 
 [hooks]
-reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
-wall_reset = "paplay /mnt/hdd/mc/reset.wav --device=default.remapped"
-lock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
-unlock = "paplay /mnt/hdd/mc/lock.wav --device=default.remapped"
-
-[obs]
-enabled = false
-port = 4440
-password = ""
-
-[reset]
-delay = 20
-pause_delay = 20
-unpause_on_focus = true
-click_on_focus = true
+normal_res = "xinput --set-prop 8 --type=float 155 1 0 0 0 1 0 0 0 3.16666"
+alt_res = "xinput --set-prop 8 --type=float 155 1 0 0 0 1 0 0 0 6"
 
 [keybinds]
-focus = "Ctrl-Shift-F"
-reset = "Ctrl-Shift-D"
-wall_reset = ""
-wall_reset_others = "Ctrl-Shift"
-wall_play = "Shift"
-wall_lock = "Ctrl"
-
-[wall]
-stretch_windows = true
-stretch_width = 1920
-stretch_height = 320
-use_mouse = true
-goto_locked = true
-no_play_generating = true
+"Insert" = ["ingame_toggle_res"]
