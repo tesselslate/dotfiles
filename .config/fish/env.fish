@@ -4,12 +4,12 @@ set -x XDG_CACHE_HOME               $HOME/.cache
 set -x XDG_DATA_HOME                $HOME/.local/share
 set -x XDG_STATE_HOME               $HOME/.local/state
 
-set -x XDG_DESKTOP_DIR              $HOME/documents/desktop
-set -x XDG_DOCUMENTS_DIR            $HOME/documents
-set -x XDG_DOWNLOAD_DIR             $HOME/downloads
+set -x XDG_DESKTOP_DIR              $HOME/doc/desktop
+set -x XDG_DOCUMENTS_DIR            $HOME/doc
+set -x XDG_DOWNLOAD_DIR             $HOME/dl
 set -x XDG_MUSIC_DIR                $HOME/music
-set -x XDG_PICTURES_DIR             $HOME/pictures
-set -x XDG_VIDEOS_DIR               $HOME/videos
+set -x XDG_PICTURES_DIR             $HOME/pix
+set -x XDG_VIDEOS_DIR               $HOME/vid
 
 # fish cursor
 set fish_cursor_insert line

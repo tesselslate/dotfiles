@@ -18,14 +18,18 @@ set uptime_min (string pad -w 2 $uptime_min --char 0)
 set uptime_sec (string pad -w 2 $uptime_sec --char 0)
 
 set kver (uname -r)
-set memory "$memuse_mb / $memtotal_mb mb" 
+set memory "$memuse_mb / $memtotal_mb mb"
 set uptime "$uptime_hr:$uptime_min:$uptime_sec"
-set pkgcount (pacman -Q | wc -l)    
+if test (hostname) = "voidbox"
+    set pkgcount (xbps-query -l | wc -l)
+else if test (hostname) = "archbox"
+    set pkgcount (pacman -Q | wc -l)
+end
 
 set l_kernel    "\e[1;32mkernel \e[1;33m$kver"
 set l_memory    "\e[1;32mmemory \e[1;33m$memory"
 set l_uptime    "\e[1;32muptime \e[1;33m$uptime"
-set l_packages  "\e[1;32mpacman \e[1;33m$pkgcount"
+set l_packages  "\e[1;32mpkg    \e[1;33m$pkgcount"
 
 # print
 printf "\n\e[1;36m     /\\      $l_kernel\n"
