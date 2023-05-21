@@ -32,8 +32,10 @@ default_border pixel 2
 default_floating_border normal
 gaps inner 8
 
+seat seat0 xcursor_theme BreezeX-Dark 32
+
 bar {
-    font "JetBrainsMono NFM"
+    font "JetBrainsMono Nerd Font"
     height 30
     position top
     status_command bar
@@ -154,5 +156,3 @@ exec {
     pipewire-pulse &
     wireplumber &
 }
-
-seat seat0 xcursor_theme Snow 16
