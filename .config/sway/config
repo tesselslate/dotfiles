@@ -1,6 +1,6 @@
 ### Applications
 set $term foot
-set $menu echo "firefox\nobs\npavucontrol" | tofi | xargs swaymsg exec --
+set $menu menu | xargs swaymsg exec --
 
 ### Outputs
 output * bg ~/.config/desktop/backgrounds/pixel-interior.png fill
@@ -31,7 +31,6 @@ focus_follows_mouse no
 default_border pixel 2
 default_floating_border normal
 gaps inner 8
-xwayland disable
 
 bar {
     font "JetBrainsMono NFM"
@@ -150,6 +149,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### Audio
-exec "pipewire &"
-exec "pipewire-pulse &"
-exec "wireplumber &"
+exec {
+    pipewire &
+    pipewire-pulse &
+    wireplumber &
+}
+
+seat seat0 xcursor_theme Snow 16
