@@ -1,0 +1,7 @@
+#!/usr/bin/dash
+while true; do
+    MEM=$(cat /proc/meminfo | awk '/^MemTotal/{TOTAL=$2} /^MemAvailable/{AVAIL=$2} END{ printf "%4.1f\n", (TOTAL-AVAIL)/1000000 }')
+    DATE=$(date +'%Y-%m-%d %I:%M:%S %p')
+    printf "$MEM GB | $DATE\n"
+    sleep 1
+done

@@ -1,0 +1,5 @@
+#!/usr/bin/dash
+FZF=$(apk info | fzf)
+if [ -n "$FZF" ]; then
+    apk info $FZF
+fi

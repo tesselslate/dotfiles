@@ -1,3 +1,2 @@
-#!/usr/bin/fish
-
-unzip $argv[1] -d /mnt/ssd/osu/Songs/(basename $argv[1] .osz)
+#!/usr/bin/dash
+unzip $1 -d "/mnt/ssd/osu/Songs/$(basename $1 .osz)"

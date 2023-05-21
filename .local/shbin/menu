@@ -1,0 +1,20 @@
+#!/usr/bin/dash
+
+OPTS="firefox\nminecraft\nncmpcpp\nobs\npavucontrol"
+case $(echo $OPTS | tofi) in
+    firefox)
+        echo firefox
+        ;;
+    minecraft)
+        echo prismlauncher
+        ;;
+    ncmpcpp)
+        echo "foot ncmpcpp"
+        ;;
+    obs)
+        echo obs
+        ;;
+    pavucontrol)
+        echo pavucontrol
+        ;;
+esac

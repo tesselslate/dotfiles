@@ -1,2 +1,2 @@
-#!/usr/bin/fish
-/usr/bin/mpc -p 6660 $argv
+#!/usr/bin/dash
+/usr/bin/mpc -p 6660 $@
