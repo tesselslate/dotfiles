@@ -16,12 +16,6 @@ lines_scrolled = 5
 allow_for_physical_item_deletion = no
 ask_before_clearing_playlists = yes
 
-##### music visualizer #####
-visualizer_data_source = /tmp/mpd.fifo
-visualizer_output_name = visualizer
-visualizer_in_stereo = yes
-visualizer_fps = 60
-
 ##### ui #####
 colors_enabled = yes
 playlist_display_mode = columns

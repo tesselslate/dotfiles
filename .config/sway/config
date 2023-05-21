@@ -81,6 +81,11 @@ bindsym $mod+Print exec screenshot-clipboard output
 # Edit last screenshot
 bindsym $mod+Shift+E exec edit-screenshot
 
+# Media keys
+bindsym XF86AudioRaiseVolume    exec volume 5%+
+bindsym XF86AudioLowerVolume    exec volume 5%-
+bindsym XF86AudioPlay           exec mpc-toggle
+
 # Kill focused window
 bindsym $mod+c kill
 
@@ -164,4 +169,5 @@ exec {
     pipewire-pulse
     wireplumber
     mako
+    mpd
 }

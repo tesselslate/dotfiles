@@ -1,2 +1,2 @@
 #!/usr/bin/dash
-/usr/bin/mpc -p 6660 $@
+/usr/bin/mpc -p 6660 "$@"

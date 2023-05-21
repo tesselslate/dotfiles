@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+wpctl set-volume @DEFAULT_AUDIO_SINK@ $1
+VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.0f%%", $2*100}')
+notify-send "Set volume to $VOLUME" -t 500
