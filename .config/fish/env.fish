@@ -36,3 +36,8 @@ set -x _JAVA_AWT_WM_NONREPARENTING  1
 
 # i hate dotnet
 set -x DOTNET_CLI_TELEMETRY_OPTOUT  1
+
+# Wayland
+set -x MOZ_UZE_WAYLAND              1
+set -x SDL_VIDEODRIVER              wayland
+set -x QT_QPA_PLATFORM              wayland-egl

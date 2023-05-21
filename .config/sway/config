@@ -93,19 +93,19 @@ floating_modifier $mod normal
 
 # Fast workspace switch
 bindsym $mod+Ctrl+$down workspace prev
-bindsym $mod+Ctrl+$up workspace next
+bindsym $mod+Ctrl+$up   workspace next
 
 # Switch focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
 # Move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$left    move left
+bindsym $mod+Shift+$down    move down
+bindsym $mod+Shift+$up      move up
+bindsym $mod+Shift+$right   move right
 
 # Switch workspace
 bindsym $mod+u workspace number 1
@@ -137,18 +137,29 @@ bindsym $mod+Shift+minus move scratchpad
 # Pull from scratchpad
 bindsym $mod+minus scratchpad show
 
+# Resize mode
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Return to default mode
+    bindsym $left   resize shrink width 10px
+    bindsym $down   resize grow height 10px
+    bindsym $up     resize shrink height 10px
+    bindsym $right  resize grow width 10px
     bindsym Return mode "default"
-    bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# Notification mode
+mode "notif" {
+    bindsym D       exec makoctl dismiss && swaymsg mode "default"
+    bindsym Shift+D exec makoctl dismiss -a && swaymsg mode "default"
+    bindsym R       exec makoctl restore
+    bindsym Return mode "default"
+}
+bindsym $mod+n mode "notif"
+
+### Launch
+exec {
+    pipewire
+    pipewire-pulse
+    wireplumber
+    mako
+}
