@@ -24,6 +24,8 @@ if test (hostname) = "voidbox"
     set pkgcount (xbps-query -l | wc -l)
 else if test (hostname) = "archbox"
     set pkgcount (pacman -Q | wc -l)
+else if test (hostname) = "alpine"
+    set pkgcount (apk list -I | wc -l)
 end
 
 set l_kernel    "\e[1;32mkernel \e[1;33m$kver"
