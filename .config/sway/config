@@ -31,17 +31,20 @@ focus_follows_mouse no
 default_border pixel 2
 default_floating_border normal
 gaps inner 8
-
 seat seat0 xcursor_theme BreezeX-Dark 32
+
+client.focused          #c3e88d #222436 #ffc8d3 #c099ff #c3e88d
+client.focused_inactive #82aaff #222436 #ffc8d3 #c099ff #82aaff
+client.unfocused        #ff757f #222436 #ffc8d3 #c099ff #ff757f
 
 bar {
     font "JetBrainsMono Nerd Font"
     height 30
     position top
-    status_command bar
+    status_command i3status
 
     colors {
-        statusline #ffffff
+        statusline #c8d3f5
         background #222436
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
@@ -149,10 +152,3 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-### Audio
-exec {
-    pipewire &
-    pipewire-pulse &
-    wireplumber &
-}

@@ -39,6 +39,10 @@ fish_add_path ~/.local/share/go/bin
 # -----------------------------
 
 if test "(tty)" = "/dev/tty1"
+    # TODO: SWAYSOCK?
+    pipewire &
+    pipewire-pulse &
+    wireplumber &
     dbus-run-session sway
 end
 

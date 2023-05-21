@@ -1,0 +1,21 @@
+general {
+    output_format = "i3bar"
+    interval = 1
+}
+
+order += "cpu_temperature 0"
+order += "memory"
+order += "time"
+
+cpu_temperature 0 {
+    format = "%degrees C"
+    path = "/sys/class/hwmon/hwmon2/temp1_input"
+}
+
+memory {
+    format = "%used"
+}
+
+time {
+    format = "%Y-%m-%d %H:%M:%S"
+}
