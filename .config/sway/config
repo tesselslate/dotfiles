@@ -28,15 +28,17 @@ input "1133:16500:Logitech_G305" {
 }
 
 ### Miscellaneous
-focus_follows_mouse no
-default_border pixel 2
-default_floating_border normal
-gaps inner 8
-seat seat0 xcursor_theme BreezeX-Dark 32
-
 client.focused          #c3e88d #222436 #ffc8d3 #c099ff #c3e88d
 client.focused_inactive #82aaff #222436 #ffc8d3 #c099ff #82aaff
 client.unfocused        #ff757f #222436 #ffc8d3 #c099ff #ff757f
+
+default_border pixel 2
+default_floating_border normal
+focus_follows_mouse no
+gaps inner 8
+seat seat0 xcursor_theme BreezeX-Dark 32
+
+for_window [title="."] title_format "%title (%shell)"
 
 bar {
     font "JetBrainsMono Nerd Font"
