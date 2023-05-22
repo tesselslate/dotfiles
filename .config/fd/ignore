@@ -4,4 +4,5 @@
 .local/share
 .local/state
 .mozilla
+.var
 src/dotfiles
