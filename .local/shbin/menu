@@ -1,20 +1,20 @@
 #!/usr/bin/dash
 
 OPTS="firefox\nminecraft\nncmpcpp\nobs\npavucontrol"
-case $(echo $OPTS | tofi) in
+case $(echo $OPTS | fuzzel -d) in
     firefox)
-        echo firefox
+        firefox &
         ;;
     minecraft)
-        echo prismlauncher
+        prismlauncher &
         ;;
     ncmpcpp)
-        echo "foot ncmpcpp"
+        foot ncmpcpp &
         ;;
     obs)
-        echo obs
+        obs &
         ;;
     pavucontrol)
-        echo pavucontrol
+        pavucontrol &
         ;;
 esac
