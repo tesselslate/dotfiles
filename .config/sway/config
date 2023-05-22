@@ -1,7 +1,7 @@
 ### Applications
 set $lock swaylock -t -i ~/.config/desktop/backgrounds/pixel-starry.png
 set $menu menu | xargs swaymsg exec --
-set $term foot
+set $term footclient
 
 ### Outputs
 output * bg ~/.config/desktop/backgrounds/pixel-interior.png fill
@@ -170,4 +170,5 @@ exec {
     wireplumber
     mako
     mpd
+    foot --server
 }
