@@ -1,5 +1,5 @@
 * {
-    font-family: "JetBrainsMono Nerd Font Mono";
+    font-family: "JetBrainsMono Nerd Font Mono, Noto Sans Mono CJK KR, Noto Sans Mono CJK HK, Noto Sans Mono CJK JP, Noto Sans Mono CJK SC, Noto Sans Mono CJK TC";
     font-size: 14px;
     min-height: 0;
     padding-top: 0;
@@ -20,8 +20,16 @@ tooltip label {
     color: #c8d3f5;
 }
 
+.modules-left {
+    margin-left: 24px;
+}
+
+.modules-right {
+    margin-right: 24;
+}
+
 .modules-left, .modules-center, .modules-right {
-    margin: 4px;
+    margin-top: 4px;
     margin-bottom: 0px;
     border-radius: 32px;
     background: rgba(55, 58, 87, 0.5);
