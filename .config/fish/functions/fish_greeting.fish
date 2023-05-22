@@ -1,3 +1,3 @@
 function fish_greeting
-    fetch
+    fetch --nopkg
 end
