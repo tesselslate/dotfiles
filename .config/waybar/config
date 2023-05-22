@@ -1,0 +1,44 @@
+{
+    "layer": "top",
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["mpd"],
+    "modules-right": ["temperature", "memory", "clock", "tray"],
+
+    "clock": {
+        "format": "<span bgcolor='#c099ff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#c099ff'> {:%I:%M:%S %p} </span>",
+        "calendar": {
+            "mode": "month",
+        },
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "interval": 1,
+    },
+    "memory": {
+        "format": "<span bgcolor='#ffc777' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#ffc777'> {used:0.1f} GB </span>",
+    },
+    "mpd": {
+        "format-disconnected": "",
+        "format-paused": "",
+        "format-stopped": "",
+        "format": "<span bgcolor='#82aaff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#82aaff'> {artist} - {title} </span>",
+        "port": 6660,
+    },
+    "temperature": {
+        "format": "<span bgcolor='#ff757f' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#ff757f'> {temperatureC}°C </span>",
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    },
+    "wlr/workspaces": {
+        "on-click": "activate",
+        "persistent_workspaces": {
+            "1": ["DP-2"],
+            "2": ["DP-2"],
+            "3": ["DP-2"],
+            "4": ["DP-2"],
+            "5": ["DP-3"],
+            "6": ["DP-3"],
+            "7": ["DP-3"],
+            "8": ["DP-3"],
+        },
+    },
+}
+
+// vim:ft=json
