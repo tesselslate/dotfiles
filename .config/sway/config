@@ -171,4 +171,6 @@ exec {
     mako
     mpd
     foot --server
+    gsettings set org.gnome.desktop.interface cursor-theme BreezeX-Dark
+    gsettings set org.gnome.desktop.interface cursor-size 32
 }
