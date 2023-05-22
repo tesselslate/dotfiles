@@ -1,6 +1,5 @@
 #!/usr/bin/dash
-HOSTNAME=$(hostname)
-case $HOSTNAME in
+case "$(cat /etc/hostname)" in
     alpine)
         FZF=$(apk info | fzf)
         if [ -n "$FZF" ]; then
@@ -8,7 +7,7 @@ case $HOSTNAME in
         fi
         ;;
     archbox)
-        FZF=$(pacman -Q | fzf)
+        FZF=$(pacman -Qq | fzf)
         if [ -n "$FZF" ]; then
             pacman -Qi $FZF
         fi

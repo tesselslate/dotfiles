@@ -33,26 +33,3 @@ fish_add_path ~/.local/bin
 fish_add_path ~/.local/shbin
 fish_add_path ~/.local/share/cargo/bin
 fish_add_path ~/.local/share/go/bin
-
-# -----------------------------
-# == alpine
-# -----------------------------
-
-if test "(hostname)" = "alpine"
-	fish_add_path /sbin
-	fish_add_path /usr/sbin
-end
-
-if test -z "$XDG_RUNTIME_DIR"
-	set -x XDG_RUNTIME_DIR /tmp/(id -u)-runtime-dir
-	mkdir -p $XDG_RUNTIME_DIR
-	chmod 0700 $XDG_RUNTIME_DIR
-end
-
-# -----------------------------
-# == login
-# -----------------------------
-
-if test (tty) = "/dev/tty1"
-    dbus-run-session sway
-end
