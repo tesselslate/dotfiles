@@ -10,9 +10,6 @@ if [ -z "$1" ]; then
         archbox)
             PKGCOUNT=$(pacman -Q | wc -l)
             ;;
-        voidbox)
-            PKGCOUNT=$(xbps-query -l | wc -l)
-            ;;
     esac
     PKGCOUNT="($PKGCOUNT)"
 fi

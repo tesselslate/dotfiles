@@ -1,0 +1,16 @@
+#!/usr/bin/dash
+HOSTNAME=$(hostname)
+case $HOSTNAME in
+    alpine)
+        FZF=$(apk info | fzf)
+        if [ -n "$FZF" ]; then
+            apk info $FZF
+        fi
+        ;;
+    archbox)
+        FZF=$(pacman -Q | fzf)
+        if [ -n "$FZF" ]; then
+            pacman -Qi $FZF
+        fi
+        ;;
+esac
