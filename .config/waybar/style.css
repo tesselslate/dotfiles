@@ -42,7 +42,7 @@ tooltip label {
 }
 
 #tray {
-    background: #1b1d2b;
+    padding-right: 12px;
 }
 
 #workspaces {
