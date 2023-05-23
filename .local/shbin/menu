@@ -1,6 +1,10 @@
 #!/usr/bin/dash
 
-OPTS="firefox\nminecraft\nncmpcpp\nobs\npavucontrol"
+OPTS="firefox\n\
+minecraft\n\
+ncmpcpp\n\
+obs\n\
+pavucontrol"
 case $(echo $OPTS | fuzzel -d) in
     firefox)
         firefox &
