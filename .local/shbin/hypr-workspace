@@ -1,0 +1,32 @@
+#!/usr/bin/dash
+
+CURRENT=$(hyprctl activeworkspace | awk '/^workspace/{print $3}')
+
+case $1 in
+    left|winleft)
+        CURRENT=$((CURRENT-1))
+        echo $CURRENT
+        if [ $CURRENT = 0 ]; then
+            CURRENT=4
+        elif [ $CURRENT = 4 ]; then
+            CURRENT=8
+        fi
+        ;;
+    right|winright)
+        CURRENT=$((CURRENT+1))
+        if [ $CURRENT = 5 ]; then
+            CURRENT=0
+        elif [ $CURRENT = 9 ]; then
+            CURRENT=5
+        fi
+        ;;
+esac
+
+case $1 in
+    left|right)
+        hyprctl dispatch workspace $CURRENT
+        ;;
+    winleft|winright)
+        hyprctl dispatch movetoworkspace $CURRENT
+        ;;
+esac

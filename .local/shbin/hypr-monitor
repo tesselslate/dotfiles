@@ -1,0 +1,20 @@
+#!/usr/bin/dash
+
+MONITOR=$(hyprctl activeworkspace | awk '/^workspace/{print $7}')
+case $MONITOR in
+    "DP-2:")
+        NEXT=DP-3
+        ;;
+    "DP-3:")
+        NEXT=DP-2
+        ;;
+esac
+
+case $1 in
+    focus)
+        hyprctl dispatch focusmonitor $NEXT
+        ;;
+    window)
+        hyprctl dispatch movewindow mon:$NEXT
+        ;;
+esac
