@@ -1,7 +1,0 @@
-#!/usr/bin/dash
-STATE=$(mpc toggle | head -n 2 | tail -n 1 | awk '{print $1}')
-if [ "$STATE" = "[paused]" ]; then
-    notify-send "Paused" -t 500
-elif [ "$STATE" = "[playing]" ]; then
-    notify-send "Now playing: $(mpc | head -n 1)" -t 2000
-fi
