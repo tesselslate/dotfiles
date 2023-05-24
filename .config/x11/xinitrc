@@ -15,7 +15,7 @@ xrdb -merge ~/.config/x11/xresources
 picom --xrender-sync-fence --unredir-if-possible &
 feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/pixel-market.png
 DWMBARLOG="/tmp/dwmbar-$(date +%N).log"
-~/.local/share/go/bin/dwmbar 2>$DWMBARLOG &
+~/.local/bin/dwmbar 2>$DWMBARLOG &
 
 # setup monitors with xrandr
 xrandr --output DisplayPort-1 --primary --left-of DisplayPort-2
