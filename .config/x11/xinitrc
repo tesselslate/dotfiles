@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# run xinitrc.d scripts
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+    for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
+# xresources
+xrdb -merge ~/.config/x11/xresources
+
+# start software
+picom --xrender-sync-fence --unredir-if-possible &
+feh --bg-scale --no-fehbg ~/.config/desktop/backgrounds/pixel-market.png
+DWMBARLOG="/tmp/dwmbar-$(date +%N).log"
+~/.local/share/go/bin/dwmbar 2>$DWMBARLOG &
+
+# setup monitors with xrandr
+xrandr --output DisplayPort-1 --primary --left-of DisplayPort-2
+xrandr --output DisplayPort-1 --mode 1920x1080 -r 165.00
+
+# keyboard and mouse settings
+xset r rate 300 40
+sh -c 'sleep 5 && xsetroot -xcf ~/.local/share/icons/crosshair/cursors/default 32' & disown
+
+# create /tmp folders (use systemd-tmpfiles?)
+for i in {1..15}
+do
+    mkdir -p /tmp/mc/$i
+    mkdir -p /tmp/mclog/$i
+done
+
+exec dwm
+
+# vim:ft=bash

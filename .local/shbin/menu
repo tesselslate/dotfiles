@@ -4,8 +4,16 @@ OPTS="firefox\n\
 minecraft\n\
 ncmpcpp\n\
 obs\n\
-pavucontrol"
-case $(echo $OPTS | fuzzel -d) in
+pavucontrol\n\
+steam"
+case $XDG_SESSION_TYPE in
+    wayland)
+        RESULT=$(echo OPTS | fuzzel -d)
+        ;;
+    x11)
+        RESULT=$(echo OPTS | rofi -dmenu -p '')
+esac
+case $RESULT in
     firefox)
         firefox &
         ;;
@@ -21,4 +29,6 @@ case $(echo $OPTS | fuzzel -d) in
     pavucontrol)
         pavucontrol &
         ;;
+    steam)
+        flatpak run --user com.valvesoftware.Steam
 esac

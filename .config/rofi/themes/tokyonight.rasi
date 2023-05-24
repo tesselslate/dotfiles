@@ -1,0 +1,81 @@
+* {
+    bg: #24283b;
+    bg-alt: #292e42;
+
+    fg: #c0caf5;
+
+    blue: #3d59a1;
+    purple: #bb9af7;
+
+    background-color: @bg;
+    text-color: @fg;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+inputbar {
+    children: [prompt, entry];
+}
+
+message {
+    border-color: @blue;
+}
+
+prompt {
+    background-color: @blue;
+    enabled: true;
+    text-color: @fg;
+}
+
+window {
+    anchor: north;
+    location: north;
+    width: 100%;
+    padding: 4 4 5 4;
+    children: [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+    padding: 0 0 0 20;
+}
+
+listview {
+    layout: horizontal;
+    spacing: 5px;
+    lines: 100;
+    padding: 0 0 0 12;
+}
+
+entry {
+    expand: false;
+    width: 10em;
+    background-color: @blue;
+    text-color: @fg;
+}
+
+element {
+    text-color: @fg;
+    padding: 0 12 0 0;
+}
+
+element selected {
+    text-color: @purple;
+}
+
+element-icon {
+    padding: 0;
+    margin: 0;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    padding: 0 0 0 0;
+}
+
+/* vim:ft=css
