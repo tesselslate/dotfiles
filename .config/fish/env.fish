@@ -37,7 +37,13 @@ set -x _JAVA_AWT_WM_NONREPARENTING  1
 # i hate dotnet
 set -x DOTNET_CLI_TELEMETRY_OPTOUT  1
 
-# Wayland
+# Wayland/Pipewire
 set -x MOZ_ENABLE_WAYLAND           1
-set -x SDL_VIDEODRIVER              wayland
-set -x QT_QPA_PLATFORM              wayland-egl
+set -x SDL_AUDIODRIVER              pipewire
+#set -x SDL_VIDEODRIVER              wayland
+#set -x QT_QPA_PLATFORM              wayland-egl
+
+# Cursor theme
+set -x XCURSOR_PATH                 ~/.local/share/icons
+set -x XCURSOR_SIZE                 32
+set -x XCURSOR_THEME                BreezeX-Dark
