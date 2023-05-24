@@ -1,12 +1,9 @@
 #!/usr/bin/dash
-case $XDG_SESSION_TYPE in
-    wayland)
-        grimblast save $1 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
-        if [ "$1" = "output" ]; then
-            notify-send "Screenshot taken" -t 500
-        fi
-        ;;
-    x11)
-        maim $@ | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | xclip -selection clipboard -t image/png
-        ;;
-esac
+if [ $XDG_SESSION_TYPE = wayland ]; then
+    grimblast save $1 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
+    if [ "$1" = "output" ]; then
+        notify-send "Screenshot taken" -t 500
+    fi
+else
+    maim $@ | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | xclip -selection clipboard -t image/png
+fi

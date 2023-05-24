@@ -6,13 +6,11 @@ ncmpcpp\n\
 obs\n\
 pavucontrol\n\
 steam"
-case $XDG_SESSION_TYPE in
-    wayland)
-        RESULT=$(echo OPTS | fuzzel -d)
-        ;;
-    x11)
-        RESULT=$(echo OPTS | rofi -dmenu -p '')
-esac
+if [ $XDG_SESSION_TYPE = wayland ]; then
+    RESULT=$(echo $OPTS | fuzzel -d)
+else
+    RESULT=$(echo $OPTS | rofi -dmenu -p '')
+fi
 case $RESULT in
     firefox)
         firefox &
@@ -21,7 +19,7 @@ case $RESULT in
         prismlauncher &
         ;;
     ncmpcpp)
-        foot ncmpcpp &
+        wezterm -e ncmpcpp &
         ;;
     obs)
         obs &
