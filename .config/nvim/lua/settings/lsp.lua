@@ -18,10 +18,10 @@ vim.diagnostic.config({
 
 -- indicator characters
 local signs = {
-    Error = " ",
-    Warn  = " ",
-    Hint  = " ",
-    Info  = " "
+    Error = "",
+    Warn  = "",
+    Hint  = "",
+    Info  = ""
 }
 
 for type, icon in pairs(signs) do
@@ -94,13 +94,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
--- hls (haskell)
-lsp.hls.setup({
-    capabilities = capabilities,
-    on_attach = attach,
-    on_init = lsp_project.wrap(),
-})
-
 -- pyright (python)
 lsp.pyright.setup({
     capabilities = capabilities,
@@ -124,4 +117,11 @@ lsp.rust_analyzer.setup({
             },
         }
     }
+})
+
+-- zls (zig)
+lsp.zls.setup({
+    capabilities = capabilities,
+    on_attach = attach,
+    on_init = lsp_project.wrap(),
 })

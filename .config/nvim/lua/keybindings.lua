@@ -20,7 +20,7 @@ setkey("c", "<C-x>", "<Esc>", true)
 -- =============
 
 -- delete previous word (ctrl + backspace)
-setkey("i", "<C-H>", "<C-w>")
+setkey("i", "<C-BS>", "<C-w>")
 
 -- pounce (ctrl + s)
 setkey("i", "<C-s>", require("pounce").pounce)
