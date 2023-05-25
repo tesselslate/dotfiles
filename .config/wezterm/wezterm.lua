@@ -18,4 +18,17 @@ conf.window_padding = {
     bottom = 0,
 }
 
+-- Keys
+conf.keys = {
+    {
+        key = "t",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action({
+            SpawnCommandInNewTab = {
+                cwd = wezterm.home_dir,
+            },
+        }),
+    },
+}
+
 return conf
