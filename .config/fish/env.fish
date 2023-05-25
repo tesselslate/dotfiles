@@ -7,9 +7,9 @@ set -x XDG_STATE_HOME               $HOME/.local/state
 set -x XDG_DESKTOP_DIR              $HOME/doc/desktop
 set -x XDG_DOCUMENTS_DIR            $HOME/doc
 set -x XDG_DOWNLOAD_DIR             $HOME/dl
-set -x XDG_MUSIC_DIR                $HOME/music
+set -x XDG_MUSIC_DIR                $HOME/doc/music
 set -x XDG_PICTURES_DIR             $HOME/pix
-set -x XDG_VIDEOS_DIR               $HOME/vid
+set -x XDG_VIDEOS_DIR               $HOME/doc/vid
 
 # fish cursor
 set fish_cursor_insert line
