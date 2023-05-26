@@ -19,7 +19,7 @@ case $RESULT in
         prismlauncher &
         ;;
     ncmpcpp)
-        wezterm -e ncmpcpp &
+        kitty -e ncmpcpp &
         ;;
     obs)
         obs &
