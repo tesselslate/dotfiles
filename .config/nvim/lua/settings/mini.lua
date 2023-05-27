@@ -49,7 +49,7 @@ function status_diagnostics()
     for _, level in ipairs(levels) do
         local n = #vim.diagnostic.get(0, { severity = level[1] })
         if n ~= 0 then
-            table.insert(diagnostics, string.format(' %%#%s#%s %s ', level[2], level[3], n))
+            table.insert(diagnostics, string.format(" %%#%s#%s %s ", level[2], level[3], n))
         end
     end
 
@@ -58,14 +58,24 @@ end
 
 require("mini.bufremove").setup({})
 require("mini.comment").setup({})
+require("mini.tabline").setup({})
 require("mini.trailspace").setup({})
 
+require("mini.hipatterns").setup({
+    highlighters = {
+        fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+        hack  = { pattern = "%f[%w]()HACK()%f[%W]",  group = "MiniHipatternsHack"  },
+        todo  = { pattern = "%f[%w]()TODO()%f[%W]",  group = "MiniHipatternsTodo"  },
+        note  = { pattern = "%f[%w]()NOTE()%f[%W]",  group = "MiniHipatternsNote"  },
+
+        hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+    }
+})
 require("mini.splitjoin").setup({
     mappings = {
         toggle = "gs",
     }
 })
-
 require("mini.statusline").setup({
     content = {
         active = status,

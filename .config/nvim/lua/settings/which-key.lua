@@ -14,8 +14,8 @@ local function force_del()
 end
 
 which_key.register({
+    c = { require("mini.hipatterns").toggle, "Toggle Hipatterns" },
     D = { force_del, "Delete Buffer" },
-    q = { ":q<CR>", "Close Window" },
     r = { ":Rel<CR>", "Relative Lines" },
     w = { require('mini.bufremove').delete, "Close Buffer" },
     ["<Tab>"] = { ":wincmd w<CR>", "Next Window" },
