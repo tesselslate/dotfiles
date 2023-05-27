@@ -50,7 +50,7 @@ cmp.setup({
     -- key mappings
     mapping = {
         -- <Tab> (select next suggestion)
-        ['<Tab>'] = cmp.mapping(function(fallback)
+        ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif vim.fn["vsnip#available"](1) == 1 then
@@ -61,7 +61,7 @@ cmp.setup({
         end, { "i", "s" }),
 
         -- <S-Tab> (select previous suggestion)
-        ['<S-Tab>'] = cmp.mapping(function()
+        ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif vim.fn["vsnip#jumpable"](-1) == 1 then
@@ -70,13 +70,13 @@ cmp.setup({
         end, { "i", "s" }),
 
         -- <CR> (confirm completion)
-        ['<CR>'] = cmp.mapping.confirm({
+        ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true
         }),
 
         -- <M-q> (close completion menu)
-        ['<M-q>'] = cmp.mapping(function()
+        ["<M-q>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.close()
             end

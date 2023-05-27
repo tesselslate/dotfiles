@@ -17,7 +17,7 @@ which_key.register({
     c = { require("mini.hipatterns").toggle, "Toggle Hipatterns" },
     D = { force_del, "Delete Buffer" },
     r = { ":Rel<CR>", "Relative Lines" },
-    w = { require('mini.bufremove').delete, "Close Buffer" },
+    w = { require("mini.bufremove").delete, "Close Buffer" },
     ["<Tab>"] = { ":wincmd w<CR>", "Next Window" },
     ["<S-Tab>"] = { ":wincmd W<CR>", "Prev Window" },
 
