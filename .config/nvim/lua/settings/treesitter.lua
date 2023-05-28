@@ -24,6 +24,7 @@ tsconfig.setup({
         "lua",
         "make",
         "markdown",
+        "meson",
         "python",
         "rasi",
         "rust",
