@@ -10,7 +10,7 @@ pavucontrol\n\
 steam\n\
 wayboard"
 if [ $XDG_SESSION_TYPE = wayland ]; then
-    RESULT=$(echo $OPTS | fuzzel -d)
+    RESULT=$(echo $OPTS | fuzzel -d --lines $(echo "$OPTS" | wc -l))
 else
     RESULT=$(echo $OPTS | rofi -dmenu -p '')
 fi
@@ -28,7 +28,7 @@ case $RESULT in
         prismlauncher &
         ;;
     ncmpcpp)
-        kitty -e ncmpcpp &
+        foot ncmpcpp &
         ;;
     obs)
         obs &

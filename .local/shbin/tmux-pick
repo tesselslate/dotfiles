@@ -1,0 +1,6 @@
+#!/usr/bin/dash
+
+RESULT=$(echo "$(tmux list-sessions)" | awk '{printf "%s %s %s\n", $1, $2, $3}' | fuzzel -d | awk '{print $1}')
+if [ "$RESULT" ]; then
+    foot tmux attach-session -t $RESULT
+fi
