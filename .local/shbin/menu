@@ -1,19 +1,28 @@
 #!/usr/bin/dash
 
-OPTS="firefox\n\
+OPTS="celeste\n\
+firefox\n\
+lonn\n\
 minecraft\n\
 ncmpcpp\n\
 obs\n\
 pavucontrol\n\
-steam"
+steam\n\
+wayboard"
 if [ $XDG_SESSION_TYPE = wayland ]; then
     RESULT=$(echo $OPTS | fuzzel -d)
 else
     RESULT=$(echo $OPTS | rofi -dmenu -p '')
 fi
 case $RESULT in
+    celeste)
+        celeste &
+        ;;
     firefox)
         firefox &
+        ;;
+    lonn)
+        ~/clones/lonn/Lönn.sh & # i love unicode
         ;;
     minecraft)
         prismlauncher &
@@ -29,4 +38,8 @@ case $RESULT in
         ;;
     steam)
         flatpak run --user com.valvesoftware.Steam
+        ;;
+    wayboard)
+        wayboard ~/.config/wayboard.cfg &
+        ;;
 esac
