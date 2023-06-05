@@ -20,11 +20,12 @@ set -x PAGER                        less
 
 # move annoying folders out of $HOME
 set -x CARGO_HOME                   $XDG_DATA_HOME/cargo
-set -x RUSTUP_HOME                  $XDG_DATA_HOME/rustup
+set -x DOTNET_CLI_HOME              $XDG_DATA_HOME/dotnet
 set -x GOPATH                       $XDG_DATA_HOME/go
-set -x NUGET_PACKAGES               $XDG_CACHE_HOME/nuget
-
 set -x GTK2_RC_FILES                $XDG_CONFIG_HOME/gtk-2.0/gtkrc
+set -x NUGET_PACKAGES               $XDG_CACHE_HOME/nuget
+set -x OMNISHARPHOME                $XDG_DATA_HOME/omnisharp
+set -x RUSTUP_HOME                  $XDG_DATA_HOME/rustup
 
 # i hate java
 set -x AWT_TOOLKIT                  MToolkit
@@ -40,8 +41,6 @@ set -x DOTNET_CLI_TELEMETRY_OPTOUT  1
 # Wayland/Pipewire
 set -x MOZ_ENABLE_WAYLAND           1
 set -x SDL_AUDIODRIVER              pipewire
-#set -x SDL_VIDEODRIVER              wayland
-#set -x QT_QPA_PLATFORM              wayland-egl
 
 # Cursor theme
 set -x XCURSOR_PATH                 ~/.local/share/icons
