@@ -2,20 +2,15 @@
 # == lf options
 # -----------------------------
 
-# shell command interpreter
-set shell bash
+set shell dash                      # shell interpreter
+set shellopts '-eu'                 # strict shell opts
+set ifs "\n"                        # internal field separator
+set scrolloff 10                    # spacing
+set preview                         # file previews
+set hidden                          # show dotfiles
 
-# strict shell opts
-set shellopts '-eu'
-
-# internal field separator
-set ifs "\n"
-
-# space around screen
-set scrolloff 10
-
-# show dotfiles
-set hidden
+set icons                           # show nerdfont file icons
+set drawbox                         # boxes
 
 # -----------------------------
 # == lf mappings
@@ -27,8 +22,12 @@ map <c-a> :select_all
 # ctrl-f => fuzzy find
 map <c-f> :fzf_jump
 
+# ctrl-o | ctrl-i => history
+map <c-o> :jump-prev
+map <c-i> :jump-next
+
 # tilde => home
-map ` :cd ~
+map ~ :cd ~
 
 # enter => open file
 map <enter> &xdg-open $f
@@ -60,15 +59,5 @@ cmd fzf_jump ${{
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
-
-# select all
-cmd select_all :unselect; invert
-
-# trash
-cmd trash %set -f; mv $fx ~/.local/share/trash
-
-# -----------------------------
-# == extras
-# -----------------------------
 
 # vim:ft=bash
