@@ -6,8 +6,8 @@ riverctl map normal Super+Control   Return  spawn "foot tmux"
 riverctl map normal Super+Alt       Return  spawn tmux-pick
 riverctl map normal Super           Return  spawn menu
 riverctl map normal Super+Alt       L       spawn "swaylock -i ~/.config/desktop/backgrounds/pixel-starry.png -t"
-riverctl map normal Super           Print   screenshot-clipboard output
-riverctl map normal Super+Shift     Print   screenshot-clipboard area
+riverctl map normal Super           Print   spawn "screenshot-clipboard output"
+riverctl map normal Super+Shift     Print   spawn "screenshot-clipboard area"
 riverctl map normal Super           C       close
 riverctl map normal Super+Shift     Q       exit
 riverctl map normal Super           F       toggle-fullscreen
