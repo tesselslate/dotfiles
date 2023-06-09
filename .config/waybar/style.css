@@ -1,9 +1,9 @@
 * {
     font-family: "JetBrainsMono Nerd Font Mono, Noto Sans Mono CJK KR, Noto Sans Mono CJK HK, Noto Sans Mono CJK JP, Noto Sans Mono CJK SC, Noto Sans Mono CJK TC";
     font-size: 14px;
-    min-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    min-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 window#waybar {
@@ -25,7 +25,7 @@ tooltip label {
 }
 
 .modules-right {
-    margin-right: 24;
+    margin-right: 24px;
 }
 
 .modules-left, .modules-center, .modules-right {
