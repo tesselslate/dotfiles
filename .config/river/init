@@ -26,10 +26,8 @@ riverctl map normal Super+Shift     H       spawn "river-workspace 4 window left
 riverctl map normal Super+Shift     L       spawn "river-workspace 4 window right"
 riverctl map normal Super+Shift     Left    spawn "river-workspace 4 window left"
 riverctl map normal Super+Shift     Right   spawn "river-workspace 4 window right"
-riverctl map normal Super+Alt       Left    snap left
-riverctl map normal Super+Alt       Right   snap right
-riverctl map normal Super+Alt       Up      snap up
-riverctl map normal Super+Alt       Down    snap down
+riverctl map normal Super+Control   H       send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super+Control   L       send-layout-cmd rivertile "main-ratio +0.05"
 
 riverctl map normal None XF86AudioRaiseVolume spawn "volume 5%+"
 riverctl map normal None XF86AudioLowerVolume spawn "volume 5%-"
@@ -37,6 +35,21 @@ riverctl map normal None XF86AudioPlay spawn "mpc -p 6660 toggle"
 
 riverctl map-pointer normal Super BTN_LEFT  move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Mode (Passthrough)
+riverctl declare-mode passthru
+riverctl map normal     Super F11 enter-mode passthru
+riverctl map passthru   Super F11 enter-mode normal
+
+# Mode (Resize)
+riverctl declare-mode resize
+riverctl map normal Super           R       enter-mode resize
+riverctl map resize None            Return  enter-mode normal
+riverctl map resize None            Escape  enter-mode normal
+riverctl map resize None            Left    snap left
+riverctl map resize None            Right   snap right
+riverctl map resize None            Up      snap up
+riverctl map resize None            Down    snap down
 
 # Options
 riverctl border-color-focused 0xc3e88d
@@ -51,8 +64,9 @@ riverctl input pointer-1133-16500-Logitech_G305 pointer-accel 0
 riverctl rule-add ssd -app-id '*'
 
 # Programs
-wlr-randr --output DP-2 --mode 1920x1080@165.003006Hz --adaptive-sync enabled
+wlr-randr --output DP-2 --mode 1920x1080@165.003006Hz --adaptive-sync enabled &
 rivertile -view-padding 6 -outer-padding 6 &
 mako &
 waybar &
 swaybg -i ~/.config/desktop/backgrounds/pixel-interior.png -m tile &
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
