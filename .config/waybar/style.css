@@ -47,24 +47,26 @@ tooltip label {
     padding-right: 12px;
 }
 
-#workspaces {
+#tags {
     margin: 6px;
     border-radius: 32px;
     background: rgba(34, 36, 54, 1);
 }
 
-#workspaces button {
+#tags button {
+    padding-left: 6px;
+    padding-right: 6px;
     background: rgba(34, 36, 54, 1);
     color: #c8d3f5;
     box-shadow: none;
 }
 
-#workspaces button:hover {
+#tags button:hover {
     background: rgba(55, 58, 87, 1);
     box-shadow: none;
 }
 
-#workspaces button.active {
+#tags button.focused {
     color: #c099ff;
     box-shadow: none;
     margin-bottom: -3px;
@@ -72,7 +74,21 @@ tooltip label {
     border-bottom-color: #c099ff;
 }
 
-#workspaces button.urgent {
+#tags button.occupied {
+    color: #82aaff;
+    box-shadow: none;
+}
+
+#tags button.urgent {
     color: #ff757f;
     box-shadow: none;
+}
+
+#mode {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    background: rgba(34, 36, 54, 1);
 }

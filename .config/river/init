@@ -1,0 +1,52 @@
+#!/bin/dash
+
+# Binds
+riverctl map normal Super+Shift     Return  spawn foot
+riverctl map normal Super+Control   Return  spawn foot tmux
+riverctl map normal Super+Alt       Return  spawn tmux-pick
+riverctl map normal Super           Return  spawn menu
+riverctl map normal Super+Alt       L       spawn swaylock -i ~/.config/desktop/backgrounds/pixel-starry.png -t
+riverctl map normal Super           Print   screenshot-clipboard output
+riverctl map normal Super+Shift     Print   screenshot-clipboard area
+riverctl map normal Super           C       close
+riverctl map normal Super+Shift     Q       exit
+riverctl map normal Super           F       toggle-fullscreen
+riverctl map normal Super           Space   toggle-float
+riverctl map normal Super           J       focus-view next
+riverctl map normal Super           K       focus-view previous
+riverctl map normal Super+Shift     J       swap next
+riverctl map normal Super+Shift     K       swap previous
+riverctl map normal Super           Period  focus-output next
+riverctl map normal Super+Shift     Period  send-to-output next
+# riverctl map normal Super         H
+# riverctl map normal Super         L
+# riverctl map normal Super+Shift   H
+# riverctl map normal Super+Shift   L
+riverctl map normal Super+Alt       Left    snap left
+riverctl map normal Super+Alt       Right   snap right
+riverctl map normal Super+Alt       Up      snap up
+riverctl map normal Super+Alt       Down    snap down
+
+riverctl map normal None XF86AudioRaiseVolume spawn volume 5%+
+riverctl map normal None XF86AudioLowerVolume spawn volume 5%-
+riverctl map normal None XF86AudioPlay spawn mpc -p 6660 toggle
+
+riverctl map-pointer normal Super BTN_LEFT  move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Options
+riverctl border-color-focused 0xc3e88d
+riverctl border-color-unfocused 0xff757f
+riverctl set-repeat 40 300
+riverctl default-layout rivertile
+riverctl xcursor-theme BreezeX-Dark 32
+
+riverctl input pointer-1133-16500-Logitech_G305 accel-profile flat
+riverctl input pointer-1133-16500-Logitech_G305 pointer-accel 0
+
+# Programs
+wlr-randr --output DP-2 --mode 1920x1080@165.003006Hz --adaptive-sync enabled
+rivertile -view-padding 6 -outer-padding 6 &
+mako &
+waybar &
+swaybg -i ~/.config/desktop/backgrounds/pixel-interior.png -m tile &

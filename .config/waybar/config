@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["river/tags", "river/mode"],
     "modules-center": ["mpd"],
     "modules-right": ["temperature", "memory", "clock", "tray"],
 
@@ -28,18 +28,8 @@
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "interval": 5,
     },
-    "wlr/workspaces": {
-        "on-click": "activate",
-        "persistent_workspaces": {
-            "1": ["DP-2"],
-            "2": ["DP-2"],
-            "3": ["DP-2"],
-            "4": ["DP-2"],
-            "5": ["DP-3"],
-            "6": ["DP-3"],
-            "7": ["DP-3"],
-            "8": ["DP-3"],
-        },
+    "river/tags": {
+        "num-tags": 4,
     },
 }
 
