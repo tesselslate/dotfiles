@@ -17,7 +17,7 @@ riverctl map normal Super           K       focus-view previous
 riverctl map normal Super+Shift     J       swap next
 riverctl map normal Super+Shift     K       swap previous
 riverctl map normal Super           Period  focus-output next
-riverctl map normal Super+Shift     Period  send-to-output next
+riverctl map normal Super+Shift     Period  send-to-output -current-tags next
 riverctl map normal Super           H       spawn "river-workspace 4 focus left"
 riverctl map normal Super           L       spawn "river-workspace 4 focus right"
 riverctl map normal Super+Control   Left    spawn "river-workspace 4 focus left"
