@@ -9,6 +9,7 @@ function status()
     local filename      = "%f"
     local diagnostics   = status_diagnostics()
     local git           = vim.b.gitsigns_head
+    local lsp           = status_lsp()
     local location      = "%l:%v"
     local progress      = "%p%%"
 
@@ -29,6 +30,7 @@ function status()
         { hl = "MiniStatuslineDevinfo",     strings = { git } },
         { hl = "@none",                     strings = { diagnostics } },
         "%=", -- right align
+        { hl = "@none",                     strings = { lsp } },
         { hl = "MiniStatuslineFilename",    strings = { location } },
         { hl = mode_hl,                     strings = { progress } },
     })
@@ -54,6 +56,14 @@ function status_diagnostics()
     end
 
     return table.concat(diagnostics)
+end
+
+function status_lsp()
+    local clients = vim.lsp.buf_get_clients()
+    if #clients == 0 then
+        return ""
+    end
+    return clients[1].name
 end
 
 require("mini.bufremove").setup({})
