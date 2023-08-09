@@ -1,6 +1,7 @@
 #!/usr/bin/dash
 
 OPTS="celeste\n\
+cubiomes\n\
 firefox\n\
 lonn\n\
 minecraft\n\
@@ -18,11 +19,14 @@ case $RESULT in
     celeste)
         celeste &
         ;;
+    cubiomes)
+        cubiomes-viewer &
+        ;;
     firefox)
         firefox &
         ;;
     lonn)
-        ~/clones/lonn/Lönn.sh & # i love unicode
+        cd ~/clones/lonn/ && love Lonn.love &
         ;;
     minecraft)
         prismlauncher &
