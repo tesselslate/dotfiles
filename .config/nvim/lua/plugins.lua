@@ -5,7 +5,6 @@ return {
     { "echasnovski/mini.nvim" },
     { "folke/tokyonight.nvim" },
     { "folke/which-key.nvim" },
-    { "Hoffs/omnisharp-extended-lsp.nvim", pin = true },
     { "hrsh7th/nvim-cmp" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/vim-vsnip" },

@@ -54,21 +54,11 @@ lsp.ccls.setup({
     on_init = lsp_project.wrap()
 })
 
--- omnisharp (C#)
-lsp.omnisharp.setup({
+-- csharp-ls (C#)
+lsp.csharp_ls.setup({
     capabilities = capabilities,
     on_attach = attach,
     on_init = lsp_project.wrap(),
-
-    cmd = { "omnisharp" },
-    handlers = {
-        ["textDocument/definition"] = require("omnisharp_extended").handler,
-    },
-    analyze_open_documents_only = false,
-    enable_editorconfig_support = true,
-    enable_roslyn_analyzers = true,
-    organize_imports_on_format = true,
-    enable_import_completion = true
 })
 
 -- gopls (go)
@@ -94,8 +84,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
--- pyright (python)
-lsp.pyright.setup({
+-- python
+lsp.jedi_language_server.setup({
     capabilities = capabilities,
     on_attach = attach,
     on_init = lsp_project.wrap(),
