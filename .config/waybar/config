@@ -1,13 +1,16 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "modules-left": ["river/tags", "river/mode"],
     "modules-center": ["mpd"],
     "modules-right": ["temperature", "memory", "clock", "tray"],
 
     "clock": {
-        "format": "<span bgcolor='#c099ff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#c099ff'> {:%I:%M:%S %p} </span>",
+        "format": "<span bgcolor='#c099ff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#c099ff'> {:%X} </span>",
         "calendar": {
             "mode": "month",
+            "format": {
+                "today": "<b>{}</b>",
+            },
         },
         "tooltip-format": "<tt>{calendar}</tt>",
         "interval": 1,
