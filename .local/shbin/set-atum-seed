@@ -1,0 +1,14 @@
+#!/usr/bin/dash
+for w in $(xdotool search --class Minecraft); do
+    xdotool windowactivate --sync $w
+    xdotool key --window $w --delay 50 Escape Escape
+    sleep 0.1
+    xdotool key --window $w --delay 20 Shift+Tab Shift+Tab Shift+Tab Shift+Tab Enter Shift+Tab Shift+Tab Shift+Tab Enter
+    sleep 0.3
+    xdotool key --window $w --delay 50 Shift+Tab Shift+Enter Ctrl+BackSpace
+    if [ ! "$1" = "" ]; then
+        xdotool type --window $w "$1"
+    fi
+    xdotool key --window $w Shift+Tab Shift+Tab Enter
+    sleep 0.1
+done

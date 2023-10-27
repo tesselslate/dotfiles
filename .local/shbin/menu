@@ -6,10 +6,11 @@ firefox\n\
 lonn\n\
 minecraft\n\
 ncmpcpp\n\
+ninb\n\
 obs\n\
 pavucontrol\n\
 steam\n\
-wayboard"
+wayboard\n"
 if [ $XDG_SESSION_TYPE = wayland ]; then
     RESULT=$(echo $OPTS | fuzzel -d --lines $(echo "$OPTS" | wc -l))
 else
@@ -34,6 +35,9 @@ case $RESULT in
     ncmpcpp)
         foot ncmpcpp &
         ;;
+    ninb)
+        waywall-launch --try java -jar doc/Ninjabrain-Bot-1.4.1.jar &
+        ;;
     obs)
         obs &
         ;;
@@ -41,7 +45,7 @@ case $RESULT in
         pavucontrol &
         ;;
     steam)
-        flatpak run --user com.valvesoftware.Steam
+        flatpak run --user com.valvesoftware.Steam &
         ;;
     wayboard)
         wayboard ~/.config/wayboard.cfg &

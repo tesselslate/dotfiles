@@ -1,7 +1,7 @@
-#!/usr/bin/dash
-
-while true; do
-    for i in $(seq 1 18); do
-        cd /tmp/mc/$i; rm $(ls --sort time -1 | tail -n +10)
-    done
-done
+#!/usr/bin/fish
+while true
+    for i in (seq 1 15)
+        cd /tmp/mc/$i && rm -r (command ls -t1 | tail -n +20)
+    end
+    sleep 300
+end

@@ -5,7 +5,7 @@ if [ $XDG_SESSION_TYPE = wayland ]; then
             grim -g "$(slurp)" - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
             ;;
         output)
-            grim -o DP-2 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
+            grim -o DP-1 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
             notify-send "Screenshot taken" -t 500
             ;;
     esac
