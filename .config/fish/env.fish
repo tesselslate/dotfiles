@@ -11,6 +11,9 @@ set -x XDG_MUSIC_DIR                $HOME/doc/music
 set -x XDG_PICTURES_DIR             $HOME/pix
 set -x XDG_VIDEOS_DIR               $HOME/doc/vid
 
+# etc
+set -x RIPGREP_CONFIG_PATH          $XDG_CONFIG_HOME/ripgreprc
+
 # fish cursor
 set fish_cursor_insert line
 

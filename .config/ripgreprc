@@ -1,0 +1,6 @@
+--with-filename
+--smart-case
+--hidden
+--trim
+--multiline
+--glob=!.git

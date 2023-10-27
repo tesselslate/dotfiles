@@ -1,7 +1,5 @@
 vim.loader.enable()
 
--- TODO: get rid of hlpatterns and use todo-comments?
-
 --[[
     OPTIONS
 ]]--
@@ -154,8 +152,108 @@ local kind_presets = {
     TypeParameter = "󰅲",
 }
 
-local function feedkey(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+local function pick_document_symbols()
+    if not next(vim.lsp.get_active_clients()) then
+        return nil
+    end
+
+    -- from the mini.pick testing issue
+    -- https://github.com/echasnovski/mini.nvim/issues/513#issuecomment-1774944410
+    local bufnr = vim.api.nvim_get_current_buf()
+    vim.lsp.buf_request_all(
+        bufnr,
+        "textDocument/documentSymbol",
+        {textDocument = vim.lsp.util.make_text_document_params(bufnr)},
+        function(lsp_responses)
+            local items = {}
+
+            local function process_result(result, depth)
+                local text = string.rep('  ', depth) .. kind_presets[vim.lsp.protocol.SymbolKind[result.kind]] .. ' ' .. result.name
+                table.insert(items, {
+                    text = text,
+                    bufnr = bufnr,
+                    lnum = result.range['start'].line + 1,
+                    end_lnum = result.range['end'].line + 1,
+                    col = result.range['start'].character + 1,
+                    end_col = result.range['end'].character + 1,
+                })
+                if result["children"] then
+                    for _, child in ipairs(result.children) do
+                        process_result(child, depth + 1)
+                    end
+                end
+            end
+
+            for _, lsp_response in ipairs(lsp_responses) do
+                for _, result in ipairs(lsp_response.result) do
+                    process_result(result, 0)
+                end
+            end
+
+            MiniPick.start({
+                source = {
+                    items = items,
+                    name = "LSP Document Symbols",
+                },
+            })
+        end
+    )
+end
+
+local function pick_references()
+    if not next(vim.lsp.get_active_clients()) then
+        return nil
+    end
+
+    -- adapted from telescope
+    -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/builtin/__lsp.lua
+    local bufnr = vim.api.nvim_get_current_buf()
+    local lnum = vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())[1]
+    local path = vim.api.nvim_buf_get_name(bufnr)
+    local params = vim.lsp.util.make_position_params(vim.api.nvim_get_current_win())
+    params.context = {includeDeclaration = true}
+    vim.lsp.buf_request_all(
+        bufnr,
+        "textDocument/references",
+        params,
+        function(lsp_responses)
+            local items = {}
+
+            for client_id, lsp_response in ipairs(lsp_responses) do
+                local results = vim.lsp.util.locations_to_items(lsp_response.result, vim.lsp.get_client_by_id(client_id).offset_encoding)
+
+                for _, result in ipairs(results) do
+                    if result.lnum ~= lnum or result.filename ~= path then
+                        local line = string.match(result.text, "^%s*(.*)")
+                        local text = vim.fn.fnamemodify(result.filename, ":t") .. ":" .. tostring(result.lnum) .. ":" .. tostring(result.col) .. " " .. line
+                        table.insert(items, {
+                            text = text,
+                            path = result.filename,
+                            lnum = result.lnum,
+                            col = result.col,
+                        })
+                    end
+                end
+            end
+
+            if #items == 0 then
+                return nil
+            elseif #items == 1 then
+                if path ~= items[1].path then
+                    bufnr = vim.uri_to_bufnr(items[1].path)
+                end
+                vim.api.nvim_win_set_buf(0, bufnr)
+                vim.api.nvim_win_set_cursor(0, { items[1].lnum, items[1].col })
+            else
+                MiniPick.start({
+                    source = {
+                        items = items,
+                        name = "LSP References",
+                    },
+                })
+            end
+        end
+    )
 end
 
 --[[
@@ -165,27 +263,43 @@ end
 require("lazy").setup({
     {
         "echasnovski/mini.nvim",
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function(_)
             require("mini.bufremove").setup({})
             require("mini.comment").setup({})
-            require("mini.tabline").setup({})
-            require("mini.trailspace").setup({})
             require("mini.hipatterns").setup({
                 highlighters = {
-                    fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-                    hack  = { pattern = "%f[%w]()HACK()%f[%W]",  group = "MiniHipatternsHack"  },
-                    todo  = { pattern = "%f[%w]()TODO()%f[%W]",  group = "MiniHipatternsTodo"  },
-                    note  = { pattern = "%f[%w]()NOTE()%f[%W]",  group = "MiniHipatternsNote"  },
-
                     hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
-                }
+                },
             })
+            require("mini.pick").setup({
+                mappings = {
+                    choose_in_tabpage = "<Nop>",
+                    toggle_preview = "<C-l>",
+
+                    delete_word = "<C-Backspace>",
+                    mark = "<Tab>",
+                    move_down = "<C-j>",
+                    move_up = "<C-k>",
+                },
+                window = {
+                    config = function()
+                        local height = math.max(15, vim.o.lines / 3)
+                        return {
+                            anchor = "NW",
+                            width = vim.o.columns, height = height,
+                            col = 0, row = vim.o.lines - height,
+                        }
+                    end,
+                },
+            })
+            require("mini.tabline").setup({})
+            require("mini.trailspace").setup({})
             require("mini.splitjoin").setup({
                 mappings = {
                     toggle = "gs",
-                }
+                },
             })
-
             require("mini.statusline").setup({
                 content = {
                     active = status,
@@ -194,6 +308,11 @@ require("lazy").setup({
                 use_icons = false,
                 set_vim_settings = false,
             })
+
+            -- mini.pick
+            vim.ui.select = MiniPick.ui_select
+            MiniPick.registry.lsp_document_symbols = pick_document_symbols
+            MiniPick.registry.lsp_references = pick_references
         end,
     },
     {
@@ -235,6 +354,10 @@ require("lazy").setup({
         },
         config = function(_)
             local cmp = require("cmp")
+
+            local function feedkey(key, mode)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+            end
 
             cmp.setup({
                 formatting = {
@@ -380,52 +503,6 @@ require("lazy").setup({
         end,
     },
     {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                build = "make",
-            },
-        },
-        config = function(_)
-            require("telescope").setup({
-                defaults = {
-                    mappings = {
-                        i = {
-                            ["<C-j>"] = require("telescope.actions").move_selection_next,
-                            ["<C-k>"] = require("telescope.actions").move_selection_previous,
-                            ["<C-x>"] = require("telescope.actions").close,
-                            ["<C-h>"] = require("telescope.actions").which_key,
-                        }
-                    },
-                    vimgrep_arguments = {
-                        "rg",
-                        "--color=never",
-                        "--no-heading",
-                        "--with-filename",
-                        "--line-number",
-                        "--column",
-                        "--smart-case",
-                        "--hidden",
-                        "--trim",
-                        "--multiline",
-                        "--glob=!.git",
-                    },
-                },
-                extensions = {
-                    fzf = {
-                        fuzzy = true,
-                        override_generic_sorter = true,
-                        override_file_sorter = true,
-                        case_mode = "smart_case",
-                    },
-                },
-            })
-            require("telescope").load_extension("fzf")
-        end,
-    },
-    {
         "rlane/pounce.nvim",
     }
 })
@@ -455,18 +532,14 @@ local keys = {
     {"n",   "<S-Tab>",          ":bprev<CR>"},
     {"n",   "s",                require("pounce").pounce},
 
-    {"n",   "<Leader>c",        require("mini.hipatterns").toggle},
-    {"n",   "<Leader>fb",       ":Telescope buffers<CR>"},
-    {"n",   "<Leader>fc",       ":Telescope git_commits<CR>"},
-    {"n",   "<Leader>fd",       ":Telescope diagnostics<CR>"},
-    {"n",   "<Leader>ff",       ":Telescope find_files<CR>"},
-    {"n",   "<Leader>fj",       ":Telescope jumplist<CR>"},
-    {"n",   "<Leader>fm",       ":Telescope marks<CR>"},
-    {"n",   "<Leader>fq",       ":Telescope quickfix<CR>"},
-    {"n",   "<Leader>fs",       ":Telescope live_grep<CR>"},
+    {"n",   "<Leader>c",        MiniHipatterns.toggle},
+    {"n",   "<Leader>fb",       MiniPick.registry.buffers},
+    {"n",   "<Leader>ff",       MiniPick.registry.files},
+    {"n",   "<Leader>fl",       MiniPick.registry.lsp_document_symbols},
+    {"n",   "<Leader>fs",       MiniPick.registry.grep_live},
     {"n",   "<Leader>gd",       vim.lsp.buf.definition},
     {"n",   "<Leader>gi",       vim.lsp.buf.implementation},
-    {"n",   "<Leader>gr",       ":Telescope lsp_references<CR>"},
+    {"n",   "<Leader>gr",       MiniPick.registry.lsp_references},
     {"n",   "<Leader>lc",       vim.lsp.buf.code_action},
     {"n",   "<Leader>lf",       vim.lsp.buf.format},
     {"n",   "<Leader>lh",       vim.lsp.buf.hover},
@@ -478,6 +551,7 @@ local keys = {
     {"n",   "<Leader>vq",       ":Gitsigns setqflist<CR>"},
     {"n",   "<Leader>vr",       ":Gitsigns reset_hunk<CR>"},
     {"n",   "<Leader>vs",       ":Gitsigns stage_hunk<CR>"},
+    {"n",   "<Leader>w",        MiniBufremove.delete},
 
     -- Visual
     {"v",   "<",                "<gv"},
