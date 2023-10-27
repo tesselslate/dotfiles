@@ -38,8 +38,9 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 
 # Mode (Passthrough)
 riverctl declare-mode passthru
-riverctl map normal     Super F11 enter-mode passthru
-riverctl map passthru   Super F11 enter-mode normal
+riverctl map normal     Super F11       enter-mode passthru
+riverctl map passthru   Super F11       enter-mode normal
+riverctl map passthru   Super Period    spawn "sh -c 'riverctl focus-output next; riverctl enter-mode normal'"
 
 # Mode (Resize)
 riverctl declare-mode resize
@@ -67,13 +68,15 @@ riverctl rule-add csd -title 'Minecraft*'
 riverctl rule-add float -title 'Minecraft*'
 
 # Directories
-for i in $(seq 1 15); do
+for i in $(seq 1 18); do
     mkdir -p /tmp/mc/$i
     mkdir -p /tmp/mclog/$i
+    touch /tmp/mc/$i.txt
 done
 
 # Programs
-wlr-randr --output DP-2 --mode 1920x1080@165.003006Hz --adaptive-sync enabled &
+wlr-randr --output DP-2 --pos 1920,0
+wlr-randr --output DP-1 --mode 1920x1080@165.003006Hz --adaptive-sync enabled --pos 0,0
 rivertile -view-padding 6 -outer-padding 6 &
 mako &
 waybar &
