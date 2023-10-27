@@ -1,0 +1,7 @@
+#!/usr/bin/dash
+
+while true; do
+    for i in $(seq 1 18); do
+        cd /tmp/mc/$i; rm $(ls --sort time -1 | tail -n +10)
+    done
+done
