@@ -4,7 +4,7 @@ alias dotgit="git --git-dir=$HOME/src/dotfiles/ --work-tree=$HOME"
 
 # general
 alias lock="i3lock -i ~/.config/desktop/backgrounds/pixel-market.png -t"
-alias ls="exa -l --icons --group-directories-first"
+alias ls="eza -l --icons --group-directories-first"
 alias startx="startx ~/.config/x11/xinitrc"
 alias xbindkeys="xbindkeys -f ~/.config/x11/xbindkeys"
 alias yay="yay --sudo doas"
