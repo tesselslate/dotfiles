@@ -369,8 +369,14 @@ require("lazy").setup({
     },
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = function(plugin)
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+            },
+        },
+        config = function(_)
             require("telescope").setup({
                 defaults = {
                     mappings = {
@@ -396,11 +402,15 @@ require("lazy").setup({
                     },
                 },
                 extensions = {
-                    ["ui-select"] = {
-                        require("telescope.themes").get_dropdown({})
-                    }
+                    fzf = {
+                        fuzzy = true,
+                        override_generic_sorter = true,
+                        override_file_sorter = true,
+                        case_mode = "smart_case",
+                    },
                 },
             })
+            require("telescope").load_extension("fzf")
         end,
     },
     {
