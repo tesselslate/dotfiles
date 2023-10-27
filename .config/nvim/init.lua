@@ -1,5 +1,7 @@
 vim.loader.enable()
 
+-- TODO: get rid of hlpatterns and use todo-comments?
+
 --[[
     OPTIONS
 ]]--
@@ -96,7 +98,7 @@ local function status()
     local mode, mode_hl = statusline.section_mode({ trunc_width = 1000 })
     local filename      = "%f"
     local diagnostics   = status_diagnostics()
-    --local git           = vim.b.gitsigns_head
+    local git           = vim.b.gitsigns_head
     local lsp           = status_lsp()
     local location      = "%l:%v"
     local progress      = "%p%%"
@@ -108,14 +110,14 @@ local function status()
         filename = filename .. " "
     end
 
-    -- if git then
-    --     git = " " .. git
-    -- end
+    if git then
+        git = " " .. git
+    end
 
     return statusline.combine_groups({
         { hl = mode_hl,                     strings = { mode } },
         { hl = "MiniStatuslineFilename",    strings = { filename } },
-        -- { hl = "MiniStatuslineDevinfo",     strings = { git } },
+        { hl = "MiniStatuslineDevinfo",     strings = { git } },
         { hl = "@none",                     strings = { diagnostics } },
         "%=", -- right align
         { hl = "@none",                     strings = { lsp } },
@@ -286,8 +288,30 @@ require("lazy").setup({
         end,
     },
     {
+        "lewis6991/gitsigns.nvim",
+        config = function(_)
+            require("gitsigns").setup({
+                signcolumn = true,
+                numhl = false,
+                linehl = false,
+                word_diff = false,
+
+                preview_config = {
+                    border = "rounded",
+                },
+                signs = {
+                    add          = { text = "│" },
+                    change       = { text = "│" },
+                    delete       = { text = "_" },
+                    topdelete    = { text = "‾" },
+                    changedelete = { text = "~" },
+                    untracked    = { text = "┆" },
+                },
+            })
+        end,
+    },
+    {
         "neovim/nvim-lspconfig",
-        dependencies = "folke/neodev.nvim",
         config = function(_)
             vim.diagnostic.config({
                 update_in_insert = true, -- update diagnostics during insert mode
@@ -317,7 +341,6 @@ require("lazy").setup({
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
             end
 
-            require("neodev").setup({})
 
             lsp.ccls.setup({
                 capabilities = capabilities,
@@ -331,17 +354,6 @@ require("lazy").setup({
             lsp.jedi_language_server.setup({
                 capabilities = capabilities,
                 on_attach = attach,
-            })
-            lsp.lua_ls.setup({
-                capabilities = capabilities,
-                on_attach = attach,
-                settings = {
-                    Lua = {
-                        completion = {callSnippet = "Replace"},
-                        telemetry = {enable = false},
-                        workspace = {checkThirdParty = false},
-                    },
-                },
             })
             lsp.rust_analyzer.setup({
                 capabilities = capabilities,
@@ -459,6 +471,13 @@ local keys = {
     {"n",   "<Leader>lf",       vim.lsp.buf.format},
     {"n",   "<Leader>lh",       vim.lsp.buf.hover},
     {"n",   "<Leader>lr",       vim.lsp.buf.rename},
+    {"n",   "<Leader>vb",       ":Gitsigns blame_line<CR>"},
+    {"n",   "<Leader>vn",       ":Gitsigns next_hunk<CR>"},
+    {"n",   "<Leader>vN",       ":Gitsigns prev_hunk<CR>"},
+    {"n",   "<Leader>vp",       ":Gitsigns preview_hunk<CR>"},
+    {"n",   "<Leader>vq",       ":Gitsigns setqflist<CR>"},
+    {"n",   "<Leader>vr",       ":Gitsigns reset_hunk<CR>"},
+    {"n",   "<Leader>vs",       ":Gitsigns stage_hunk<CR>"},
 
     -- Visual
     {"v",   "<",                "<gv"},
