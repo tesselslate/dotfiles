@@ -319,6 +319,15 @@ require("lazy").setup({
         end,
     },
     {
+        "folke/todo-comments.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        config = function(_)
+            require("todo-comments").setup({
+                signs = false,
+            })
+        end,
+    },
+    {
         "folke/tokyonight.nvim",
         config = function(_)
             require("tokyonight").setup({
@@ -347,6 +356,13 @@ require("lazy").setup({
                 end
             })
             vim.cmd("colorscheme tokyonight-moon")
+        end,
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = "nvim-tree/nvim-web-devicons",
+        config = function(_)
+            require("trouble").setup()
         end,
     },
     {
@@ -514,6 +530,27 @@ require("lazy").setup({
     KEYBINDINGS
 ]]--
 
+local function trouble_toggle()
+    local trouble = require("trouble")
+    if vim.bo.filetype == "Trouble" then
+        trouble.close()
+    else
+        if trouble.is_open() then
+            trouble.refresh()
+        end
+        trouble.open()
+    end
+end
+
+local function todo_toggle()
+    local trouble = require("trouble")
+    if vim.bo.filetype == "Trouble" then
+        trouble.close()
+    else
+        vim.cmd("TodoTrouble")
+    end
+end
+
 local keys = {
     -- Unbinds
     {"i",   "<Esc>",            "<Nop>"},
@@ -537,8 +574,10 @@ local keys = {
 
     {"n",   "<Leader>c",        MiniHipatterns.toggle},
     {"n",   "<Leader>fb",       MiniPick.registry.buffers},
+    {"n",   "<Leader>fd",       trouble_toggle},
     {"n",   "<Leader>ff",       MiniPick.registry.files},
     {"n",   "<Leader>fl",       MiniPick.registry.lsp_document_symbols},
+    {"n",   "<Leader>ft",       todo_toggle},
     {"n",   "<Leader>fs",       MiniPick.registry.grep_live},
     {"n",   "<Leader>gd",       vim.lsp.buf.definition},
     {"n",   "<Leader>gi",       vim.lsp.buf.implementation},
