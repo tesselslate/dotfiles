@@ -505,6 +505,7 @@ require("lazy").setup({
     },
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
         build = ":TSUpdate",
         config = function(_)
             require("nvim-treesitter.configs").setup({
@@ -517,7 +518,34 @@ require("lazy").setup({
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false
-                }
+                },
+                textobjects = {
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            ["]f"] = "@function.outer",
+                        },
+                        goto_next_end = {
+                            ["]F"] = "@function.outer",
+                        },
+                        goto_previous_start = {
+                            ["[f"] = "@function.outer",
+                        },
+                        goto_previous_end = {
+                            ["[F"] = "@function.outer",
+                        },
+                    },
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@comment.outer",
+                        },
+                    },
+                },
             })
         end,
     },
