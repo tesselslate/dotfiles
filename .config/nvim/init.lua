@@ -4,7 +4,7 @@ vim.loader.enable()
     OPTIONS
 ]]--
 
-vim.opt.mouse           = "n"
+vim.opt.mouse           = "a"
 
 vim.opt.expandtab       = true
 vim.opt.shiftwidth      = 4
@@ -93,8 +93,11 @@ local function status()
     local statusline = require("mini.statusline")
 
     -- always truncate mode for short mode name
+    local name, ext     = vim.fn.expand('%:t', '%:e')
+    local icon          = require("nvim-web-devicons").get_icon(name, ext, {default = true})
+
     local mode, mode_hl = statusline.section_mode({ trunc_width = 1000 })
-    local filename      = "%f"
+    local filename      = icon .. " %f"
     local diagnostics   = status_diagnostics()
     local git           = vim.b.gitsigns_head
     local lsp           = status_lsp()
@@ -305,7 +308,7 @@ require("lazy").setup({
                     active = status,
                     inactive = nil,
                 },
-                use_icons = false,
+                use_icons = true,
                 set_vim_settings = false,
             })
 
