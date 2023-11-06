@@ -62,10 +62,8 @@ riverctl xcursor-theme BreezeX-Dark 32
 riverctl input pointer-1133-16500-Logitech_G305 accel-profile flat
 riverctl input pointer-1133-16500-Logitech_G305 pointer-accel 0
 
-riverctl rule-add ssd -app-id '*'
-riverctl rule-add csd -title 'Windowed Projector*'
-riverctl rule-add csd -title 'Minecraft*'
-riverctl rule-add float -title 'Minecraft*'
+riverctl rule-add -app-id '*' ssd
+riverctl rule-add -title 'Minecraft*' float
 
 # Directories
 for i in $(seq 1 18); do
