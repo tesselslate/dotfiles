@@ -243,7 +243,7 @@ local function pick_references()
                 return nil
             elseif #items == 1 then
                 if path ~= items[1].path then
-                    bufnr = vim.uri_to_bufnr(items[1].path)
+                    bufnr = vim.uri_to_bufnr("file://" .. items[1].path)
                 end
                 vim.api.nvim_win_set_buf(0, bufnr)
                 vim.api.nvim_win_set_cursor(0, { items[1].lnum, items[1].col })
