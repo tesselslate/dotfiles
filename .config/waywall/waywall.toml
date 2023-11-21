@@ -4,25 +4,42 @@ repeat_rate = 40
 confine_pointer = true
 main_sens = 3.166667
 alt_sens = 0.05
-# TODO: language
+
+[input.remap_ingame]
+"Return"        = "Home"
+"V"             = "0"
+"MB5"           = "RightShift"
+
+"Home"          = "None"
+"0"             = "None"
+"Shift_R"       = "None"
+
+[input.remap_menu]
+"MB4"           = "Home"
+
+[keyboard]
+layout = "mc"
 
 [appearance]
 background_color = '#966fd6ff'
-lock_color = '#00000099'
 cursor_theme = "crosshair"
 cursor_size = 24
 ninb_opacity = 0.8
 ninb_location = "right"
 
 [wall]
-wall_width = 3
-wall_height = 5
 stretch_width = 640
 stretch_height = 216
 alt_width = 300
 alt_height = 16384
 use_f1 = true
 remain_in_background = true
+
+[layout]
+generator_name = "builtin_wall"
+wall_width = 3
+wall_height = 5
+lock_color = '#00000099'
 
 [reset]
 unlock_behavior = "unlock"
@@ -38,6 +55,7 @@ high_cpu = 100
 active_cpu = 500
 preview_threshold = 30
 sleepbg_lock = "/home/dog/.local/share/home-ext/sleepbg.lock"
+force_jit = true
 
 [keybinds]
 "Ctrl-Shift-D"      = ["wall_reset_all", "ingame_reset"]
@@ -46,4 +64,4 @@ sleepbg_lock = "/home/dog/.local/share/home-ext/sleepbg.lock"
 "Ctrl-LMB"          = ["wall_lock"]
 "Ctrl-Shift-LMB"    = ["wall_focus_reset"]
 "R"                 = { actions = ["alt_res"], allow_in_menu = false, allow_in_pause = true }
-"L"                 = { actions = ["toggle_ninb"], allow_in_menu = false, allow_in_pause = true }
+"9"                 = { actions = ["toggle_ninb"], allow_in_menu = false, allow_in_pause = true }

@@ -1,0 +1,29 @@
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "basic" {
+
+    name[Group1]= "Norwegian (MC)";
+
+    key <AE01>  {[  1,      1       ]}; // 1
+    key <AE02>  {[  2,      2       ]}; // 2
+    key <AE03>  {[  8,      8       ]}; // 3
+    key <AE04>  {[  4,      4       ]}; // 4
+    key <AE05>  {[  5,      5       ]}; // 5
+
+    key <AD05>  {[  v,      V       ]}; // t
+    key <AC09>  {[  9,      9       ]}; // l
+
+    key <AD01>  {[  aring,  Aring   ]}; // q
+    key <AD02>  {[  w,      W       ]}; // w
+    key <AD03>  {[  e,      E       ]}; // e
+    key <AD04>  {[  r,      R       ]}; // r
+
+    key <AC01>  {[  a,      G       ]}; // a
+    key <AC02>  {[  s,      N       ]}; // s
+    key <AC03>  {[  d,      B       ]}; // d
+    key <AC04>  {[  l,      U       ]}; // f
+
+    key <AB01>  {[  h,      H       ]}; // z
+    key <AB02>  {[  oslash, Oslash  ]}; // x
+    key <AB03>  {[  i,      I       ]}; // c
+    key <AB04>  {[  t,      T       ]}; // v
+};
