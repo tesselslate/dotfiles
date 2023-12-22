@@ -477,6 +477,7 @@ local keys = {
     {"n",   "<Left>",           "<Nop>"},
 
     -- Insert
+    {"i",   "<C-c>",            "<Esc>"},
     {"i",   "<C-H>",            "<C-w>"},
     {"i",   "<C-Backspace>",    "<C-w>"},
 
