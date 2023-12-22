@@ -30,7 +30,11 @@ set -x NUGET_PACKAGES               $XDG_CACHE_HOME/nuget
 set -x OMNISHARPHOME                $XDG_DATA_HOME/omnisharp
 set -x RUSTUP_HOME                  $XDG_DATA_HOME/rustup
 
-# i hate java
+# python
+set -x PYTHONPYCACHEPREFIX          $XDG_CACHE_HOME/python
+set -x PYTHONUSERBASE               $XDG_DATA_HOME/python
+
+# java
 set -x AWT_TOOLKIT                  MToolkit
 set -x _JAVA_OPTIONS                -Djava.util.prefs.userRoot="$XDG_DATA_HOME"/java
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Dswing.aatext=TRUE"
@@ -38,7 +42,7 @@ set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Dawt.useSystemAAFontSetting
 set -x _JAVA_OPTIONS                $_JAVA_OPTIONS "-Duser.home=/home/dog/.local/share/home-ext"
 set -x _JAVA_AWT_WM_NONREPARENTING  1
 
-# i hate dotnet
+# dotnet
 set -x DOTNET_CLI_TELEMETRY_OPTOUT  1
 
 # Cursor theme
