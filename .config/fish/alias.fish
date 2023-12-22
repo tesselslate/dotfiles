@@ -17,3 +17,7 @@ alias gds="git diff --staged"
 alias gl="git log --color --oneline --no-decorate | head -n 6"
 alias gp="git push"
 alias gs="git status -s -b && echo '' && gl"
+
+# advent of code
+alias g="../get.fish"
+alias r="../run.py"
