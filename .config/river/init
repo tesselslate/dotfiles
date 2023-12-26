@@ -59,6 +59,8 @@ riverctl set-repeat 40 300
 riverctl default-layout rivertile
 riverctl xcursor-theme BreezeX-Dark 32
 
+riverctl input pointer-13159-6497-Endgame_Gear_XM2we_Gaming_Receiver accel-profile flat
+riverctl input pointer-13159-6497-Endgame_Gear_XM2we_Gaming_Receiver pointer-accel 0
 riverctl input pointer-1133-16500-Logitech_G305 accel-profile flat
 riverctl input pointer-1133-16500-Logitech_G305 pointer-accel 0
 
