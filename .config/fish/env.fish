@@ -52,6 +52,8 @@ set -x XCURSOR_THEME                BreezeX-Dark
 
 # Wayland
 set -x MOZ_ENABLE_WAYLAND           1
+set -x QT_QPA_PLATFORM              wayland
+set -x QT_QPA_PLATFORMTHEME         qt5ct
 
 # Pipewire
 set -x SDL_AUDIODRIVER              pipewire
