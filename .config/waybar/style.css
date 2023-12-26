@@ -37,7 +37,7 @@ tooltip label {
     padding-right: 8px;
 }
 
-#clock, #mpd, #memory, #temperature {
+#clock, #mpd, #memory, #custom-headset {
     margin: 6px;
     padding-left: 2px;
     padding-right: 2px;

@@ -2,7 +2,7 @@
     "layer": "bottom",
     "modules-left": ["river/tags", "river/mode"],
     "modules-center": ["mpd"],
-    "modules-right": ["temperature", "memory", "clock", "tray"],
+    "modules-right": ["custom/headset", "memory", "clock", "tray"],
 
     "clock": {
         "format": "<span bgcolor='#c099ff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#c099ff'> {:%X} </span>",
@@ -15,6 +15,11 @@
         "tooltip-format": "<tt>{calendar}</tt>",
         "interval": 1,
     },
+    "custom/headset": {
+        "format": "<span bgcolor='#ff757f' fgcolor='#222436'> 󰋎 </span><span bgcolor='#222436' fgcolor='#ff757f'> {} </span>",
+        "exec": "headsetcontrol -b | tail -n 2 | head -n 1 | awk '{print $2}'",
+        "interval": 120,
+    },
     "memory": {
         "format": "<span bgcolor='#ffc777' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#ffc777'> {used:0.1f} GB </span>",
         "interval": 1,
@@ -25,11 +30,6 @@
         "format-stopped": "",
         "format": "<span bgcolor='#82aaff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#82aaff'> {artist} - {title} </span>",
         "port": 6660,
-    },
-    "temperature": {
-        "format": "<span bgcolor='#ff757f' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#ff757f'> {temperatureC}°C </span>",
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-        "interval": 1,
     },
     "river/tags": {
         "num-tags": 4,
