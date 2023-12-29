@@ -1,0 +1,12 @@
+[user]
+	email = 46545045+tesselslate@users.noreply.github.com
+	name = tesselslate
+
+[init]
+	defaultBranch = main
+
+[diff]
+    tool = vimdiff
+
+[difftool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE -c '$wincmd w'
