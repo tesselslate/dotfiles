@@ -13,7 +13,7 @@ function fish_right_prompt
     end
 
     if test $git_dir = "."
-        set git_cmd dotgit
+        set git_cmd dg
     else
         set git_cmd git
     end
