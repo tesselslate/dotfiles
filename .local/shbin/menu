@@ -10,7 +10,8 @@ ninb\n\
 obs\n\
 pavucontrol\n\
 steam\n\
-wayboard\n"
+wayboard\n\
+wireshark\n"
 if [ $XDG_SESSION_TYPE = wayland ]; then
     RESULT=$(echo $OPTS | fuzzel -d --lines $(echo "$OPTS" | wc -l))
 else
@@ -49,5 +50,8 @@ case $RESULT in
         ;;
     wayboard)
         wayboard ~/.config/wayboard.cfg &
+        ;;
+    wireshark)
+        wireshark &
         ;;
 esac
