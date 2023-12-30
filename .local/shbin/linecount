@@ -1,6 +1,0 @@
-#!/usr/bin/dash
-LINECOUNT=0
-for FILE in $(fd --type file $1); do
-    LINECOUNT=$(($LINECOUNT + $(cat $FILE | wc -l)))
-done
-echo $LINECOUNT
