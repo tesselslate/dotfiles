@@ -80,9 +80,8 @@ for i in $(seq 1 18); do
 done
 
 # Programs
-wlr-randr --output DP-2 --pos 1920,0
-wlr-randr --output DP-1 --mode 1920x1080@165.003006Hz --adaptive-sync enabled --pos 0,0
 rivertile -view-padding 6 -outer-padding 6 &
+kanshi &
 mako &
 waybar &
 swaybg -i ~/.config/desktop/backgrounds/pixel-interior.png -m tile &

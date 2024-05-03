@@ -1,0 +1,13 @@
+profile box {
+    output "AOC 24G2W1G3- SXIN31A010534" {
+        enable
+        mode 1920x1080@165.003006Hz
+        position 0,0
+        adaptive_sync on
+    }
+    output "Dell Inc. DELL E2416H G0RH168H0WPU" {
+        enable
+        mode 1920x1080
+        position 1920,0
+    }
+}
