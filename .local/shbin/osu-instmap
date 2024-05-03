@@ -1,2 +1,0 @@
-#!/usr/bin/dash
-unzip $1 -d "/mnt/ssd/osu/Songs/$(basename $1 .osz)"

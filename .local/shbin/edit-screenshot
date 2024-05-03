@@ -1,4 +1,0 @@
-#!/usr/bin/dash
-IMG="$(ls ~/pix/ss -t1 | head -n 1)"
-echo $IMG
-swappy -f ~/pix/ss/$IMG -o - | tee ~/pix/ss/$(basename $IMG .png)-edited.png | wl-copy -t image/png
