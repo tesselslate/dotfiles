@@ -1,0 +1,11 @@
+#!/usr/bin/dash
+
+STATUS=$(headsetcontrol -b | tail -n 1 | awk '{print $2}')
+case $STATUS in
+    BATTERY_UNAVAILABLE)
+        exec echo "Unavailable"
+        ;;
+    *)
+        exec echo $STATUS
+        ;;
+esac
