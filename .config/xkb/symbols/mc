@@ -1,6 +1,5 @@
 default partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
-
     name[Group1]= "Norwegian (MC)";
 
     key <AE01>  {[  1,      1       ]}; // 1
@@ -8,9 +7,6 @@ xkb_symbols "basic" {
     key <AE03>  {[  8,      8       ]}; // 3
     key <AE04>  {[  4,      4       ]}; // 4
     key <AE05>  {[  5,      5       ]}; // 5
-
-    key <AD05>  {[  v,      V       ]}; // t
-    key <AC09>  {[  9,      9       ]}; // l
 
     key <AD01>  {[  aring,  Aring   ]}; // q
     key <AD02>  {[  w,      W       ]}; // w
