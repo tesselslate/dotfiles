@@ -72,12 +72,10 @@ riverctl input pointer-1133-16500-Logitech_G305 pointer-accel 0
 riverctl rule-add -app-id '*' ssd
 riverctl rule-add -title 'Minecraft*' float
 
-# Directories
-for i in $(seq 1 18); do
-    mkdir -p /tmp/mc/$i
-    mkdir -p /tmp/mclog/$i
-    touch /tmp/mc/$i.txt
-done
+# Minecraft directories/files
+mkdir -p /tmp/mc/sq
+mkdir -p /tmp/mclog/sq
+touch /tmp/mc/sq.txt
 
 # Programs
 rivertile -view-padding 6 -outer-padding 6 &
