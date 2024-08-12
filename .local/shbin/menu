@@ -3,12 +3,14 @@
 OPTS="celeste\n\
 cubiomes\n\
 firefox\n\
+idea\n\
 lonn\n\
 minecraft\n\
 ncmpcpp\n\
 ninb\n\
 obs\n\
 pavucontrol\n\
+r2modman\n\
 steam\n\
 wayboard\n\
 wireshark\n"
@@ -27,6 +29,9 @@ case $RESULT in
     firefox)
         firefox &
         ;;
+    idea)
+        idea &
+        ;;
     lonn)
         cd ~/clones/lonn/ && love Lonn.love &
         ;;
@@ -44,6 +49,9 @@ case $RESULT in
         ;;
     pavucontrol)
         pavucontrol &
+        ;;
+    r2modman)
+        r2modman &
         ;;
     steam)
         flatpak run --user com.valvesoftware.Steam &
