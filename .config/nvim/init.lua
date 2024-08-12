@@ -304,7 +304,6 @@ require("lazy").setup({
             local lsp = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local function attach(client, bufnr)
-                client.config.flags.debounce_text_changes = 500
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
             end
 
