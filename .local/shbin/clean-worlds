@@ -1,7 +1,10 @@
-#!/usr/bin/fish
+#!/usr/bin/bash
+IFS=$'\n'
 while true
-    for i in (seq 1 15)
-        cd /tmp/mc/$i && rm -r (command ls -t1 | tail -n +20)
-    end
+do
+    for save in $(ls /tmp/mc/sq -t1 | tail -n +50)
+    do
+        rm -r "/tmp/mc/sq/$save"
+    done
     sleep 300
-end
+done
