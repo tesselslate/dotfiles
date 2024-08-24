@@ -42,7 +42,7 @@ case $RESULT in
         foot ncmpcpp &
         ;;
     ninb)
-        waywall-launch --try java -jar doc/Ninjabrain-Bot-1.4.1.jar &
+        java -jar doc/Ninjabrain-Bot-1.4.3.jar &
         ;;
     obs)
         obs &
