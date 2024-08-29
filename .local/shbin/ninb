@@ -1,0 +1,2 @@
+#!/usr/bin/fish
+java -jar ~/doc/Ninjabrain-Bot-1.4.3.jar
