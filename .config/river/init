@@ -56,7 +56,7 @@ riverctl border-color-unfocused 0xff757f
 riverctl set-repeat 40 300
 riverctl default-layout rivertile
 riverctl xcursor-theme BreezeX-Dark 32
-riverctl allow-tearing enabled
+riverctl allow-tearing disabled
 
 POINTER_XM2WE="pointer-13159-6497-Endgame_Gear_XM2we_Gaming_Receiver"
 POINTER_XM2WE_WIRED="pointer-13159-6496-Endgame_Gear_XM2we_Gaming_Mouse"
