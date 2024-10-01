@@ -1,9 +1,12 @@
 [user]
-	email = 46545045+tesselslate@users.noreply.github.com
-	name = tesselslate
+    email = tesselslate@gmail.com
+    name = tesselslate
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+    path = ~/.config/git/config_github
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [diff]
     tool = vimdiff
