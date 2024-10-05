@@ -1,7 +1,7 @@
 # TokyoNight Color Palette
 set -l foreground c8d3f5
-set -l selection 3654a7
-set -l comment 7a88cf
+set -l selection 2d3f76
+set -l comment 636da6
 set -l red ff757f
 set -l orange ff966c
 set -l yellow ffc777
@@ -17,6 +17,7 @@ set -g fish_color_keyword $pink
 set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground
 set -g fish_color_end $orange
+set -g fish_color_option $pink
 set -g fish_color_error $red
 set -g fish_color_param $purple
 set -g fish_color_comment $comment
