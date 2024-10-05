@@ -194,7 +194,6 @@ require("lazy").setup({
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/vim-vsnip",
         },
         config = function(_)
             local cmp = require("cmp")
@@ -217,8 +216,8 @@ require("lazy").setup({
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif vim.fn["vsnip#available"](1) == 1 then
-                            feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                        elseif vim.snippet.active({direction = 1}) then
+                            feedkey("<cmd>lua vim.snippet.jump(1)<cr>", "")
                         else
                             fallback()
                         end
@@ -226,8 +225,8 @@ require("lazy").setup({
                     ["<S-Tab>"] = cmp.mapping(function()
                         if cmp.visible() then
                             cmp.select_prev_item()
-                        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                            feedkey("<Plug>(vsnip-jump-prev)", "")
+                        elseif vim.snippet.active({direction = -1}) then
+                            feedkey("<cmd>lua vim.snippet.jump(-1)<cr>", "")
                         end
                     end, { "i", "s" }),
                     ["<CR>"] = cmp.mapping.confirm({
@@ -245,7 +244,7 @@ require("lazy").setup({
                 },
                 snippet = {
                     expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
+                        vim.snippet.expand(args.body)
                     end
                 },
                 performance = {
