@@ -158,20 +158,41 @@ require("lazy").setup({
                     option_toggle_prefix = nil,
                 },
             })
-            require("mini.bufremove").setup({})
-            require("mini.comment").setup({})
+
+            require("mini.bracketed").setup({
+                -- Enabled:
+                -- comment
+                -- conflict
+                -- diagnostic
+                -- quickfix
+                buffer      = { suffix = "" },
+                file        = { suffix = "" },
+                indent      = { suffix = "" },
+                jump        = { suffix = "" },
+                location    = { suffix = "" },
+                oldfile     = { suffix = "" },
+                treesitter  = { suffix = "" },
+                undo        = { suffix = "" },
+                window      = { suffix = "" },
+                yank        = { suffix = "" },
+            })
+
             require("mini.hipatterns").setup({
                 highlighters = {
                     hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
                 },
             })
-            require("mini.tabline").setup({})
-            require("mini.trailspace").setup({})
+
+            local notify = require("mini.notify")
+            notify.setup({ window = { winblend = 0 } })
+            vim.notify = notify.make_notify({ ERROR = { duration = 10000 } })
+
             require("mini.splitjoin").setup({
                 mappings = {
                     toggle = "gs",
                 },
             })
+
             require("mini.statusline").setup({
                 content = {
                     active = status,
@@ -180,6 +201,13 @@ require("lazy").setup({
                 use_icons = true,
                 set_vim_settings = false,
             })
+
+            require("mini.bufremove").setup({})
+            require("mini.comment").setup({})
+            require("mini.tabline").setup({})
+            require("mini.trailspace").setup({})
+        end,
+    },
         end,
     },
     {
@@ -418,8 +446,6 @@ local keys = {
     {"i",   "<C-Backspace>",    "<C-w>"},
 
     -- Normal
-    {"n",   "<C-n>",            vim.diagnostic.goto_next},
-    {"n",   "<C-p>",            vim.diagnostic.goto_prev},
     {"n",   "<Tab>",            ":bnext<CR>"},
     {"n",   "<S-Tab>",          ":bprev<CR>"},
     {"n",   "s",                require("pounce").pounce},
