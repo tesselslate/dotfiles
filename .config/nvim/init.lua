@@ -1,12 +1,12 @@
 vim.loader.enable()
 
-require("tokyonight")
-
 --[[
     OPTIONS
 
     mini.basics sets some others
 ]]--
+
+require("colors/tokyonight-moon")
 
 vim.opt.expandtab       = true          -- prefer spaces to tabs
 vim.opt.shiftwidth      = 4             -- 4 space tabs
@@ -206,8 +206,6 @@ require("lazy").setup({
             require("mini.comment").setup({})
             require("mini.tabline").setup({})
             require("mini.trailspace").setup({})
-        end,
-    },
         end,
     },
     {
