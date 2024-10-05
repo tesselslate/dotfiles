@@ -4,38 +4,24 @@ require("tokyonight")
 
 --[[
     OPTIONS
+
+    mini.basics sets some others
 ]]--
 
-vim.opt.mouse           = "a"
-
-vim.opt.expandtab       = true
-vim.opt.shiftwidth      = 4
+vim.opt.expandtab       = true          -- prefer spaces to tabs
+vim.opt.shiftwidth      = 4             -- 4 space tabs
 vim.opt.softtabstop     = 4
 vim.opt.tabstop         = 4
 
-vim.opt.clipboard       = "unnamedplus"
-vim.opt.encoding        = "utf-8"
-vim.opt.ignorecase      = true
-vim.opt.smartcase       = true
-vim.opt.swapfile        = false
-vim.opt.undofile        = true
+vim.opt.clipboard       = "unnamedplus" -- use system clipboard
+vim.opt.encoding        = "utf-8"       -- use UTF-8
+vim.opt.swapfile        = false         -- no swapfile
 
-vim.opt.cursorline      = true
-vim.opt.fillchars       = "eob: "
-vim.opt.laststatus      = 3
-vim.opt.lazyredraw      = true
-vim.opt.number          = true
-vim.opt.scrolloff       = 12
-vim.opt.showmode        = false
-vim.opt.sidescrolloff   = 24
-vim.opt.signcolumn      = "yes"
-vim.opt.termguicolors   = true
-vim.opt.wrap            = false
-
-vim.opt.completeopt     = "menuone,noinsert,noselect"
-
-vim.g.mapleader         = " "
-vim.g.maplocalleader    = " "
+vim.opt.laststatus      = 3             -- global status line
+vim.opt.lazyredraw      = true          -- better performance for macros
+vim.opt.scrolloff       = 12            -- visual buffer area
+vim.opt.showmode        = false         -- no mode in command line
+vim.opt.sidescrolloff   = 24            -- visual buffer area
 
 -- I do not like automatic comment expansion.
 vim.cmd("autocmd FileType * set formatoptions-=cro")
@@ -166,6 +152,12 @@ require("lazy").setup({
         "echasnovski/mini.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function(_)
+            require("mini.basics").setup({
+                mappings = {
+                    basic = false,
+                    option_toggle_prefix = nil,
+                },
+            })
             require("mini.bufremove").setup({})
             require("mini.comment").setup({})
             require("mini.hipatterns").setup({
@@ -406,6 +398,9 @@ require("lazy").setup({
 --[[
     KEYBINDINGS
 ]]--
+
+vim.g.mapleader         = " "
+vim.g.maplocalleader    = " "
 
 local keys = {
     -- Unbinds
