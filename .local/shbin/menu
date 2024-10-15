@@ -57,7 +57,7 @@ case $RESULT in
         flatpak run --user com.valvesoftware.Steam &
         ;;
     wayboard)
-        wayboard ~/.config/wayboard.cfg &
+        ~/src/wayboard/build/wayboard ~/.config/wayboard.cfg &
         ;;
     wireshark)
         wireshark &
