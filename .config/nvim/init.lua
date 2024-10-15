@@ -324,25 +324,16 @@ require("lazy").setup({
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
             end
 
-            lsp.ccls.setup({
-                capabilities = capabilities,
-                on_attach = attach,
-            })
-            lsp.gopls.setup({
-                capabilities = capabilities,
-                on_attach = attach,
-                cmd = { "gopls", "serve" },
-            })
-            lsp.rust_analyzer.setup({
-                capabilities = capabilities,
-                on_attach = attach,
-            })
+            local language_servers = {
+                "ccls", "gopls", "jedi_language_server", "rust_analyzer", "zls",
+            }
 
-            -- python
-            lsp.jedi_language_server.setup({
-                capabilities,
-                on_attach = attach,
-            })
+            for _, server in ipairs(language_servers) do
+                lsp[server].setup({
+                    capabilities = capabilities,
+                    on_attach = attach,
+                })
+            end
         end,
     },
     {
