@@ -7,7 +7,6 @@ idea\n\
 lonn\n\
 minecraft\n\
 ncmpcpp\n\
-ninb\n\
 obs\n\
 pavucontrol\n\
 r2modman\n\
@@ -40,9 +39,6 @@ case $RESULT in
         ;;
     ncmpcpp)
         foot ncmpcpp &
-        ;;
-    ninb)
-        java -jar doc/Ninjabrain-Bot-1.4.3.jar &
         ;;
     obs)
         obs &
