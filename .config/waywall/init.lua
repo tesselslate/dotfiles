@@ -161,7 +161,7 @@ local thin_disable = function()
 end
 
 local tall_enable = function()
-    waywall.set_sensitivity(0.5)
+    waywall.set_sensitivity(0.1)
     show_mirrors(true, true, true, false)
 end
 
@@ -203,10 +203,10 @@ end
 
 config.actions = {
     -- Resolutions
-    ["T"] = resolutions.thin,
-    ["Shift-T"] = resolutions.thin,
-    ["Ctrl-G"] = resolutions.tall,
-    ["Ctrl-B"] = resolutions.wide,
+    ["T"]               = resolutions.thin,
+    ["Shift-T"]         = resolutions.thin,
+    ["Ctrl-G"]          = resolutions.tall,
+    ["Ctrl-B"]          = resolutions.wide,
 
     -- Keymap
     ["Comma"]           = set_keymap("mc"),
