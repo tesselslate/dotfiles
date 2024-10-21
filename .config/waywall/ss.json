@@ -185,7 +185,7 @@
   },
   "rawMouseInput": {
     "enabled": true,
-    "value": true
+    "value": false
   },
   "autoJump": {
     "enabled": true,
