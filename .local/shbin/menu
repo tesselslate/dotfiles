@@ -8,6 +8,7 @@ lonn\n\
 minecraft\n\
 ncmpcpp\n\
 obs\n\
+osu\n\
 pavucontrol\n\
 r2modman\n\
 steam\n\
@@ -42,6 +43,9 @@ case $RESULT in
         ;;
     obs)
         obs &
+        ;;
+    osu)
+        flatpak run --user sh.ppy.osu &
         ;;
     pavucontrol)
         pavucontrol &
