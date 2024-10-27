@@ -5,6 +5,8 @@ local helpers = require("waywall.helpers")
 -- so that child processes do not load it.
 os.setenv("LD_PRELOAD", "/usr/lib/libjemalloc.so")
 
+os.setenv("MALLOC_CONF", "background_thread:true,narenas:2,dirty_decay_ms:15000,muzzy_decay_ms:15000")
+
 local config = {
     input = {
         remaps = {
@@ -34,6 +36,19 @@ local config = {
 }
 
 -- Helper functions
+local make_image = function(path, dst)
+    local this = nil
+
+    return function(enable)
+        if enable and not this then
+            this = waywall.image(path, dst)
+        elseif this and not enable then
+            this:close()
+            this = nil
+        end
+    end
+end
+
 local make_mirror = function(options)
     local this = nil
 
@@ -66,6 +81,10 @@ local mirrors = {
     eye_measure = make_mirror({
         src = {x = 130,     y = 7902,   w = 60,     h = 580},
         dst = {x = 0,       y = 315,    w = 800,    h = 450},
+    }),
+    tall_pie = make_mirror({
+        src = {x = 0,       y = 15980,  w = 320,    h = 260},
+        dst = {x = 480,     y = 765,    w = 320,    h = 260},
     }),
 
     f3_ccache = make_mirror({
@@ -136,8 +155,17 @@ local mirrors = {
     }),
 }
 
+local images = {
+    overlay = make_image(
+        "/home/dog/pix/boatoverlay.png",
+        {x = 0, y = 315, w = 800, h = 450}
+    )
+}
+
 local show_mirrors = function(eye, f3, tall, thin)
+    images.overlay(eye)
     mirrors.eye_measure(eye)
+    mirrors.tall_pie(eye)
 
     mirrors.f3_ccache(f3)
     mirrors.f3_ecount(f3)
@@ -170,6 +198,16 @@ local tall_disable = function()
     show_mirrors(false, false, false, false)
 end
 
+local tall_preemp_enable = function()
+    waywall.set_sensitivity(0)
+    show_mirrors(true, true, true, false)
+end
+
+local tall_preemp_disable = function()
+    waywall.set_sensitivity(0)
+    show_mirrors(false, false, false, false)
+end
+
 local wide_enable = function()
     waywall.set_sensitivity(0)
     show_mirrors(false, false, false, false)
@@ -180,9 +218,10 @@ local wide_disable = function()
 end
 
 local resolutions = {
-    thin = helpers.ingame_only(make_res(320, 900, thin_enable, thin_disable)),
-    tall = make_res(320, 16384, tall_enable, tall_disable),
-    wide = make_res(1920, 320, wide_enable, wide_disable),
+    thin            = helpers.ingame_only(make_res(320, 900, thin_enable, thin_disable)),
+    tall            = make_res(320, 16384, tall_enable, tall_disable),
+    tall_preemptive = helpers.ingame_only(make_res(320, 16384, tall_preemp_enable, tall_preemp_disable)),
+    wide            = make_res(1920, 320, wide_enable, wide_disable),
 }
 
 -- Actions
@@ -206,6 +245,7 @@ config.actions = {
     ["T"]               = resolutions.thin,
     ["Shift-T"]         = resolutions.thin,
     ["Ctrl-G"]          = resolutions.tall,
+    ["G"]               = resolutions.tall_preemptive,
     ["Ctrl-B"]          = resolutions.wide,
 
     -- Keymap
