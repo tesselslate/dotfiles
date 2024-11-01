@@ -245,7 +245,7 @@ config.actions = {
     ["T"]               = resolutions.thin,
     ["Shift-T"]         = resolutions.thin,
     ["Ctrl-G"]          = resolutions.tall,
-    ["G"]               = resolutions.tall_preemptive,
+    ["Ctrl-T"]          = resolutions.tall_preemptive,
     ["Ctrl-B"]          = resolutions.wide,
 
     -- Keymap
