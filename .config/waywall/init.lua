@@ -35,6 +35,28 @@ local config = {
     }
 }
 
+-- State
+local active_keymap = "mc"
+local active_keymap_text = nil
+
+local update_keymap_text = function()
+    if active_keymap_text then
+        active_keymap_text:close()
+        active_keymap_text = nil
+    end
+
+    local state = waywall.state()
+    if state.screen ~= "inworld" or state.inworld ~= "menu" then
+        return
+    end
+
+    if active_keymap ~= "mc" then
+        active_keymap_text = waywall.text("US layout active", 10, 960, "#ee4444", 5)
+    end
+end
+
+waywall.listen("state", update_keymap_text)
+
 -- Helper functions
 local make_image = function(path, dst)
     local this = nil
@@ -84,23 +106,23 @@ local mirrors = {
     }),
     tall_pie = make_mirror({
         src = {x = 0,       y = 15980,  w = 320,    h = 260},
-        dst = {x = 480,     y = 765,    w = 320,    h = 260},
+        dst = {x = 800,     y = 586,    w = 320,    h = 260},
     }),
 
     f3_ccache = make_mirror({
         src = {x = 101,     y = 55,     w = 27,      h = 9},
-        dst = {x = 1120,    y = 504,    w = 108,     h = 36},
+        dst = {x = 880,     y = 484,    w = 108,     h = 36},
         color_key  = {
             input  = "#dddddd",
-            output = "#ffffff",
+            output = "#ee1111",
         },
     }),
     f3_ecount = make_mirror({
         src = {x = 0,       y = 36,     w = 49,     h = 9},
-        dst = {x = 1120,    y = 540,    w = 196,    h = 36},
+        dst = {x = 880,     y = 520,    w = 196,    h = 36},
         color_key  = {
             input  = "#dddddd",
-            output = "#ffffff",
+            output = "#ee1111",
         },
     }),
 
@@ -237,6 +259,9 @@ end
 local set_keymap = function(layout)
     return helpers.ingame_only(function()
         waywall.set_keymap({layout = layout})
+
+        active_keymap = layout
+        update_keymap_text()
     end)
 end
 
