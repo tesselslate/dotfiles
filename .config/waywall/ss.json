@@ -323,25 +323,9 @@
     "enabled": true,
     "value": "key.keyboard.f5"
   },
-  "key_key.delorean.delete": {
+  "key_Create New World": {
     "enabled": true,
-    "value": "key.keyboard.unknown"
-  },
-  "key_key.delorean.load": {
-    "enabled": true,
-    "value": "key.keyboard.unknown"
-  },
-  "key_key.delorean.save": {
-    "enabled": true,
-    "value": "key.keyboard.unknown"
-  },
-  "key_key.logmod.path.build": {
-    "enabled": true,
-    "value": "key.keyboard.unknown"
-  },
-  "key_key.logmod.path.delete": {
-    "enabled": true,
-    "value": "key.keyboard.unknown"
+    "value": "key.keyboard.f12"
   },
   "key_speedrunigt.controls.start_timer": {
     "enabled": true,
