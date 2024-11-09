@@ -24,6 +24,7 @@ local config = {
     theme = {
         background = "#966fd6",
         ninb_anchor = "right",
+        ninb_opacity = 0.8,
 
         cursor_icon = "yellow_pink",
         cursor_theme = "crosshair",
@@ -257,18 +258,17 @@ local exec_ninb = function()
 end
 
 local set_keymap = function(layout)
-    return helpers.ingame_only(function()
+    return function()
         waywall.set_keymap({layout = layout})
 
         active_keymap = layout
         update_keymap_text()
-    end)
+    end
 end
 
 config.actions = {
     -- Resolutions
-    ["T"]               = resolutions.thin,
-    ["Shift-T"]         = resolutions.thin,
+    ["*-T"]             = resolutions.thin,
     ["Ctrl-G"]          = resolutions.tall,
     ["Ctrl-T"]          = resolutions.tall_preemptive,
     ["Ctrl-B"]          = resolutions.wide,
@@ -278,8 +278,7 @@ config.actions = {
     ["Period"]          = set_keymap("us"),
 
     -- Ninjabrain Bot
-    ["H"]               = helpers.ingame_only(helpers.toggle_floating),
-    ["Shift-H"]         = helpers.ingame_only(helpers.toggle_floating),
+    ["*-H"]             = helpers.ingame_only(helpers.toggle_floating),
     ["Ctrl-Shift-N"]    = exec_ninb,
 
     -- Miscellaneous
