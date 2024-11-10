@@ -279,6 +279,7 @@ config.actions = {
 
     -- Ninjabrain Bot
     ["*-H"]             = helpers.ingame_only(helpers.toggle_floating),
+    ["*-Alt-H"]         = helpers.toggle_floating,
     ["Ctrl-Shift-N"]    = exec_ninb,
 
     -- Miscellaneous
