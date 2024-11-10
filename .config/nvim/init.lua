@@ -184,7 +184,14 @@ require("lazy").setup({
             })
 
             local notify = require("mini.notify")
-            notify.setup({ window = { winblend = 0 } })
+            notify.setup({
+                lsp_progress = {
+                    enable = false,
+                },
+                window = {
+                    winblend = 0,
+                },
+            })
             vim.notify = notify.make_notify({ ERROR = { duration = 10000 } })
 
             require("mini.splitjoin").setup({
@@ -293,6 +300,9 @@ require("lazy").setup({
                 },
             })
         end,
+    },
+    {
+        "mfussenegger/nvim-jdtls",
     },
     {
         "neovim/nvim-lspconfig",
