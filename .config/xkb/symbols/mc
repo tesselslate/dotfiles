@@ -9,7 +9,7 @@ xkb_symbols "basic" {
     key <AE05>  {[  5,      5       ]}; // 5
 
     key <AD01>  {[  aring,  Aring   ]}; // q
-    key <AD02>  {[  w,      W       ]}; // w
+    key <AD02>  {[  p,      P       ]}; // w
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
 
@@ -21,5 +21,5 @@ xkb_symbols "basic" {
     key <AB01>  {[  h,      H       ]}; // z
     key <AB02>  {[  oslash, Oslash  ]}; // x
     key <AB03>  {[  i,      I       ]}; // c
-    key <AB04>  {[  t,      T       ]}; // v
+    key <AB04>  {[  k,      T       ]}; // v
 };
