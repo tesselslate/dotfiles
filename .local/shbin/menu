@@ -10,6 +10,7 @@ ncmpcpp\n\
 obs\n\
 osu\n\
 pavucontrol\n\
+qcachegrind\n\
 r2modman\n\
 steam\n\
 wayboard\n\
@@ -49,6 +50,9 @@ case $RESULT in
         ;;
     pavucontrol)
         pavucontrol &
+        ;;
+    qcachegrind)
+        qcachegrind &
         ;;
     r2modman)
         r2modman &
