@@ -7,6 +7,14 @@ os.setenv("LD_PRELOAD", "/usr/lib/libjemalloc.so")
 
 os.setenv("MALLOC_CONF", "background_thread:true,narenas:2,dirty_decay_ms:15000,muzzy_decay_ms:15000")
 
+local read_file = function(name)
+    local file = io.open("/home/dog/.config/waywall/" .. name, "r")
+    local data = file:read("*a")
+    file:close()
+
+    return data
+end
+
 local config = {
     input = {
         remaps = {
@@ -28,6 +36,12 @@ local config = {
 
         cursor_icon = "yellow_pink",
         cursor_theme = "crosshair",
+    },
+    shaders = {
+        ["pie_chart"] = {
+            vertex = read_file("pie_chart.vert"),
+            fragment = read_file("pie_chart.frag"),
+        },
     },
 
     experimental = {
@@ -64,7 +78,7 @@ local make_image = function(path, dst)
 
     return function(enable)
         if enable and not this then
-            this = waywall.image(path, dst)
+            this = waywall.image(path, { dst = dst })
         elseif this and not enable then
             this:close()
             this = nil
@@ -127,54 +141,16 @@ local mirrors = {
         },
     }),
 
-    tall_pie_entities = make_mirror({
+    tall_pie_numbers = make_mirror({
         src = {x = 227,     y = 16163,  w = 84,     h = 42},
         dst = {x = 1120,    y = 650,    w = 504,    h = 252},
-        color_key  = {
-            input  = "#e145c2",
-            output = "#e145c2",
-        },
-    }),
-    tall_pie_blockentities = make_mirror({
-        src = {x = 227,     y = 16163,  w = 84,     h = 42},
-        dst = {x = 1120,    y = 650,    w = 504,    h = 252},
-        color_key  = {
-            input  = "#e96d4d",
-            output = "#e96d4d",
-        },
-    }),
-    tall_pie_unspec = make_mirror({
-        src = {x = 227,     y = 16163,  w = 84,    h = 42},
-        dst = {x = 1120,    y = 650,    w = 504,    h = 252},
-        color_key  = {
-            input  = "#45cb65",
-            output = "#45cb65",
-        },
+        shader = "pie_chart",
     }),
 
-    thin_pie_entities = make_mirror({
+    thin_pie_numbers = make_mirror({
         src = {x = 227,     y = 679,    w = 84,     h = 42},
         dst = {x = 1120,    y = 650,    w = 504,    h = 252},
-        color_key = {
-            input  = "#e145c2",
-            output = "#e145c2",
-        },
-    }),
-    thin_pie_blockentities = make_mirror({
-        src = {x = 227,     y = 679,    w = 84,     h = 42},
-        dst = {x = 1120,    y = 650,    w = 504,    h = 252},
-        color_key = {
-            input  = "#e96d4d",
-            output = "#e96d4d",
-        },
-    }),
-    thin_pie_unspec = make_mirror({
-        src = {x = 227,     y = 679,    w = 84,     h = 42},
-        dst = {x = 1120,    y = 650,    w = 504,    h = 252},
-        color_key = {
-            input  = "#45cb65",
-            output = "#45cb65",
-        },
+        shader = "pie_chart",
     }),
 }
 
@@ -188,18 +164,13 @@ local images = {
 local show_mirrors = function(eye, f3, tall, thin)
     images.overlay(eye)
     mirrors.eye_measure(eye)
-    mirrors.tall_pie(eye)
 
     mirrors.f3_ccache(f3)
     mirrors.f3_ecount(f3)
 
-    mirrors.tall_pie_entities(tall)
-    mirrors.tall_pie_blockentities(tall)
-    mirrors.tall_pie_unspec(tall)
-
-    mirrors.thin_pie_entities(thin)
-    mirrors.thin_pie_blockentities(thin)
-    mirrors.thin_pie_unspec(thin)
+    mirrors.tall_pie(tall)
+    mirrors.tall_pie_numbers(tall)
+    mirrors.thin_pie_numbers(thin)
 end
 
 local thin_enable = function()
@@ -211,22 +182,22 @@ local thin_disable = function()
     show_mirrors(false, false, false, false)
 end
 
-local tall_enable = function()
+local eye_enable = function()
     waywall.set_sensitivity(0.1)
-    show_mirrors(true, true, true, false)
+    show_mirrors(true, false, false, false)
 end
 
-local tall_disable = function()
+local eye_disable = function()
     waywall.set_sensitivity(0)
     show_mirrors(false, false, false, false)
 end
 
-local tall_preemp_enable = function()
+local tall_enable = function()
     waywall.set_sensitivity(0)
     show_mirrors(true, true, true, false)
 end
 
-local tall_preemp_disable = function()
+local tall_disable = function()
     waywall.set_sensitivity(0)
     show_mirrors(false, false, false, false)
 end
@@ -242,8 +213,8 @@ end
 
 local resolutions = {
     thin            = helpers.ingame_only(make_res(320, 900, thin_enable, thin_disable)),
-    tall            = make_res(320, 16384, tall_enable, tall_disable),
-    tall_preemptive = helpers.ingame_only(make_res(320, 16384, tall_preemp_enable, tall_preemp_disable)),
+    eye             = make_res(320, 16384, eye_enable, eye_disable),
+    tall            = helpers.ingame_only(make_res(320, 16384, tall_enable, tall_disable)),
     wide            = make_res(1920, 320, wide_enable, wide_disable),
 }
 
@@ -269,8 +240,8 @@ end
 config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
-    ["Ctrl-G"]          = resolutions.tall,
-    ["Ctrl-T"]          = resolutions.tall_preemptive,
+    ["Ctrl-G"]          = resolutions.eye,
+    ["Ctrl-T"]          = resolutions.tall,
     ["Ctrl-B"]          = resolutions.wide,
 
     -- Keymap
