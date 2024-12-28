@@ -23,7 +23,3 @@ alias dgds="dg diff --staged"
 alias dgl="dg log --color --oneline --no-decorate | head -n 6"
 alias dgp="dg push"
 alias dgs="dg status -s -b && echo '' && dgl"
-
-# advent of code
-alias g="../get.fish"
-alias r="../run.py"

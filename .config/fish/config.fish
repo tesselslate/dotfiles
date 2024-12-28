@@ -17,6 +17,9 @@ source ~/.config/fish/alias.fish
 # bindings
 source ~/.config/fish/binds.fish
 
+# directory-specific functions
+source ~/.config/fish/dirfunc.fish
+
 # -----------------------------
 # == options
 # -----------------------------
