@@ -1,7 +1,7 @@
 {
   "fov": {
     "enabled": true,
-    "value": 90.0
+    "value": 110.0
   },
   "realmsNotifications": {
     "enabled": true,
@@ -445,11 +445,11 @@
   },
   "fovOnWorldJoin": {
     "enabled": true,
-    "value": 90.0
+    "value": 110.0
   },
   "renderDistanceOnWorldJoin": {
     "enabled": true,
-    "value": 5.0
+    "value": 8.0
   },
   "entityDistanceScalingOnWorldJoin": {
     "enabled": true,
