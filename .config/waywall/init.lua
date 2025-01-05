@@ -72,150 +72,82 @@ end
 
 waywall.listen("state", update_keymap_text)
 
--- Helper functions
-local make_image = function(path, dst)
-    local this = nil
-
-    return function(enable)
-        if enable and not this then
-            this = waywall.image(path, { dst = dst })
-        elseif this and not enable then
-            this:close()
-            this = nil
-        end
-    end
-end
-
-local make_mirror = function(options)
-    local this = nil
-
-    return function(enable)
-        if enable and not this then
-            this = waywall.mirror(options)
-        elseif this and not enable then
-            this:close()
-            this = nil
-        end
-    end
-end
-
-local make_res = function(width, height, enable, disable)
-    return function()
-        local active_width, active_height = waywall.active_res()
-
-        if active_width == width and active_height == height then
-            waywall.set_resolution(0, 0)
-            disable()
-        else
-            waywall.set_resolution(width, height)
-            enable()
-        end
-    end
-end
-
--- Mirrors and resolution toggles
-local mirrors = {
-    eye_measure = make_mirror({
+-- Eye magnifier
+helpers.res_mirror(
+    {
         src = {x = 130,     y = 7902,   w = 60,     h = 580},
         dst = {x = 0,       y = 315,    w = 800,    h = 450},
-    }),
-    tall_pie = make_mirror({
+    },
+    320, 16384
+)
+helpers.res_image(
+    "/home/dog/pix/boatoverlay.png",
+    {
+        dst = {x = 0,       y = 315,    w = 800,    h = 450},
+    },
+    320, 16384
+)
+
+-- Tall pie
+helpers.res_mirror(
+    {
         src = {x = 0,       y = 15980,  w = 320,    h = 260},
         dst = {x = 800,     y = 586,    w = 320,    h = 260},
-    }),
+    },
+    320, 16384
+)
 
-    f3_ccache = make_mirror({
+-- F3 Client Chunk Cache
+helpers.res_mirror(
+    {
         src = {x = 101,     y = 55,     w = 27,      h = 9},
         dst = {x = 880,     y = 484,    w = 108,     h = 36},
         color_key  = {
             input  = "#dddddd",
             output = "#ee1111",
         },
-    }),
-    f3_ecount = make_mirror({
+    },
+    320, 900
+)
+
+-- F3 Entity Count
+helpers.res_mirror(
+    {
         src = {x = 0,       y = 36,     w = 49,     h = 9},
         dst = {x = 880,     y = 520,    w = 196,    h = 36},
         color_key  = {
             input  = "#dddddd",
             output = "#ee1111",
         },
-    }),
+    },
+    320, 900
+)
 
-    tall_pie_numbers = make_mirror({
+-- Tall pie numbers
+helpers.res_mirror(
+    {
         src = {x = 227,     y = 16163,  w = 84,     h = 42},
         dst = {x = 1120,    y = 650,    w = 504,    h = 252},
         shader = "pie_chart",
-    }),
+    },
+    320, 16384
+)
 
-    thin_pie_numbers = make_mirror({
+-- Thin pie numbers
+helpers.res_mirror(
+    {
         src = {x = 227,     y = 679,    w = 84,     h = 42},
         dst = {x = 1120,    y = 650,    w = 504,    h = 252},
         shader = "pie_chart",
-    }),
-}
-
-local images = {
-    overlay = make_image(
-        "/home/dog/pix/boatoverlay.png",
-        {x = 0, y = 315, w = 800, h = 450}
-    )
-}
-
-local show_mirrors = function(eye, f3, tall, thin)
-    images.overlay(eye)
-    mirrors.eye_measure(eye)
-
-    mirrors.f3_ccache(f3)
-    mirrors.f3_ecount(f3)
-
-    mirrors.tall_pie(tall)
-    mirrors.tall_pie_numbers(tall)
-    mirrors.thin_pie_numbers(thin)
-end
-
-local thin_enable = function()
-    waywall.set_sensitivity(0)
-    show_mirrors(false, true, false, true)
-end
-
-local thin_disable = function()
-    show_mirrors(false, false, false, false)
-end
-
-local eye_enable = function()
-    waywall.set_sensitivity(0.1)
-    show_mirrors(true, false, false, false)
-end
-
-local eye_disable = function()
-    waywall.set_sensitivity(0)
-    show_mirrors(false, false, false, false)
-end
-
-local tall_enable = function()
-    waywall.set_sensitivity(0)
-    show_mirrors(true, true, true, false)
-end
-
-local tall_disable = function()
-    waywall.set_sensitivity(0)
-    show_mirrors(false, false, false, false)
-end
-
-local wide_enable = function()
-    waywall.set_sensitivity(0)
-    show_mirrors(false, false, false, false)
-end
-
-local wide_disable = function()
-    -- No-op
-end
+    },
+    320, 900
+)
 
 local resolutions = {
-    thin            = helpers.ingame_only(make_res(320, 900, thin_enable, thin_disable)),
-    eye             = make_res(320, 16384, eye_enable, eye_disable),
-    tall            = helpers.ingame_only(make_res(320, 16384, tall_enable, tall_disable)),
-    wide            = make_res(1920, 320, wide_enable, wide_disable),
+    thin            = helpers.ingame_only(helpers.toggle_res(320, 900)),
+    eye             = helpers.toggle_res(320, 16384, 0.1),
+    tall            = helpers.toggle_res(320, 16384),
+    wide            = helpers.toggle_res(1920, 320),
 }
 
 -- Actions
