@@ -23,8 +23,8 @@ local config = {
         },
 
         layout = "mc",
-        repeat_rate = 20,
-        repeat_delay = 300,
+        repeat_rate = 50,
+        repeat_delay = 140,
 
         sensitivity = 3.1701,
         confine_pointer = true,
@@ -241,8 +241,8 @@ config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
     ["Ctrl-G"]          = resolutions.eye,
-    ["Ctrl-T"]          = resolutions.tall,
     ["Ctrl-B"]          = resolutions.wide,
+    ["Ctrl-MMB"]        = resolutions.tall,
 
     -- Keymap
     ["Comma"]           = set_keymap("mc"),
