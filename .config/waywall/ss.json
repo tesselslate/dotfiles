@@ -29,7 +29,7 @@
   },
   "maxFps": {
     "enabled": true,
-    "value": 240.0
+    "value": 160.0
   },
   "enableVsync": {
     "enabled": true,
