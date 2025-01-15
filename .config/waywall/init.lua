@@ -24,7 +24,7 @@ local config = {
 
         layout = "mc",
         repeat_rate = 50,
-        repeat_delay = 140,
+        repeat_delay = 180,
 
         sensitivity = 3.1701,
         confine_pointer = true,
