@@ -8,7 +8,7 @@ xkb_symbols "basic" {
     key <AE04>  {[  4,      4       ]}; // 4
     key <AE05>  {[  5,      5       ]}; // 5
 
-    key <AD01>  {[  aring,  Aring   ]}; // q
+    key <AD01>  {[  v,      Aring   ]}; // q
     key <AD02>  {[  p,      P       ]}; // w
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
