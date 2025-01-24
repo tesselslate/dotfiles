@@ -1,2 +1,2 @@
 #!/usr/bin/fish
-java -jar ~/doc/Ninjabrain-Bot-1.5.1.jar
+/usr/lib/jvm/java-17-openjdk/bin/java -jar ~/doc/Ninjabrain-Bot-1.5.1.jar
