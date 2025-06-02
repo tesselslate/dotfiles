@@ -48,7 +48,7 @@ vim.opt.rtp:prepend(lazypath)
 ]]--
 
 local function status_diagnostics()
-    if not next(vim.lsp.get_active_clients()) then
+    if not next(vim.lsp.get_clients()) then
         return
     end
 
@@ -70,7 +70,7 @@ local function status_diagnostics()
 end
 
 local function status_lsp()
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     if #clients == 0 then
         return ""
     end
