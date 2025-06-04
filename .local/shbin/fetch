@@ -3,15 +3,7 @@ KERNEL=$(uname -r)
 MEM=$(cat /proc/meminfo | awk '/^MemTotal/{TOTAL=$2} /^MemAvailable/{AVAIL=$2} END{ printf "%.0f / %.0f MB", (TOTAL-AVAIL)/1000, TOTAL/1000 }')
 UPTIME=$(date -d@$(cat /proc/uptime | awk '{printf "%.0f", $1}') -u +%H:%M:%S)
 if [ -z "$1" ]; then
-    case "$(cat /etc/hostname)" in
-        alpine)
-            PKGCOUNT=$(apk info | wc -l)
-            ;;
-        archbox)
-            PKGCOUNT=$(pacman -Qq | wc -l)
-            ;;
-    esac
-    PKGCOUNT="($PKGCOUNT)"
+    PKGCOUNT="($(pacman -Qq | wc -l))"
 fi
 
 printf "\n\033[1;36m  \033[1;32msystem \033[1;33m$(cat /etc/hostname) $PKGCOUNT"
