@@ -1,7 +1,6 @@
 #!/usr/bin/dash
 
 OPTS="celeste\n\
-cubiomes\n\
 firefox\n\
 idea\n\
 lonn\n\
@@ -11,7 +10,6 @@ obs\n\
 osu\n\
 pavucontrol\n\
 qcachegrind\n\
-r2modman\n\
 steam\n\
 wayboard\n\
 wireshark\n"
@@ -23,9 +21,6 @@ fi
 case $RESULT in
     celeste)
         celeste &
-        ;;
-    cubiomes)
-        cubiomes-viewer &
         ;;
     firefox)
         firefox &
@@ -53,9 +48,6 @@ case $RESULT in
         ;;
     qcachegrind)
         qcachegrind &
-        ;;
-    r2modman)
-        r2modman &
         ;;
     steam)
         flatpak run --user com.valvesoftware.Steam &
