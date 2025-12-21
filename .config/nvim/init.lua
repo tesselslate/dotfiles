@@ -334,7 +334,7 @@ require("lazy").setup({
             end
 
             local language_servers = {
-                "ccls", "gopls", "jedi_language_server", "rust_analyzer", "zls",
+                "ccls", "gopls", "jedi_language_server", "rust_analyzer",
             }
 
             for _, server in ipairs(language_servers) do
