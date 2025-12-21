@@ -7,4 +7,8 @@ case "$1" in
         grim -o DP-2 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
         notify-send "Screenshot taken" -t 500
         ;;
+    mega)
+        grim -o DP-2 - | tee ~/doc/megalophobia/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
+        notify-send "Screenshot taken" -t 500
+        ;;
 esac

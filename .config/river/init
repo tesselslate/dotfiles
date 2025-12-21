@@ -6,6 +6,7 @@ riverctl map normal Super           Return  spawn menu
 riverctl map normal Super+Alt       L       spawn "swaylock -i ~/.config/desktop/backgrounds/pixel-starry.png -t"
 riverctl map normal Super           Delete  spawn "screenshot-clipboard output"
 riverctl map normal Super+Shift     Delete  spawn "screenshot-clipboard area"
+riverctl map normal Super+Control   Delete  spawn "screenshot-clipboard mega"
 riverctl map normal Super           C       close
 riverctl map normal Super+Shift     Q       exit
 riverctl map normal Super           F       toggle-fullscreen
