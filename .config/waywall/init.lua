@@ -66,7 +66,12 @@ local update_keymap_text = function()
     end
 
     if active_keymap ~= "mc" then
-        active_keymap_text = waywall.text("US layout active", 10, 960, "#ee4444", 5)
+        active_keymap_text = waywall.text("US layout active", {
+            x = 10,
+            y = 960,
+            color = "#ee4444",
+            size = 5
+        })
     end
 end
 
@@ -101,10 +106,10 @@ helpers.res_mirror(
 helpers.res_mirror(
     {
         src = {x = 101,     y = 55,     w = 27,      h = 9},
-        dst = {x = 880,     y = 484,    w = 108,     h = 36},
+        dst = {x = 880,     y = 680,    w = 108,     h = 36},
         color_key  = {
             input  = "#dddddd",
-            output = "#ee1111",
+            output = "#ffffff",
         },
     },
     320, 900
@@ -114,13 +119,27 @@ helpers.res_mirror(
 helpers.res_mirror(
     {
         src = {x = 0,       y = 36,     w = 49,     h = 9},
-        dst = {x = 880,     y = 520,    w = 196,    h = 36},
+        dst = {x = 880,     y = 640,    w = 196,    h = 36},
         color_key  = {
             input  = "#dddddd",
-            output = "#ee1111",
+            output = "#ffffff",
         },
+        depth = 1,
     },
     320, 900
+)
+-- F3 Entity Count
+helpers.res_mirror(
+    {
+        src = {x = 0,       y = 36,     w = 49,     h = 9},
+        dst = {x = 880,     y = 640,    w = 196,    h = 36},
+        color_key  = {
+            input  = "#dddddd",
+            output = "#ffffff",
+        },
+        depth = 1,
+    },
+    320, 16384
 )
 
 -- Tall pie numbers
@@ -143,11 +162,38 @@ helpers.res_mirror(
     320, 900
 )
 
+local make_res = function(width, height, sens, ingame)
+    local toggle = helpers.toggle_res(width, height, sens)
+
+    return function()
+        if waywall.get_key("f3") then
+            return false
+        end
+
+        local state = waywall.state()
+        local aw, ah = waywall.active_res()
+
+        local ok = (not ingame) or (state.screen == "inworld" and state.inworld == "unpaused")
+        if ok then
+            toggle()
+            return true
+        else
+            if aw ~= 0 then
+                waywall.set_resolution(0, 0)
+                waywall.set_sensitivity(0)
+                return true
+            end
+
+            return false
+        end
+    end
+end
+
 local resolutions = {
-    thin            = helpers.ingame_only(helpers.toggle_res(320, 900)),
-    eye             = helpers.toggle_res(320, 16384, 0.1),
-    tall            = helpers.toggle_res(320, 16384),
-    wide            = helpers.toggle_res(1920, 320),
+    thin            = make_res(320, 900, 0, true),
+    eye             = make_res(320, 16384, 0.1, false),
+    tall            = make_res(320, 16384, 0, true),
+    wide            = make_res(1920, 320, 0, true),
 }
 
 -- Actions
@@ -172,9 +218,9 @@ end
 config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
-    ["Ctrl-G"]          = resolutions.eye,
-    ["Ctrl-B"]          = resolutions.wide,
-    ["Ctrl-MMB"]        = resolutions.tall,
+    ["*-Ctrl-G"]        = resolutions.eye,
+    ["*-B"]             = resolutions.wide,
+    ["*-Grave"]         = resolutions.tall,
 
     -- Keymap
     ["Comma"]           = set_keymap("mc"),
