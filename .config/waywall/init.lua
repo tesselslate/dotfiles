@@ -1,12 +1,6 @@
 local waywall = require("waywall")
 local helpers = require("waywall.helpers")
 
--- I often build waywall with ASAN so I need to remove it from LD_PRELOAD
--- so that child processes do not load it.
-os.setenv("LD_PRELOAD", "/usr/lib/libjemalloc.so")
-
-os.setenv("MALLOC_CONF", "background_thread:true,narenas:2,dirty_decay_ms:15000,muzzy_decay_ms:15000")
-
 local read_file = function(name)
     local file = io.open("/home/dog/.config/waywall/" .. name, "r")
     local data = file:read("*a")
