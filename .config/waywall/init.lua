@@ -1,6 +1,10 @@
 local waywall = require("waywall")
 local helpers = require("waywall.helpers")
 
+-- Adding libjemalloc to LD_PRELOAD causes ASAN to complain, since the initial
+-- execution of waywall before the environment is reset has jemalloc loaded.
+os.setenv("LD_PRELOAD", "/usr/lib/libjemalloc.so")
+
 local read_file = function(name)
     local file = io.open("/home/dog/.config/waywall/" .. name, "r")
     local data = file:read("*a")
