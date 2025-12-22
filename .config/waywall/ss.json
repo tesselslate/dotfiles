@@ -21,7 +21,7 @@
   },
   "renderDistance": {
     "enabled": true,
-    "value": 5.0
+    "value": 8.0
   },
   "ao": {
     "enabled": true,
@@ -73,7 +73,7 @@
   },
   "entityDistanceScaling": {
     "enabled": true,
-    "value": 0.5
+    "value": 5.0
   },
   "entityCulling": {
     "enabled": true,
@@ -165,7 +165,7 @@
   },
   "mouseSensitivity": {
     "enabled": true,
-    "value": 0.02291165
+    "value": 0.02291164919734001
   },
   "invertYMouse": {
     "enabled": true,
@@ -323,10 +323,6 @@
     "enabled": true,
     "value": "key.keyboard.f5"
   },
-  "key_Create New World": {
-    "enabled": true,
-    "value": "key.keyboard.f12"
-  },
   "key_speedrunigt.controls.start_timer": {
     "enabled": true,
     "value": "key.keyboard.unknown"
@@ -453,7 +449,7 @@
   },
   "entityDistanceScalingOnWorldJoin": {
     "enabled": true,
-    "value": 0.5
+    "value": 5.0
   },
   "guiScaleOnWorldJoin": {
     "enabled": true,
