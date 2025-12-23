@@ -1,4 +1,18 @@
-profile box {
+profile box-nvidia {
+    output HDMI-A-1 {
+        enable
+        mode 1920x1080@180.003006Hz
+        position 0,0
+        adaptive_sync off
+    }
+    output DP-1 {
+        enable
+        mode 1920x1080
+        position 1920,0
+    }
+}
+
+profile box-amd {
     output DP-2 {
         enable
         mode 1920x1080@180.003006Hz
