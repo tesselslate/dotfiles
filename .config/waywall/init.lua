@@ -18,6 +18,12 @@ local config = {
         remaps = {
             ["MB4"] = "Home",
             ["MB5"] = "RightShift",
+            ["CapsLock"] = "0",
+
+            -- null bind
+            ["Home"] = "F10",
+            ["RightShift"] = "F10",
+            ["0"] = "F10",
         },
 
         layout = "mc",
