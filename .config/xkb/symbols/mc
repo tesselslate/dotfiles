@@ -6,17 +6,18 @@ xkb_symbols "basic" {
     key <AE02>  {[  o,      O       ]}; // 2
     key <AE03>  {[  8,      2       ]}; // 3
     key <AE04>  {[  4,      9       ]}; // 4
-    key <AE05>  {[  m,      5       ]}; // 5
+    key <AE05>  {[  period, 5       ]}; // 5
 
     key <AD01>  {[  v,      Aring   ]}; // q
     key <AD02>  {[  p,      T       ]}; // w
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
 
-    key <AC01>  {[  a,      G       ]}; // a
+    key <AC01>  {[  g,      G       ]}; // a
     key <AC02>  {[  s,      N       ]}; // s
     key <AC03>  {[  j,      D       ]}; // d
     key <AC04>  {[  l,      L       ]}; // f
+    key <AC05>  {[  a,      A       ]}; // g
 
     key <AB01>  {[  h,      U       ]}; // z
     key <AB02>  {[  oslash, Oslash  ]}; // x
