@@ -31,6 +31,7 @@ riverctl map normal Super+Control   L       send-layout-cmd rivertile "main-rati
 riverctl map normal None XF86AudioRaiseVolume spawn "volume 5%+"
 riverctl map normal None XF86AudioLowerVolume spawn "volume 5%-"
 riverctl map normal None XF86AudioPlay spawn "mpc -p 6660 toggle"
+riverctl map normal None XF86HomePage spawn "mpc -p 6660 toggle" # the aula keyboard has weird fn keys
 
 riverctl map-pointer normal Super BTN_LEFT  move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
