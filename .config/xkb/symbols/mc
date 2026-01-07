@@ -2,11 +2,12 @@ default partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
     name[Group1]= "Norwegian (MC)";
 
-    key <AE01>  {[  b,      B       ]}; // 1
-    key <AE02>  {[  o,      O       ]}; // 2
-    key <AE03>  {[  8,      2       ]}; // 3
-    key <AE04>  {[  4,      9       ]}; // 4
-    key <AE05>  {[  period, 5       ]}; // 5
+    key <TLDE>  {[  plus,   tilde   ]}; // tilde
+    key <AB05>  {[  b,      B       ]}; // 1 (remapped B)
+    key <AB06>  {[  5,      O       ]}; // 2 (remapped N)
+    key <AB07>  {[  8,      2       ]}; // 3 (remapped M)
+    key <AB08>  {[  4,      9       ]}; // 4 (remapped comma)
+    key <AB09>  {[  period, o       ]}; // 5 (remapped dot)
 
     key <AD01>  {[  v,      Aring   ]}; // q
     key <AD02>  {[  p,      T       ]}; // w
@@ -15,9 +16,9 @@ xkb_symbols "basic" {
 
     key <AC01>  {[  g,      G       ]}; // a
     key <AC02>  {[  s,      N       ]}; // s
-    key <AC03>  {[  j,      D       ]}; // d
+    key <AC03>  {[  a,      D       ]}; // d
     key <AC04>  {[  l,      L       ]}; // f
-    key <AC05>  {[  a,      A       ]}; // g
+    key <AC05>  {[  j,      J       ]}; // g
 
     key <AB01>  {[  h,      U       ]}; // z
     key <AB02>  {[  oslash, Oslash  ]}; // x
