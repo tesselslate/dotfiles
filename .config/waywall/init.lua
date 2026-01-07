@@ -13,18 +13,31 @@ local read_file = function(name)
     return data
 end
 
+local remaps = {
+    always = {
+        ["MB4"]         = "Home",       ["Home"]        = "MB4",
+        ["MB5"]         = "RightShift", ["RightShift"]  = "MB5",
+        ["CapsLock"]    = "0",          ["0"]           = "CapsLock",
+    },
+    pie = {},
+    hotbar = {
+        ["0"] = "H",
+        ["1"] = "B",
+        ["2"] = "N",
+        ["3"] = "M",
+        ["4"] = "Comma",
+        ["5"] = "Dot",
+    },
+}
+
+for k, v in pairs(remaps.always) do
+    remaps.pie[k] = v
+    remaps.hotbar[k] = v
+end
+
 local config = {
     input = {
-        remaps = {
-            ["MB4"] = "Home",
-            ["MB5"] = "RightShift",
-            ["CapsLock"] = "0",
-
-            -- null bind
-            ["Home"] = "F10",
-            ["RightShift"] = "F10",
-            ["0"] = "F10",
-        },
+        remaps = remaps.hotbar,
 
         layout = "mc",
         repeat_rate = 50,
@@ -34,7 +47,7 @@ local config = {
         confine_pointer = true,
     },
     theme = {
-        background = "#966fd6",
+        background = "#2d0707",
         ninb_anchor = "right",
         ninb_opacity = 0.8,
 
@@ -58,6 +71,10 @@ local config = {
 local active_keymap = "mc"
 local active_keymap_text = nil
 
+local active_remaps = "hotbar"
+local active_remaps_text = nil
+local active_remaps_debounce = 0
+
 local update_keymap_text = function()
     if active_keymap_text then
         active_keymap_text:close()
@@ -74,6 +91,22 @@ local update_keymap_text = function()
             x = 10,
             y = 960,
             color = "#ee4444",
+            size = 5
+        })
+    end
+end
+
+local update_remaps_text = function()
+    if active_remaps_text then
+        active_remaps_text:close()
+        active_remaps_text = nil
+    end
+
+    if active_remaps == "pie" then
+        active_remaps_text = waywall.text("======", {
+            x = 1616,
+            y = 650,
+            color = "#4444ee",
             size = 5
         })
     end
@@ -150,7 +183,7 @@ helpers.res_mirror(
 helpers.res_mirror(
     {
         src = {x = 227,     y = 16163,  w = 84,     h = 42},
-        dst = {x = 1120,    y = 650,    w = 504,    h = 252},
+        dst = {x = 1120,    y = 600,    w = 504,    h = 252},
         shader = "pie_chart",
     },
     320, 16384
@@ -160,8 +193,26 @@ helpers.res_mirror(
 helpers.res_mirror(
     {
         src = {x = 227,     y = 679,    w = 84,     h = 42},
-        dst = {x = 1120,    y = 650,    w = 504,    h = 252},
+        dst = {x = 1120,    y = 600,    w = 504,    h = 252},
         shader = "pie_chart",
+    },
+    320, 900
+)
+
+-- Tall subtitles
+helpers.res_mirror(
+    {
+        src = {x = 195,     y = 16279,  w = 124,    h = 80},
+        dst = {x = 1545,    y = 765,    w = 372,    h = 240},
+    },
+    320, 16384
+)
+
+-- Thin subtitles
+helpers.res_mirror(
+    {
+        src = {x = 195,     y = 795,    w = 124,    h = 80},
+        dst = {x = 1545,    y = 765,    w = 372,    h = 240},
     },
     320, 900
 )
@@ -197,7 +248,7 @@ local resolutions = {
     thin            = make_res(320, 900, 0, true),
     eye             = make_res(320, 16384, 0.1, false),
     tall            = make_res(320, 16384, 0, true),
-    wide            = make_res(1920, 320, 0, true),
+    wide            = make_res(1880, 320, 0, true),
 }
 
 -- Actions
@@ -219,6 +270,30 @@ local set_keymap = function(layout)
     end
 end
 
+local toggle_remaps = function()
+    if active_remaps == "hotbar" then
+        active_remaps = "pie"
+        waywall.set_remaps(remaps.pie)
+    else
+        active_remaps = "hotbar"
+        waywall.set_remaps(remaps.hotbar)
+    end
+
+    update_remaps_text()
+end
+
+local toggle_remaps_doubletap = function()
+    local prev = active_remaps_debounce
+    local time = waywall.current_time()
+    active_remaps_debounce = time
+
+    if time - prev >= 250 then
+        return false
+    end
+
+    toggle_remaps()
+end
+
 config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
@@ -227,8 +302,10 @@ config.actions = {
     ["*-Grave"]         = resolutions.tall,
 
     -- Keymap
-    ["Comma"]           = set_keymap("mc"),
-    ["Period"]          = set_keymap("us"),
+    ["*-F11"]           = set_keymap("mc"),
+    ["*-F12"]           = set_keymap("us"),
+    ["*-Control_L"]     = toggle_remaps_doubletap,
+    ["*-F1"]            = toggle_remaps,
 
     -- Ninjabrain Bot
     ["*-H"]             = helpers.ingame_only(helpers.toggle_floating),
