@@ -4,7 +4,7 @@ case "$1" in
         grim -g "$(slurp)" - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
         ;;
     output)
-        grim -o DP-2 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
+        grim -o HDMI-A-1 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
         notify-send "Screenshot taken" -t 500
         ;;
     mega)
