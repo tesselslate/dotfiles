@@ -7,7 +7,7 @@ xkb_symbols "basic" {
     key <AB06>  {[  5,      O       ]}; // 2 (remapped N)
     key <AB07>  {[  8,      2       ]}; // 3 (remapped M)
     key <AB08>  {[  4,      9       ]}; // 4 (remapped comma)
-    key <AB09>  {[  period, o       ]}; // 5 (remapped dot)
+    key <AB09>  {[  period, M       ]}; // 5 (remapped dot)
 
     key <AD01>  {[  v,      Aring   ]}; // q
     key <AD02>  {[  p,      T       ]}; // w
