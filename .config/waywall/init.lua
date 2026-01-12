@@ -15,19 +15,18 @@ end
 
 local remaps = {
     always = {
-        ["MB4"]         = "Home",       ["Home"]        = "MB4",
-        ["MB5"]         = "RightShift", ["RightShift"]  = "MB5",
-        ["CapsLock"]    = "0",          ["0"]           = "F10",
-        ["LeftAlt"]     = "Backspace",  ["Backspace"]   = "LeftAlt",
+        ["MB4"]         = "Home",       ["Home"]        = "F24",
+        ["MB5"]         = "RightShift", ["RightShift"]  = "F24",
+        ["CapsLock"]    = "0",          ["0"]           = "F24",
+        ["LeftAlt"]     = "Backspace",  ["Backspace"]   = "F24",
     },
     pie = {},
     hotbar = {
-        ["0"] = "H",
-        ["1"] = "B",
-        ["2"] = "N",
-        ["3"] = "M",
-        ["4"] = "Comma",
-        ["5"] = "Dot",
+        ["1"] = "F13",
+        ["2"] = "F14",
+        ["3"] = "F15",
+        ["4"] = "F16",
+        ["5"] = "F17",
     },
 }
 
@@ -41,7 +40,9 @@ local config = {
         remaps = remaps.hotbar,
 
         layout = "mc",
+        rules = "mc",
         options = "caps:none",
+
         repeat_rate = 50,
         repeat_delay = 180,
 
@@ -262,9 +263,9 @@ local exec_ninb = function()
     waywall.exec("ninb")
 end
 
-local set_keymap = function(layout)
+local set_keymap = function(layout, rules, options)
     return function()
-        waywall.set_keymap({layout = layout})
+        waywall.set_keymap({layout = layout, rules = rules, options = options})
 
         active_keymap = layout
         update_keymap_text()
@@ -291,8 +292,8 @@ config.actions = {
     ["*-G"]             = resolutions.tall,
 
     -- Keymap
-    ["*-F11"]           = set_keymap("mc"),
-    ["*-F12"]           = set_keymap("us"),
+    ["*-F11"]           = set_keymap("mc", "mc", "caps:none"),
+    ["*-F12"]           = set_keymap("us", nil,  "caps:none"),
     ["*-Grave"]         = helpers.ingame_only(toggle_remaps),
 
     -- Ninjabrain Bot

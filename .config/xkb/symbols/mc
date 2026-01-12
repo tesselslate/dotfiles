@@ -1,13 +1,14 @@
-default partial alphanumeric_keys modifier_keys
+default partial function_keys alphanumeric_keys modifier_keys
+
 xkb_symbols "basic" {
     name[Group1]= "Norwegian (MC)";
 
     key <TLDE>  {[  plus,   tilde   ]}; // tilde
-    key <AB05>  {[  b,      B       ]}; // 1 (remapped B)
-    key <AB06>  {[  5,      O       ]}; // 2 (remapped N)
-    key <AB07>  {[  8,      2       ]}; // 3 (remapped M)
-    key <AB08>  {[  4,      9       ]}; // 4 (remapped comma)
-    key <AB09>  {[  period, M       ]}; // 5 (remapped dot)
+    key <FK13>  {[  b,      B       ]}; // 1
+    key <FK14>  {[  5,      O       ]}; // 2
+    key <FK15>  {[  8,      2       ]}; // 3
+    key <FK16>  {[  4,      9       ]}; // 4
+    key <FK17>  {[  period, M       ]}; // 5
 
     key <AD01>  {[  v,      Aring   ]}; // q
     key <AD02>  {[  p,      T       ]}; // w
