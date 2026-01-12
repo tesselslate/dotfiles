@@ -17,7 +17,8 @@ local remaps = {
     always = {
         ["MB4"]         = "Home",       ["Home"]        = "MB4",
         ["MB5"]         = "RightShift", ["RightShift"]  = "MB5",
-        ["CapsLock"]    = "0",          ["0"]           = "CapsLock",
+        ["CapsLock"]    = "0",          ["0"]           = "F10",
+        ["LeftAlt"]     = "Backspace",  ["Backspace"]   = "LeftAlt",
     },
     pie = {},
     hotbar = {
@@ -40,6 +41,7 @@ local config = {
         remaps = remaps.hotbar,
 
         layout = "mc",
+        options = "caps:none",
         repeat_rate = 50,
         repeat_delay = 180,
 
@@ -73,7 +75,6 @@ local active_keymap_text = nil
 
 local active_remaps = "hotbar"
 local active_remaps_text = nil
-local active_remaps_debounce = 0
 
 local update_keymap_text = function()
     if active_keymap_text then
@@ -217,11 +218,11 @@ helpers.res_mirror(
     320, 900
 )
 
-local make_res = function(width, height, sens, ingame)
+local make_res = function(width, height, sens, ingame, ignore_f3)
     local toggle = helpers.toggle_res(width, height, sens)
 
     return function()
-        if waywall.get_key("f3") then
+        if waywall.get_key("f3") and not ignore_f3 then
             return false
         end
 
@@ -244,11 +245,11 @@ local make_res = function(width, height, sens, ingame)
     end
 end
 
-local resolutions = {
-    thin            = make_res(320, 900, 0, true),
-    eye             = make_res(320, 16384, 0.1, false),
-    tall            = make_res(320, 16384, 0, true),
-    wide            = make_res(1880, 320, 0, true),
+local resolutions = { --       width    height  sens    ingame  blockf3
+    thin            = make_res(320,     900,    0,      true,   true),
+    eye             = make_res(320,     16384,  0.1,    false,  false),
+    tall            = make_res(320,     16384,  0,      true,   false),
+    wide            = make_res(1880,    320,    0,      true,   false),
 }
 
 -- Actions
@@ -282,30 +283,17 @@ local toggle_remaps = function()
     update_remaps_text()
 end
 
-local toggle_remaps_doubletap = function()
-    local prev = active_remaps_debounce
-    local time = waywall.current_time()
-    active_remaps_debounce = time
-
-    if time - prev >= 250 then
-        return false
-    end
-
-    toggle_remaps()
-end
-
 config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
     ["*-Ctrl-G"]        = resolutions.eye,
     ["*-B"]             = resolutions.wide,
-    ["*-Grave"]         = resolutions.tall,
+    ["*-G"]             = resolutions.tall,
 
     -- Keymap
     ["*-F11"]           = set_keymap("mc"),
     ["*-F12"]           = set_keymap("us"),
-    ["*-Control_L"]     = toggle_remaps_doubletap,
-    ["*-F1"]            = toggle_remaps,
+    ["*-Grave"]         = helpers.ingame_only(toggle_remaps),
 
     -- Ninjabrain Bot
     ["*-H"]             = helpers.ingame_only(helpers.toggle_floating),
