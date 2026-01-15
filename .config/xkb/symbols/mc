@@ -15,9 +15,9 @@ xkb_symbols "basic" {
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
 
-    key <AC01>  {[  g,      G       ]}; // a
+    key <FK20>  {[  g,      G       ]}; // a
     key <AC02>  {[  s,      N       ]}; // s
-    key <AC03>  {[  a,      D       ]}; // d
+    key <FK21>  {[  a,      D       ]}; // d
     key <AC04>  {[  l,      L       ]}; // f
     key <AC05>  {[  j,      J       ]}; // g
 
