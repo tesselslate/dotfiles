@@ -18,6 +18,9 @@ local remaps = {
         ["MB5"]         = "RightShift", ["RightShift"]  = "F24",
         ["CapsLock"]    = "0",          ["0"]           = "F24",
         ["LeftAlt"]     = "Backspace",  ["Backspace"]   = "F24",
+
+        ["A"]           = "F20",
+        ["D"]           = "F21",
     },
     hotbar = {
         ["1"] = "F13",

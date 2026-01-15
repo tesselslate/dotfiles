@@ -1,3 +1,6 @@
+local waywall = require("waywall")
+local helpers = require("waywall.helpers")
+
 local M = {}
 
 M.make_res = function(width, height, sens, ingame, ignore_f3)
