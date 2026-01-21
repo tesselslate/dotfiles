@@ -35,24 +35,11 @@ helpers.res_mirror(
     320, 16384
 )
 
--- F3 Client Chunk Cache
+-- Thin C count
 helpers.res_mirror(
     {
-        src = {x = 101,     y = 55,     w = 27,      h = 9},
-        dst = {x = 880,     y = 680,    w = 108,     h = 36},
-        color_key  = {
-            input  = "#dddddd",
-            output = "#ffffff",
-        },
-    },
-    320, 900
-)
-
--- F3 Entity Count
-helpers.res_mirror(
-    {
-        src = {x = 0,       y = 36,     w = 49,     h = 9},
-        dst = {x = 880,     y = 640,    w = 196,    h = 36},
+        src = {x = 0,       y = 28,     w = 49,     h = 9},
+        dst = {x = 1120,    y = 400,    w = 196,    h = 36},
         color_key  = {
             input  = "#dddddd",
             output = "#ffffff",
@@ -61,11 +48,12 @@ helpers.res_mirror(
     },
     320, 900
 )
--- F3 Entity Count
+
+-- Tall C count
 helpers.res_mirror(
     {
-        src = {x = 0,       y = 36,     w = 49,     h = 9},
-        dst = {x = 880,     y = 640,    w = 196,    h = 36},
+        src = {x = 0,       y = 28,     w = 49,     h = 9},
+        dst = {x = 1120,    y = 400,    w = 196,    h = 36},
         color_key  = {
             input  = "#dddddd",
             output = "#ffffff",
@@ -75,12 +63,29 @@ helpers.res_mirror(
     320, 16384
 )
 
--- Tall pie numbers
+-- Thin entity count
 helpers.res_mirror(
     {
-        src = {x = 227,     y = 16163,  w = 84,     h = 42},
-        dst = {x = 1120,    y = 600,    w = 504,    h = 252},
-        shader = "pie_chart",
+        src = {x = 0,       y = 36,     w = 49,     h = 9},
+        dst = {x = 1120,    y = 440,    w = 196,    h = 36},
+        color_key  = {
+            input  = "#dddddd",
+            output = "#ffffff",
+        },
+        depth = 1,
+    },
+    320, 900
+)
+-- Tall entity count
+helpers.res_mirror(
+    {
+        src = {x = 0,       y = 36,     w = 49,     h = 9},
+        dst = {x = 1120,    y = 440,    w = 196,    h = 36},
+        color_key  = {
+            input  = "#dddddd",
+            output = "#ffffff",
+        },
+        depth = 1,
     },
     320, 16384
 )
@@ -93,6 +98,16 @@ helpers.res_mirror(
         shader = "pie_chart",
     },
     320, 900
+)
+
+-- Tall pie numbers
+helpers.res_mirror(
+    {
+        src = {x = 227,     y = 16163,  w = 84,     h = 42},
+        dst = {x = 1120,    y = 600,    w = 504,    h = 252},
+        shader = "pie_chart",
+    },
+    320, 16384
 )
 
 -- Tall subtitles
