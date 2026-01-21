@@ -26,6 +26,15 @@ helpers.res_mirror(
     320, 16384
 )
 
+-- Tall hotbar
+helpers.res_mirror(
+    {
+        src = {x = 50,      y = 16344,  w = 220,    h = 40},
+        dst = {x = 630,     y = 960,    w = 660,    h = 120},
+    },
+    320, 16384
+)
+
 -- F3 Client Chunk Cache
 helpers.res_mirror(
     {
