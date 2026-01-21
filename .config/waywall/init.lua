@@ -26,8 +26,10 @@ local config = {
         cursor_theme = "crosshair",
     },
     shaders = {
+        ["f3"] = {
+            fragment = util.read_file("f3.frag"),
+        },
         ["pie_chart"] = {
-            vertex = util.read_file("pie_chart.vert"),
             fragment = util.read_file("pie_chart.frag"),
         },
     },

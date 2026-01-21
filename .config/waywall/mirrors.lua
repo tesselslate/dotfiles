@@ -40,10 +40,7 @@ helpers.res_mirror(
     {
         src = {x = 0,       y = 28,     w = 49,     h = 9},
         dst = {x = 1120,    y = 400,    w = 196,    h = 36},
-        color_key  = {
-            input  = "#dddddd",
-            output = "#ffffff",
-        },
+        shader = "f3",
         depth = 1,
     },
     320, 900
@@ -54,10 +51,7 @@ helpers.res_mirror(
     {
         src = {x = 0,       y = 28,     w = 49,     h = 9},
         dst = {x = 1120,    y = 400,    w = 196,    h = 36},
-        color_key  = {
-            input  = "#dddddd",
-            output = "#ffffff",
-        },
+        shader = "f3",
         depth = 1,
     },
     320, 16384
@@ -68,10 +62,7 @@ helpers.res_mirror(
     {
         src = {x = 0,       y = 36,     w = 49,     h = 9},
         dst = {x = 1120,    y = 440,    w = 196,    h = 36},
-        color_key  = {
-            input  = "#dddddd",
-            output = "#ffffff",
-        },
+        shader = "f3",
         depth = 1,
     },
     320, 900
@@ -81,10 +72,7 @@ helpers.res_mirror(
     {
         src = {x = 0,       y = 36,     w = 49,     h = 9},
         dst = {x = 1120,    y = 440,    w = 196,    h = 36},
-        color_key  = {
-            input  = "#dddddd",
-            output = "#ffffff",
-        },
+        shader = "f3",
         depth = 1,
     },
     320, 16384
