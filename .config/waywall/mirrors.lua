@@ -21,6 +21,7 @@ helpers.res_mirror(
     {
         src = {x = 0,       y = 15980,  w = 320,    h = 260},
         dst = {x = 800,     y = 586,    w = 320,    h = 260},
+        shader = "pie_chart",
     },
     320, 16384
 )
