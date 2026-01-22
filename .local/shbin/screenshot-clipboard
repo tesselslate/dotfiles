@@ -1,10 +1,8 @@
 #!/usr/bin/dash
-case "$1" in
-    area)
-        grim -g "$(slurp)" - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
-        ;;
-    output)
-        grim -o HDMI-A-1 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
-        notify-send "Screenshot taken" -t 500
-        ;;
-esac
+
+if [ "$1" = "area" ]; then
+    grim -g "$(slurp)" - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
+else
+    grim -o $1 - | tee ~/pix/ss/$(date +%m_%d_%y-%H_%M_%S).png | wl-copy --type image/png
+    notify-send "Screenshot taken" -t 500
+fi
