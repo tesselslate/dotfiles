@@ -1,7 +1,9 @@
 #!/bin/dash
 
 # Binds
-riverctl map normal Super           Delete          spawn "screenshot-clipboard eDP-1"
+riverctl map normal Super           Delete                  spawn "screenshot-clipboard eDP-1"
+riverctl map normal None            XF86MonBrightnessDown   spawn "brightness 5%-"
+riverctl map normal None            XF86MonBrightnessUp     spawn "brightness 5%+"
 
 # Programs
 swaybg -i ~/.config/desktop/backgrounds/pixel-trains.png -m tile &

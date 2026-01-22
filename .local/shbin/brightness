@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+
+BRIGHTNESS=$(brightnessctl s $@ | awk -F '[()%]' '/Current brightness/ {print $2}')
+notify-send "Set brightness to $BRIGHTNESS%" -t 500
