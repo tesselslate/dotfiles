@@ -1,0 +1,7 @@
+#!/bin/dash
+
+# Binds
+riverctl map normal Super           Delete          spawn "screenshot-clipboard eDP-1"
+
+# Programs
+swaybg -i ~/.config/desktop/backgrounds/pixel-trains.png -m tile &
