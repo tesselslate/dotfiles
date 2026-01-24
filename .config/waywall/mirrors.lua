@@ -1,4 +1,5 @@
 local helpers = require("waywall.helpers")
+local home = require("os").getenv("HOME")
 
 -- Oneshot dot
 helpers.res_image(
@@ -20,7 +21,7 @@ helpers.res_mirror(
     320, 16384
 )
 helpers.res_image(
-    "/home/dog/.config/waywall/overlay.png",
+    home .. "/.config/waywall/overlay.png",
     {
         dst = {x = 0,       y = 315,    w = 800,    h = 450},
     },

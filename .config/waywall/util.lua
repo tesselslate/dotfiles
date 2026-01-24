@@ -1,5 +1,6 @@
 local waywall = require("waywall")
 local helpers = require("waywall.helpers")
+local home = require("os").getenv("HOME")
 
 local M = {}
 
@@ -31,7 +32,7 @@ M.make_res = function(width, height, sens, ingame, ignore_f3, menu_disable)
 end
 
 M.read_file = function(name)
-    local file = io.open("/home/dog/.config/waywall/" .. name, "r")
+    local file = io.open(home .. "/.config/waywall/" .. name, "r")
     local data = file:read("*a")
     file:close()
 
