@@ -17,7 +17,7 @@
   "gamma": 5.0,
   "renderClouds": 2,
   "fullscreen": false,
-  "particles": 1,
+  "particles": 2,
   "mipmapLevels": 4.0,
   "entityShadows": true,
   "entityDistanceScaling": 5.0,
