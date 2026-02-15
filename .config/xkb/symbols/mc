@@ -4,16 +4,17 @@ xkb_symbols "basic" {
     name[Group1]= "Norwegian (MC)";
 
     key <TLDE>  {[  plus,   tilde   ]}; // tilde
-    key <FK13>  {[  b,      B       ]}; // 1
+    key <FK13>  {[  1,      2       ]}; // 1
     key <FK14>  {[  5,      O       ]}; // 2
     key <FK15>  {[  8,      2       ]}; // 3
     key <FK16>  {[  4,      9       ]}; // 4
-    key <FK17>  {[  period, M       ]}; // 5
+    key <FK17>  {[  period, period  ]}; // 5
 
     key <AD01>  {[  v,      Aring   ]}; // q
     key <AD02>  {[  p,      T       ]}; // w
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
+    key <AD05>  {[  b,      B       ]}; // t
 
     key <FK20>  {[  g,      G       ]}; // a
     key <AC02>  {[  s,      N       ]}; // s
