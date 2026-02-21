@@ -3,14 +3,14 @@ default partial function_keys alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
     name[Group1]= "Norwegian (MC)";
 
-    key <TLDE>  {[  plus,   tilde   ]}; // tilde
+    key <TLDE>  {[  plus,   plus    ]}; // tilde
     key <FK13>  {[  1,      2       ]}; // 1
     key <FK14>  {[  5,      O       ]}; // 2
     key <FK15>  {[  8,      2       ]}; // 3
-    key <FK16>  {[  4,      9       ]}; // 4
+    key <FK16>  {[  4,      3       ]}; // 4
     key <FK17>  {[  period, period  ]}; // 5
 
-    key <AD01>  {[  v,      Aring   ]}; // q
+    key <AD01>  {[  aring,  V       ]}; // q
     key <AD02>  {[  p,      T       ]}; // w
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
