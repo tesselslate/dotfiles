@@ -78,7 +78,7 @@ M.toggle_remaps = function()
         if not pie_text then
             pie_text = waywall.text("======", {
                 x = 1616, y = 650,
-                color = "#4444ee", size = 5,
+                color = "#ec03fc", size = 5,
             })
         end
     else
