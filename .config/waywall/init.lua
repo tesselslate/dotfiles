@@ -3,6 +3,7 @@ local helpers = require("waywall.helpers")
 
 local keyboard = require("keyboard")
 local mirrors = require("mirrors")
+local ninb = require("ninb")
 local util = require("util")
 
 -- Adding libjemalloc to LD_PRELOAD causes ASAN to complain, since the initial
@@ -49,12 +50,15 @@ local resolutions = { --            width    height  sens    ingame  blockf3
 
 -- Actions
 local atum_reset = function()
-    waywall.press_key("F12")
+    waywall.press_key("F23")
     waywall.set_resolution(0, 0)
 end
 
-local exec_ninb = function()
-    waywall.exec("ninb")
+local auto_ninb = function()
+    if waywall.get_key("f3") then
+        waywall.show_floating(true)
+    end
+    return false
 end
 
 config.actions = {
@@ -63,15 +67,22 @@ config.actions = {
     ["*-Ctrl-G"]        = resolutions.eye,
     ["*-B"]             = resolutions.wide,
     ["*-G"]             = resolutions.tall,
-    ["*-Grave"]         = helpers.ingame_only(keyboard.toggle_remaps),
 
     -- Ninjabrain Bot
-    ["*-H"]             = helpers.ingame_only(helpers.toggle_floating),
-    ["*-Alt-H"]         = helpers.toggle_floating,
-    ["Ctrl-Shift-N"]    = exec_ninb,
+    ["Ctrl-Shift-N"]    = ninb.exec,
+    ["*-K"]             = ninb.toggle,
+
+    ["*-C"]             = ninb.autoshow,
+    ["*-Y"]             = ninb.keepauto,
+    ["*-U"]             = ninb.keepauto,
+    ["*-9"]             = ninb.keepauto,
+    ["*-0"]             = ninb.keepauto,
 
     -- Miscellaneous
     ["Ctrl-Shift-D"]    = atum_reset,
+
+    ["*-Grave"]         = helpers.ingame_only(keyboard.toggle_remaps),
+    ["Ctrl-Alt-Grave"]  = keyboard.toggle_remaps,
 }
 
 for key, func in pairs(config.actions) do
