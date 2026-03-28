@@ -35,6 +35,7 @@ riverctl map normal None XF86HomePage spawn "mpc -p 6660 toggle" # the aula keyb
 
 riverctl map-pointer normal Super BTN_LEFT  move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
+riverctl map-pointer normal Super BTN_SIDE  spawn "toggle-mute"
 
 # Mode (Passthrough)
 riverctl declare-mode passthru
