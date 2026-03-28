@@ -2,7 +2,7 @@
     "layer": "bottom",
     "modules-left": ["river/tags", "river/mode"],
     "modules-center": ["mpd"],
-    "modules-right": ["custom/headset", "memory", "clock", "tray"],
+    "modules-right": ["wireplumber#source", "custom/headset", "memory", "clock", "tray"],
 
     "clock": {
         "format": "<span bgcolor='#c099ff' fgcolor='#222436'>  </span><span bgcolor='#222436' fgcolor='#c099ff'> {:%X} </span>",
@@ -33,6 +33,11 @@
     },
     "river/tags": {
         "num-tags": 4,
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "",
+        "format-muted": "<span bgcolor='#c3e88d' fgcolor='#222436'> 󰋎 </span><span bgcolor='#222436' fgcolor='#c3e88d'> Mute </span>",
     },
 }
 
