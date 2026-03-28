@@ -65,8 +65,8 @@ config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
     ["*-Ctrl-G"]        = resolutions.eye,
-    ["*-B"]             = resolutions.wide,
     ["*-G"]             = resolutions.tall,
+    ["*-Super_L"]       = resolutions.wide,
 
     -- Ninjabrain Bot
     ["Ctrl-Shift-N"]    = ninb.exec,
@@ -82,7 +82,7 @@ config.actions = {
     ["Ctrl-Shift-D"]    = atum_reset,
 
     ["*-Grave"]         = helpers.ingame_only(keyboard.toggle_remaps),
-    ["Ctrl-Alt-Grave"]  = keyboard.toggle_remaps,
+    ["Ctrl-Grave"]      = keyboard.toggle_remaps,
 }
 
 for key, func in pairs(config.actions) do
