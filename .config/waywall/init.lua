@@ -54,13 +54,6 @@ local atum_reset = function()
     waywall.set_resolution(0, 0)
 end
 
-local auto_ninb = function()
-    if waywall.get_key("f3") then
-        waywall.show_floating(true)
-    end
-    return false
-end
-
 config.actions = {
     -- Resolutions
     ["*-T"]             = resolutions.thin,
@@ -69,14 +62,8 @@ config.actions = {
     ["*-Super_L"]       = resolutions.wide,
 
     -- Ninjabrain Bot
-    ["Ctrl-Shift-N"]    = ninb.exec,
-    ["*-K"]             = ninb.toggle,
-
-    ["*-C"]             = ninb.autoshow,
-    ["*-Y"]             = ninb.keepauto,
-    ["*-U"]             = ninb.keepauto,
-    ["*-9"]             = ninb.keepauto,
-    ["*-0"]             = ninb.keepauto,
+    ["Ctrl-Shift-N"] = ninb.exec,
+    ["*-H"]          = helpers.toggle_floating,
 
     -- Miscellaneous
     ["Ctrl-Shift-D"]    = atum_reset,
