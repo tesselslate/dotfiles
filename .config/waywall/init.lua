@@ -15,7 +15,7 @@ local config = {
         repeat_rate = 50,
         repeat_delay = 180,
 
-        sensitivity = 3.1701,
+        sensitivity = 4.8,
         confine_pointer = true,
     },
     theme = {
