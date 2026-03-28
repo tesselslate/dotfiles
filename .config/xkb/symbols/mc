@@ -4,7 +4,7 @@ xkb_symbols "basic" {
     name[Group1]= "Norwegian (MC)";
 
     key <TLDE>  {[  plus,   plus    ]}; // tilde
-    key <FK13>  {[  1,      2       ]}; // 1
+    key <FK13>  {[  1,      6       ]}; // 1
     key <FK14>  {[  5,      O       ]}; // 2
     key <FK15>  {[  8,      2       ]}; // 3
     key <FK16>  {[  4,      3       ]}; // 4
@@ -16,6 +16,7 @@ xkb_symbols "basic" {
     key <AD04>  {[  r,      R       ]}; // r
     key <AD05>  {[  b,      B       ]}; // t
 
+    key <AE10>  {[  y,      Y       ]}; // caps
     key <FK20>  {[  aring,  G       ]}; // a
     key <AC02>  {[  s,      N       ]}; // s
     key <FK21>  {[  a,      D       ]}; // d
