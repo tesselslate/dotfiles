@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+import csv, subprocess
+
+lswt = subprocess.run(
+    "lswt -c ati".split(),
+    capture_output=True,
+    text=True,
+)
+
+window_list = list(csv.reader(lswt.stdout.split("\n")))
+window_map = {}
+fuzzel_in = ["Monitor"]
+
+for window in window_list:
+    if not window: break
+
+    app_id, title, window_id = window
+    text = f"{app_id}: {title}"
+
+    fuzzel_in.append(text)
+    window_map[text] = window_id
+
+fuzzel = subprocess.run(
+    "fuzzel --dmenu".split(),
+    input="\n".join(fuzzel_in),
+    capture_output=True,
+    text=True,
+)
+
+choice = fuzzel.stdout.strip()
+if choice == "Monitor":
+    slurp = subprocess.run(
+        ["slurp", "-f", "Monitor: %l", "-or"],
+        capture_output=True,
+        text=True,
+    )
+
+    print(f"Monitor: {slurp.stdout.strip()}")
+else:
+    wid = window_map[choice]
+
+    print(f"Window: {wid}")
