@@ -1,0 +1,4 @@
+[screencast]
+max_fps=60
+chooser_type=simple
+chooser_cmd=/home/dog/.local/shbin/screencast-picker
