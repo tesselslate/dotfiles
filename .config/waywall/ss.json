@@ -19,7 +19,7 @@
   "fullscreen": false,
   "particles": 2,
   "mipmapLevels": 4.0,
-  "entityShadows": true,
+  "entityShadows": false,
   "entityDistanceScaling": 5.0,
   "entityCulling": false,
   "modelPart_cape": true,
