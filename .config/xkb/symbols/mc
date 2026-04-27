@@ -27,4 +27,5 @@ xkb_symbols "basic" {
     key <AB02>  {[  oslash, Oslash  ]}; // x
     key <AB03>  {[  i,      I       ]}; // c
     key <AB04>  {[  k,      K       ]}; // v
+    key <AB05>  {[  f,      F       ]}; // b
 };
