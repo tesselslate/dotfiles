@@ -62,8 +62,8 @@ config.actions = {
     ["*-Super_L"]       = resolutions.wide,
 
     -- Ninjabrain Bot
-    ["Ctrl-Shift-N"] = ninb.exec,
-    ["*-H"]          = helpers.toggle_floating,
+    ["Ctrl-Shift-N"]    = ninb.exec,
+    ["*-H"]             = helpers.toggle_floating,
 
     -- Miscellaneous
     ["Ctrl-Shift-D"]    = atum_reset,
