@@ -16,6 +16,8 @@ helpers.res_image(
     320, 16384
 )
 
+
+
 -- Tall pie
 helpers.res_mirror(
     {
@@ -34,6 +36,8 @@ helpers.res_mirror(
     },
     320, 16384
 )
+
+
 
 -- Thin C count
 helpers.res_mirror(
@@ -57,6 +61,8 @@ helpers.res_mirror(
     320, 16384
 )
 
+
+
 -- Thin entity count
 helpers.res_mirror(
     {
@@ -67,6 +73,7 @@ helpers.res_mirror(
     },
     320, 900
 )
+
 -- Tall entity count
 helpers.res_mirror(
     {
@@ -78,12 +85,13 @@ helpers.res_mirror(
     320, 16384
 )
 
+
+
 -- Thin pie numbers
 helpers.res_mirror(
     {
-        src = {x = 227,     y = 679,    w = 84,     h = 42},
-        dst = {x = 1120,    y = 600,    w = 504,    h = 252},
-        shader = "pie_chart",
+        src = {x = 227,     y = 679,    w = 84,     h = 25},
+        dst = {x = 1120,    y = 600,    w = 504,    h = 150},
     },
     320, 900
 )
@@ -91,12 +99,13 @@ helpers.res_mirror(
 -- Tall pie numbers
 helpers.res_mirror(
     {
-        src = {x = 227,     y = 16163,  w = 84,     h = 42},
-        dst = {x = 1120,    y = 600,    w = 504,    h = 252},
-        shader = "pie_chart",
+        src = {x = 227,     y = 16163,  w = 84,     h = 25},
+        dst = {x = 1120,    y = 600,    w = 504,    h = 150},
     },
     320, 16384
 )
+
+
 
 -- Tall subtitles
 helpers.res_mirror(
@@ -114,4 +123,24 @@ helpers.res_mirror(
         dst = {x = 1545,    y = 765,    w = 372,    h = 240},
     },
     320, 900
+)
+
+
+
+-- Thin chat
+helpers.res_mirror(
+    {
+        src = {x = 0,       y = 816,    w = 160,    h = 44},
+        dst = {x = 0,       y = 828,    w = 480,    h = 132},
+    },
+    320, 900
+)
+
+-- Tall chat
+helpers.res_mirror(
+    {
+        src = {x = 0,       y = 16300,  w = 160,    h = 44},
+        dst = {x = 0,       y = 828,    w = 480,    h = 132},
+    },
+    320, 16384
 )
