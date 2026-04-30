@@ -3,7 +3,7 @@ local helpers = require("waywall.helpers")
 
 local M = {}
 
-M.make_res = function(width, height, sens, ingame, ignore_f3)
+M.make_res = function(width, height, sens, ingame, ignore_f3, menu_disable)
     local toggle = helpers.toggle_res(width, height, sens)
 
     return function()
@@ -19,7 +19,7 @@ M.make_res = function(width, height, sens, ingame, ignore_f3)
             toggle()
             return true
         else
-            if aw ~= 0 then
+            if aw ~= 0 and not menu_disable then
                 waywall.set_resolution(0, 0)
                 waywall.set_sensitivity(0)
                 return true

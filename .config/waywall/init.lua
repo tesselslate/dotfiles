@@ -41,11 +41,11 @@ local config = {
     }
 }
 
-local resolutions = { --            width    height  sens    ingame  blockf3
-    thin            = util.make_res(320,     900,    0,      true,   true),
-    eye             = util.make_res(320,     16384,  0.1,    false,  false),
-    tall            = util.make_res(320,     16384,  0,      true,   false),
-    wide            = util.make_res(1880,    320,    0,      true,   false),
+local resolutions = { --            width    height  sens    ingame  blockf3    menu_disable
+    thin            = util.make_res(320,     900,    0,      true,   true,      false),
+    eye             = util.make_res(320,     16384,  0.1,    false,  false,     false),
+    tall            = util.make_res(320,     16384,  0,      true,   false,     false),
+    wide            = util.make_res(1880,    320,    0,      true,   false,     true),
 }
 
 -- Actions
