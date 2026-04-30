@@ -144,3 +144,25 @@ helpers.res_mirror(
     },
     320, 16384
 )
+
+
+
+-- Thin pie entity count
+helpers.res_mirror(
+    {
+        src = {x = 14,       y = 38,     w = 5,     h = 7},
+        dst = {x = 930,      y = 632,    w = 40,    h = 56},
+        depth = 1,
+    },
+    320, 900
+)
+
+-- Tall pie entity count
+helpers.res_mirror(
+    {
+        src = {x = 14,       y = 38,     w = 5,     h = 7},
+        dst = {x = 930,      y = 632,    w = 40,    h = 56},
+        depth = 1,
+    },
+    320, 16384
+)
