@@ -90,8 +90,8 @@ helpers.res_mirror(
 -- Thin pie numbers
 helpers.res_mirror(
     {
-        src = {x = 227,     y = 679,    w = 84,     h = 25},
-        dst = {x = 1120,    y = 600,    w = 504,    h = 150},
+        src = {x = 228,     y = 680,    w = 32,     h = 24},
+        dst = {x = 1120,    y = 600,    w = 196,    h = 144},
     },
     320, 900
 )
@@ -99,8 +99,8 @@ helpers.res_mirror(
 -- Tall pie numbers
 helpers.res_mirror(
     {
-        src = {x = 227,     y = 16163,  w = 84,     h = 25},
-        dst = {x = 1120,    y = 600,    w = 504,    h = 150},
+        src = {x = 228,     y = 16164,  w = 32,     h = 24},
+        dst = {x = 1120,    y = 600,    w = 196,    h = 144},
     },
     320, 16384
 )
@@ -151,7 +151,7 @@ helpers.res_mirror(
 helpers.res_mirror(
     {
         src = {x = 14,       y = 38,     w = 5,     h = 7},
-        dst = {x = 930,      y = 632,    w = 40,    h = 56},
+        dst = {x = 930,      y = 782,    w = 40,    h = 56},
         depth = 1,
     },
     320, 900
@@ -161,7 +161,7 @@ helpers.res_mirror(
 helpers.res_mirror(
     {
         src = {x = 14,       y = 38,     w = 5,     h = 7},
-        dst = {x = 930,      y = 632,    w = 40,    h = 56},
+        dst = {x = 930,      y = 782,    w = 40,    h = 56},
         depth = 1,
     },
     320, 16384
