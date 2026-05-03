@@ -26,6 +26,15 @@ vim.opt.sidescrolloff   = 24            -- visual buffer area
 -- I do not like automatic comment expansion.
 vim.cmd("autocmd FileType * set formatoptions-=cro")
 
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(args)
+        local lang = vim.treesitter.language.get_lang(args.match)
+        if lang and vim.treesitter.language.add(lang) then
+            vim.treesitter.start(args.buf, lang)
+        end
+    end
+})
+
 --[[
     LAZY
 ]]--
@@ -171,7 +180,6 @@ require("lazy").setup({
                 jump        = { suffix = "" },
                 location    = { suffix = "" },
                 oldfile     = { suffix = "" },
-                treesitter  = { suffix = "" },
                 undo        = { suffix = "" },
                 window      = { suffix = "" },
                 yank        = { suffix = "" },
@@ -397,24 +405,6 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function(_)
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {
-                    "bash", "c", "c_sharp", "cmake", "cpp", "css", "fish", "glsl",
-                    "go", "gomod", "graphql", "hare", "html", "java", "javascript",
-                    "json", "json5", "lua", "make", "markdown", "meson", "python",
-                    "rust", "toml", "vim", "yaml", "zig",
-                },
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false
-                },
-            })
-        end,
     },
     {
         "rlane/pounce.nvim",
