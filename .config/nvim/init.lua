@@ -335,7 +335,6 @@ require("lazy").setup({
                 },
             })
 
-            local lsp = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local function attach(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -346,10 +345,11 @@ require("lazy").setup({
             }
 
             for _, server in ipairs(language_servers) do
-                lsp[server].setup({
+                vim.lsp.config[server] = {
                     capabilities = capabilities,
                     on_attach = attach,
-                })
+                }
+                vim.lsp.enable(server)
             end
         end,
     },
