@@ -1,7 +1,7 @@
 local waywall = require("waywall")
 
 local chatting_text = nil
-local pie_text = nil
+local pie_image = nil
 
 local is_crafting = true
 local is_hotbar = true
@@ -75,10 +75,14 @@ M.toggle_remaps = function()
 
         waywall.set_remaps(remaps.pie)
 
-        if not pie_text then
-            pie_text = waywall.text("======", {
-                x = 1616, y = 650,
-                color = "#ec03fc", size = 5,
+        if not pie_image then
+            pie_image = waywall.image("/home/dog/.config/waywall/unlock.png", {
+                dst = {
+                    x = 1680,
+                    y = 690,
+                    w = 128,
+                    h = 128,
+                },
             })
         end
     else
@@ -86,11 +90,24 @@ M.toggle_remaps = function()
 
         waywall.set_remaps(remaps.hotbar)
 
-        if pie_text then
-            pie_text:close()
-            pie_text = nil
+        if pie_image then
+            pie_image:close()
+            pie_image = nil
         end
     end
+end
+
+M.disable_remaps = function()
+    is_hotbar = true
+
+    waywall.set_remaps(remaps.hotbar)
+
+    if pie_image then
+        pie_image:close()
+        pie_image = nil
+    end
+
+    return false
 end
 
 -- initialization

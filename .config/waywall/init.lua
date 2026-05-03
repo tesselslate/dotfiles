@@ -70,6 +70,7 @@ config.actions = {
 
     ["*-Grave"]         = helpers.ingame_only(keyboard.toggle_remaps),
     ["Ctrl-Grave"]      = keyboard.toggle_remaps,
+    ["*-F3"]            = keyboard.disable_remaps,
 }
 
 for key, func in pairs(config.actions) do
