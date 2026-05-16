@@ -1,5 +1,16 @@
 local helpers = require("waywall.helpers")
 
+-- Oneshot dot
+helpers.res_image(
+    "/home/dog/.config/waywall/dot.png",
+    {
+        dst = {x = 959,     y = 539,    w = 2,      h = 2},
+    },
+    320, 16384
+)
+
+
+
 -- Eye magnifier
 helpers.res_mirror(
     {
