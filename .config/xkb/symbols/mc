@@ -15,6 +15,7 @@ xkb_symbols "basic" {
     key <AD03>  {[  e,      E       ]}; // e
     key <AD04>  {[  r,      R       ]}; // r
     key <AD05>  {[  b,      B       ]}; // t
+    key <AD06>  {[  m,      M       ]}; // y
 
     key <AE10>  {[  y,      Y       ]}; // caps
     key <FK20>  {[  aring,  G       ]}; // a
